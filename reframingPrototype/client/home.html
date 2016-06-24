@@ -66,7 +66,6 @@
 
 <template name="ideasList">
     {{#each idea}}
-        {{timer}}
         {{> idea_item}}
     {{/each}}
 </template>
@@ -103,7 +102,7 @@
     <div class="container">
         <div class="problem col-md-12 visible">
             <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?
-                <span class="link"><a href="#">More about the project</a></span></h1>  
+                <span class="link"><a href="https://challenges.openideo.com/challenge/e-waste/brief">More about the project</a></span></h1>  
         </div>
 
         <div class="list col-md-4">
@@ -118,4 +117,19 @@
             {{> input}}
         </div>
     </div>
+    
+    <script src="ideaData.js"></script>
+    <script> 
+        var i = 0;
+        var wait = setInterval(function(){
+
+                                            Ideas.insert(ideaData[i]);
+                                        //if no more ideas stop interval
+                                        i++;
+                                        if(i > ideaData.length){
+                                            clearInterval(wait);   
+                                        }
+
+                                     }, 3000)
+    </script>
 </template>

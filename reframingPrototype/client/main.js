@@ -1,46 +1,3 @@
-var id = [
-    {
-        content: "Idea number 1",
-        likes: 5,
-        comments: 24 
-    },
-    {
-        content: "Idea 2",
-        likes: 12,
-        comments: 1234
-    },
-    {
-        content: "Idea 3",
-        likes: 7,
-        comments: 1234
-    },
-    {
-        content: "hi",
-        likes: 1,
-        comments: 122
-    },
-    {
-        content: "laksjdflkajsdl;fjk laskdjfas klfjsd;lfkjasjf laskjd asdlk as asldkjfa;lsdj as aslkdjflaksjdf asdfasf aslkjdflkasf laksjdflkajsdl;fjk laskdjfas klfjsd;lfkjasjf laskjd asdlk as asldkjfa;lsdj as aslkdjflaksjdf asdfasf aslkjdflkasf laksjdflkajsdl;fjk laskdjfas klfjsd;lfkjasjf laskjd asdlk as asldkjfa;lsdj as aslkdjflaksjdf asdfasf aslkjdflkasf laksjdflkajsdl;fjk laskdjfas klfjsd;lfkjasjf laskjd asdlk as asldkjfa;lsdj as aslkdjflaksjdf asdfasf aslkjdflkasf laksjdflkajsdl;fjk laskdjfas klfjsd;lfkjasjf laskjd asdlk as asldkjfa;lsdj as aslkdjflaksjdf asdfasf aslkjdflkasf",
-        likes: 123,
-        comments: 1234
-}];
-var i = 0;
-var wait = setInterval(function(){
-    
-    Ideas.insert({
-    content: "New Idea: " + i,
-    likes: 5,
-    comments: 10
-});
-    //if no more ideas stop interval
-    i++;
-    if(i > 1){
-        clearInterval(wait);   
-    }
-    
-                                 }, 3000);
-
-
 Template.ideasList.helpers({
     idea: Ideas.find()
 });
@@ -67,3 +24,11 @@ Template.input.events({
         });
     }
 });
+
+ function done(){
+            //save themes
+            //write to file?
+            //themesData = Themes.find().fetch();
+            //console.log(themesData);
+            alert('hi');
+        }
