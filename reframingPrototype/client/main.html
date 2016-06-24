@@ -1,120 +1,68 @@
 <head>
-    <title>Home</title>
+    <title>Welcome!</title>
     <style>
         html,body{
             height: 100%;   
         }
-        div{
-            padding: 10px;   
+        #instructions{
+            height: 70%;
+            margin-top: 5%;
         }
-        .visible{
-            border: 1px solid;
+        #form2{
+            position: absolute;   
         }
-        .full{
-            width: 100%;
-            min-height 100px;
-            border-bottom: 1px solid;
-            border-top: 1px solid;
+        .textJustified{
+            text-align: justify;   
         }
-            .full h1{
-                font-size: 15px;
-               
-            }
-            .full p{
-                text-align: right;
-            }
-        .theme_item{
-            border: 1px solid;
-            margin: 30px;
-            overflow: hidden;
+        .textCentered{
+            text-align: center;
+            align-content: center;
+            margin: auto;
         }
-        .link{
-            font-size: 15px;
-            float: right;
-            position: absolute;
-            bottom: 20px;
-            right: 10px;
-        }
-            .container{
-                width: 100%;
-                height: 95%;
-                position: fixed;
-                top: 2%;
-            }
-                .problem{
-                    height: 20%;
-                    
-                }
-                .list{
-                    height: 80%;
-                    overflow: scroll;
-                    padding: 0px;
-                    margin: 0px;
-                    border: 1px solid;
-                }
-                .themes{
-                    height: 75%;
-                }
-                .input{
-                    height: 5%;
-                }
-                    input{
-                        width: 100%;
-                    }
+       
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="problem col-md-12 visible">
-            <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?
-                <span class="link"><a href="#">More about the project</a></span></h1>
-            
-        </div>
-        
-        <div class="list col-md-4">
-            {{> ideasList}}
-        </div>
-        
-        <div class="themes col-md-8 visible">
-            {{> themesList}}
-        </div>
-        
-        <div class="input col-md-8">
-            {{> input}}
-        </div>
-    </div>
-</body>
 
-<template name="ideasList">
-    {{#each idea}}
-        {{> idea_item}}
-    {{/each}}
-</template>
-
-<template name="idea_item">
-    <div class="full">
-        <h1>{{content}}</h1>
-        <p>likes: {{likes}}</p>
-        <p>comments: {{comments}}</p>
+<template name="inst">
+    <div class="container col-md-12">
+        <div id="instructions" class="col-md-10 col-md-offset-1 visible">    
+            {{> instText}}
+        </div>
     </div>
 </template>
 
-<template name="themesList">
-    <div class="col-md-12">
-        {{#each theme}}
-            {{> theme_item}}
-        {{/each}}
+<template name="instText">
+    <div class="textJustified">
+        <p>You are facilitation a <a href="{{pathFor route='crowd'}}"><big>crowd ideation</big></a> session on the interent. You just posted your problem, and the crowd will soon begin to provide potential solutions to your problem. Their job is to inspire you in any way they can. <big>Your job is to guide the crowd towards a viable, creative, or otherwise interesteing solution path</big>.</p>
+            <p>For example: if the problem was "How do we improve the public transporation experience?" and a few people gave ideas along the lines of "increase the number of bus routes", you might post something like: 
+            <ul>
+                <li>Increasing the number of buses on the road is a good idea, but may pose logistical issues. What are those logistical issues, and how might we get around them?</li>
+                <li>Rather than add bus routes, how can we reinvent the ones we have to be more efficient?</li>
+                <li>How can we integrate the bus and train system to work together cohesively?</li>
+            </ul></p>
+            <p>When the session begins, read the problem at the top of the screen. Solution ideas will begin to populate the lefthand column. As you read, enter your thoughts in the textbox provided. Refer to the example above for clarification. Remember: the brainstorm is not limited to a single direction. Your themes may end up being realted or they may go off on completely separate tangents. Both scenarios are acceptable.</p>
+    <p><big>Please remember to vocalize your thoughts as much as possible. </big>What are you doing? Why are you doing it? What do you wishe you could do? What is missing that you wish you had?</p>
+    </div>
+    <span class="textCentered">
+        <p>When you're ready to begin, click <a href="{{pathFor route='home'}}"><big>START</big></a></p> 
+        <p>Thank you for your participation</p>
+    </span>
+</template>
+
+<template name="aboutTheCrowd">
+    <div class="container col-md-12">
+        <div id="instructions" class="col-md-10 col-md-offset-1 visible">    
+            {{> crowdText}}
+        </div>
     </div>
 </template>
 
-<template name="theme_item">
-    <div class="theme_item col-md-3">
-        {{content}}
-    </div>
-</template>
-
-<template name="input">
-    <form name = "form1">
-        <input type="text" placeholder="What's the real problem here?"/>
-    </form>
+<template name="crowdText">
+    <p>Imagine you wanted to solve a problem. A group assignment at school, a project at work, an issue with your night job as the city's resident vigilante hero ...</p>
+    <p>Yeah, let's go with that one.</p>
+    <p>So let's say you're trying to build network of all of your vigilante hero friends. I mean, a guy with a bow and arrow and a semi-debilitating case of survivor's guilt is great and all, but what if Mr. Bow-and-Arrow could collaborate with Mrs. Woman-of-Steel across town. Imagine the possibilities!</p>
+    <p>So first thing's first, you'll need a name. And also a communication system, and a code of ethics, and a bunch of other boring stuff, but first: the name. It's gotta be something cool. Something like: TEAM SUPERHERO!</p>
+    <p>No. That's ok. It's just a first draft. How about The Justice Brigade. The Masked Vigilantes. The Crimefighting Network. HeroBook? Ok. This isn't working. Why don't you call up a few of those Fighting Fiends and get some input here.</p>
+    <p>Fastforward a few days</p>
+    <p>And we've got a name. Turns out, the group was able to come together and shoot out more ideas than arrows in Bow and Arrow guy's magically refilling quiver and you've come to a concensus! </p>
 </template>
