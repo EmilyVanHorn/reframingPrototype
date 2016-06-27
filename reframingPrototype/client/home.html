@@ -73,6 +73,7 @@
 <template name="idea_item">
     <div class="full">
         <h1>{{content}}</h1>
+        <a href={{url}} target="_blank">More Details ....</a>
         <p>likes: {{likes}}</p>
         <p>comments: {{comments}}</p>
     </div>
@@ -120,14 +121,12 @@
     
     <script src="ideaData.js"></script>
     <script> 
-        var i = 0;
         var wait = setInterval(function(){
 
-                                            Ideas.insert(ideaData[i]);
+                                            Ideas.insert(ideaData[Ideas.find().count()]);
                                         //if no more ideas stop interval
-                                        i++;
                                         if(i > ideaData.length){
-                                            clearInterval(wait);   
+                                            //clearInterval(wait);   
                                         }
 
                                      }, 3000)

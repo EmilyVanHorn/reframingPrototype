@@ -7,21 +7,16 @@ Template.themesList.helpers({
 });
 
 Template.idea_item.helpers({
-   timer:function(){
-        var time = Math.floor((Math.random * 5000) + 1000);
-        var timePassed = 0;
-        var wait = setTimeout(function(){
-            timePassed++;
-            alert(timePassed);}, 5000);
-    } 
 });
 
 Template.input.events({
     submit: function(e){
+        e.preventDefault();
         value = e.target.firstElementChild.value;
         Themes.insert({
             content: value
         });
+        e.target.firstElementChild.value = "";
     }
 });
 
@@ -30,5 +25,5 @@ Template.input.events({
             //write to file?
             //themesData = Themes.find().fetch();
             //console.log(themesData);
-            alert('hi');
+            //alert('hi');
         }

@@ -105,7 +105,7 @@ ideaData = [
         content: "We should encourage and require companies to have product life cycle accountability",
         likes: 18,
         comments: 18,
-        url: "https://challenges.openideo.com/challenge/e-waste/concepting/take-it-back-program:
+        url: "https://challenges.openideo.com/challenge/e-waste/concepting/take-it-back-program"
     },
     {
         content: "online refurbished electronics stores",
