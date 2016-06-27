@@ -28,6 +28,9 @@
             margin: 30px;
             overflow: hidden;
         }
+        .themes{
+            overflow: scroll;   
+        }
         .link{
             font-size: 15px;
             float: right;
@@ -80,7 +83,7 @@
 </template>
 
 <template name="themesList">
-    <div class="col-md-12">
+    <div class="themeList col-md-12">
         {{#each theme}}
             {{> theme_item}}
         {{/each}}
@@ -89,7 +92,9 @@
 
 <template name="theme_item">
     <div class="theme_item col-md-3">
-        {{content}}
+        <big>{{content}}</big><br>
+        <big>{{active}}</big> actives users out of <big>{{total}}</big> users online.<br>
+        <big>{{prob}}%</big> chance of another unique idea.
     </div>
 </template>
 
@@ -103,7 +108,9 @@
     <div class="container">
         <div class="problem col-md-12 visible">
             <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?
-                <span class="link"><a href="https://challenges.openideo.com/challenge/e-waste/brief">More about the project</a></span></h1>  
+                <span class="link">
+                    <a href="{{pathFor route='inst'}}" target="_blank">See Instructions </a>|
+                    <a href="https://challenges.openideo.com/challenge/e-waste/brief" target="_blank">More about the project</a></span></h1>  
         </div>
 
         <div class="list col-md-4">
