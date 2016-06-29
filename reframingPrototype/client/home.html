@@ -61,9 +61,11 @@
                 .input{
                     height: 5%;
                 }
-                    input{
-                        width: 100%;
+                    .input .button{
+                        float: right;  
                     }
+                    
+                    
     </style>
 </head>
 
@@ -100,7 +102,8 @@
 
 <template name="input">
     <form name = "form1">
-        <input type="text" placeholder="What's the real problem here?"/>
+        <input type="text" placeholder="What's the real problem here?" class="col-md-10 textBox"/>
+        <input type="button" class="button" value="FINISHED"/>
     </form>
 </template>
 
@@ -128,13 +131,16 @@
     
     <script src="ideaData.js"></script>
     <script> 
+        var i = 0;
         var wait = setInterval(function(){
 
-                                            Ideas.insert(ideaData[Ideas.find().count()]);
+                                        Ideas.insert(ideaData[Ideas.find().count()]);
                                         //if no more ideas stop interval
                                         if(i > ideaData.length){
-                                            //clearInterval(wait);   
+                                            clearInterval(wait);   
                                         }
+            
+                                        i++;
 
                                      }, 3000)
     </script>

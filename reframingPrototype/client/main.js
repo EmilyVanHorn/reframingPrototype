@@ -35,7 +35,7 @@ Template.idea_item.helpers({
 });
 
 Template.input.events({
-    submit: function(e){
+    'submit': function(e){
         e.preventDefault();
         value = e.target.firstElementChild.value;
         e.target.firstElementChild.value = "";
@@ -53,8 +53,43 @@ Template.input.events({
         else{
             metaIndex++;   
         }
+    }, 
+    
+    'click .button': function(e){
+        if(confirm("Are you sure you are finished? Click ok to confirm, Cancel to continue.")){
+            window.open("http://0.0.0.0:3000/finished");
+        }
+        else{  
+        }
+    }
+    
+    
+});
+
+function getDownloadFile(){
+    //save themes
+    var data = [];
+    var userThemes = Themes.find();
+    userThemes.forEach(function(theme){
+         data += theme.content + "\n";
+    });
+
+    var textFile = null;
+    var text = new Blob([data], {type: 'text/plain'});
+    if(textFile !== null){
+        window.URL.revokeObjectURL(textFile);   
+    }
+
+    textFile = window.URL.createObjectURL(text);
+    
+    return textFile
+}
+
+Template.download.events({
+    'click #downloadLink': function(e){
+        var link = document.getElementById('downloadLink');
+        link.href = getDownloadFile();
         
-        
-        
+        Meteor.call("removeAllThemes");
     }
 });

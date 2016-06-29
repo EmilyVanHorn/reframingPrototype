@@ -7,5 +7,8 @@ Meteor.startup(() => {
 Meteor.methods({
     removeAllIdeas: function(){
         Ideas.remove({});   
+    },
+    removeAllThemes: function(){
+        Themes.remove({});   
     }
 });

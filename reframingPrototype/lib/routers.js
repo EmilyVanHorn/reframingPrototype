@@ -10,3 +10,7 @@ Router.route("/crowd",{
     name:'crowd',
     template: 'aboutTheCrowd'
 });
+Router.route("/finished",{
+    name:'finished',
+    template: 'download'
+});
