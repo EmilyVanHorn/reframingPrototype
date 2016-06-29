@@ -57,7 +57,7 @@ Template.input.events({
     
     'click .button': function(e){
         if(confirm("Are you sure you are finished? Click ok to confirm, Cancel to continue.")){
-            window.open("http://0.0.0.0:3000/finished");
+            window.open(Router.go('/finished'));
         }
         else{  
         }
