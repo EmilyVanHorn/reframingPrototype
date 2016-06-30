@@ -19,8 +19,27 @@ var meta=[
 
 
 
+Template.ideasList.onCreated(function() {
+  Meteor.subscribe('ideasPublication');
+});
+
 Template.ideasList.helpers({
     idea: Ideas.find()
+});
+
+Template.instText.events({
+    'click a': function(){
+        if(Meteor.userId()){
+            Router.go("/home");    
+        }
+        else{
+            alert("Please sign in before starting the brainstorm");   
+        }
+    }
+});
+
+Template.themesList.onCreated(function() {
+  Meteor.subscribe('themesPublication');
 });
 
 Template.themesList.helpers({
@@ -44,7 +63,9 @@ Template.input.events({
             content: value,
             active: meta[metaIndex].active,
             total: meta[metaIndex].total,
-            prob: meta[metaIndex].prob
+            prob: meta[metaIndex].prob,
+            owner: Meteor.userId(),
+            username: Meteor.user().username,
         });
         
         if (metaIndex == (meta.length - 1)){
@@ -52,44 +73,7 @@ Template.input.events({
         }
         else{
             metaIndex++;   
-        }
-    }, 
-    
-    'click .button': function(e){
-        if(confirm("Are you sure you are finished? Click ok to confirm, Cancel to continue.")){
-            window.open(Router.go('/finished'));
-        }
-        else{  
-        }
-    }
-    
-    
-});
-
-function getDownloadFile(){
-    //save themes
-    var data = [];
-    var userThemes = Themes.find();
-    userThemes.forEach(function(theme){
-         data += theme.content + "\n";
-    });
-
-    var textFile = null;
-    var text = new Blob([data], {type: 'text/plain'});
-    if(textFile !== null){
-        window.URL.revokeObjectURL(textFile);   
-    }
-
-    textFile = window.URL.createObjectURL(text);
-    
-    return textFile
-}
-
-Template.download.events({
-    'click #downloadLink': function(e){
-        var link = document.getElementById('downloadLink');
-        link.href = getDownloadFile();
-        
-        Meteor.call("removeAllThemes");
+        } 
     }
 });
+

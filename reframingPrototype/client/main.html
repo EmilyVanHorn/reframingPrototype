@@ -24,6 +24,7 @@
 
 <template name="inst">
     <div class="container col-md-12">
+        {{> header}}
         <div id="instructions" class="col-md-10 col-md-offset-1 visible">    
             {{> instText}}
         </div>
@@ -35,18 +36,19 @@
 
 <template name="instText">
     <div class="textJustified">
-        <p>You are facilitation a <a href="{{pathFor route='crowd'}}"><big>crowd ideation</big></a> session on the interent. You just posted your problem, and the crowd will soon begin to provide potential solutions to your problem. Their job is to inspire you in any way they can. <big>Your job is to guide the crowd towards a viable, creative, or otherwise interesteing solution path</big>.</p>
+        <p>You are facilitating a <a href="{{pathFor route='crowd'}}"><big>crowd ideation</big></a> session on the internet. You just posted your problem, and the crowd will soon begin to provide potential solutions to your problem. Their job is to inspire you in any way they can. <big>Your job is to guide the crowd towards a viable, creative, or otherwise interesting solution path</big>.</p>
             <p>For example: if the problem was "How do we improve the public transporation experience?" and a few people gave ideas along the lines of "increase the number of bus routes", you might post something like: 
             <ul>
                 <li>Increasing the number of buses on the road is a good idea, but may pose logistical issues. What are those logistical issues, and how might we get around them?</li>
                 <li>Rather than add bus routes, how can we reinvent the ones we have to be more efficient?</li>
                 <li>How can we integrate the bus and train system to work together cohesively?</li>
             </ul></p>
+            <p>If you haven't already please SignIn/Signup using the dropdown in the top right corner.</p>
             <p>When the session begins, read the problem at the top of the screen. Solution ideas will begin to populate the lefthand column. As you read, enter your thoughts in the textbox provided. Refer to the example above for clarification. Remember: the brainstorm is not limited to a single direction. Your themes may end up being realted or they may go off on completely separate tangents. Both scenarios are acceptable.</p>
-    <p><big>Please remember to vocalize your thoughts as much as possible. </big>What are you doing? Why are you doing it? What do you wishe you could do? What is missing that you wish you had?</p>
+    <p><big>Please remember to vocalize your thoughts as much as possible. </big>What are you doing? Why are you doing it? What do you wish you could do? What is missing that you wish you had?</p>
     </div>
     <span class="textCentered">
-        <p>When you're ready to begin, click <a href="{{pathFor route='home'}}"><big>START</big></a></p> 
+        <p>When you're ready to begin, click <a id="start"><big>START</big></a></p> 
         <p>Thank you for your participation</p>
     </span>
 </template>
@@ -71,4 +73,17 @@
     <p>And we've got a name. Turns out, the group was able to come together and shoot out more ideas than arrows in Bow and Arrow guy's Quiver of Endlessness and you've come to a concensus! And it's a great name. Powerful, yet modest; quirky, but serious. It took a lot of time, a lot of compromise and maybe even a splotch of blood or two, but if the newly established League of Crimefightaria is as awesome at fighting the bad guys as it is sharing ideas, those Dasterdly Devils had better watch out.</p>
     <p>Good job guys! Now let's all get out of here. Get some food. Maybe a shower. Yeah, definitely a shower. Next time, we should do this on the phone. And remind me to invite that guy with the green suit.  He would have been helpful. And that old guy that keeps showing up in those superhero movies. I bet he'd have some great ideas. Or better yet, let's do it on the internet, where everyone can see and contribute. Why didn't we think of that before?</p>
     <p>That is crowd ideation.</p>
+</template>
+
+<template name="header">
+    <nav class="navbar navbar-default" role="navigtaion">
+        <!--<div class="navbar-header">
+            
+        </div>-->
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                {{> loginButtons}}
+            </ul>
+        </div>
+    </nav>
 </template>

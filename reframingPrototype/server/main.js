@@ -12,3 +12,11 @@ Meteor.methods({
         Themes.remove({});   
     }
 });
+
+Meteor.publish('ideasPublication', function() {
+    return Ideas.find();
+  });
+
+Meteor.publish('themesPublication', function() {
+    return Themes.find({owner: this.userId});
+  });
