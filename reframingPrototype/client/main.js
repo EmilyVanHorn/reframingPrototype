@@ -81,9 +81,6 @@ Template.input.events({
 Template.InspireMe.events({
     'click #continue': function(e){
         Router.go("/home");   
-    },
-    'click #quit': function(e){
-        Router.go("/#");   
     }
 });
 
