@@ -1,0 +1,999 @@
+h1.amplify-h1 { color: #fff !important; font-size: 44px !important; text-transform: uppercase !important; margin: 0; font-family: "Knockout 30 A", "Knockout 30 B"; font-style: normal; font-weight: 400; line-height: 0.85em !important; }
+h2.amplify-h2 { font-family: "Sentinel A", "Sentinel B"; font-style: italic; font-weight: 500; }
+p.amplify-p { color: #fff; font-size: 18px; margin: 5% 0 5% 0; font-family: "Gotham A", "Gotham B"; font-style: normal; font-weight: 400;}
+.amplify-page a.btn { background: #000; padding: 2% 5% 2% 5%; color: #fff; text-transform: uppercase !important; font-family: "Gotham A", "Gotham B"; font-style: normal; font-weight: 400; }
+.amplify-page a.btn:hover { background: #333; }
+
+.amplify-banner-content { position: absolute; top: 30%; left: 10%; width: 40%; }
+.amplify-logo { width: 60%; }
+.amplify-banner-title { text-transform: normal; font-size: 22px; padding: 5% 0 5% 0; color: #fff; }
+
+.amplify-page a { text-decoration: none; }
+
+.amplify-page .col-8 { width: 100%; }
+.amplify-page .col-offset-2 { margin: 0 !important; padding: 0 !important; }
+
+.amplify-challenge-title { color: #f7ce06 !important; font-size: 50px !important; font-weight: normal !important; }
+.amplify-challenge-type { color: #fff !important; text-transform: uppercase; }
+
+.amplify-quote { color: #000 !important; line-height: 1.25em !important; font-size: 26px !important; text-transform: none !important; font-family: 'Sentinel A', 'Sentinel B'; font-style: italic; font-weight: 400; }
+
+
+.gotham-book { font-family: "Gotham A", "Gotham B"; font-style: normal; font-weight: 400; }
+.gotham-bold { font-family: "Gotham A", "Gotham B"; font-style: normal; font-weight: 700; } 
+
+.sentinel-book { font-family: "Sentinel A", "Sentinel B"; font-style: italic; font-weight: 400; }
+.sentinel-med { font-family: "Sentinel A", "Sentinel B"; font-style: italic; font-weight: 500; }
+
+.knockout { font-family: "Knockout 30 A", "Knockout 30 B"; font-style: normal; font-weight: 400; }
+
+figure {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  width: 50%;
+}
+figcaption {
+  position: absolute;
+  background: black;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 6%;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition:    all 0.3s ease;
+  -o-transition:      all 0.3s ease;
+}
+figure:hover figcaption {
+  opacity: 1;
+}
+
+
+.cap-left:before {  bottom: 10px; left: 10px; }
+.cap-left figcaption { bottom: 0; left: -30%; }
+.cap-left:hover figcaption { left: 0; }
+
+.cap-right:before { bottom: 10px; right: 10px; }
+.cap-right figcaption { bottom: 0; right: -30%; }
+.cap-right:hover figcaption { right: 0; }
+
+.cap-top:before { top: 10px; left: 10px; }
+.cap-top figcaption { left: 0; top: -30%; }
+.cap-top:hover figcaption { top: 0; }
+
+.cap-bot:before { bottom: 10px; left: 10px; }
+.cap-bot figcaption { left: 0; bottom: -30%;}
+.cap-bot:hover figcaption { bottom: 0; }
+
+.cap-full:before {bottom:10px;left:10px}
+.cap-full figcaption{left:0;bottom:-30%;width:100%;height:100%; }
+.cap-full:hover figcaption{bottom:0}
+
+
+.amplify-test-image { 
+   position: relative; 
+   width: 100%; 
+}
+
+.amplify-test-image-container { 
+   position: absolute; 
+   top: 5%; 
+   left: 5%; 
+   width: 90%; 
+   color: #fff;
+}
+
+
+
+.amplify-page .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } 
+.amplify-page .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+/* ------ MEETUP PAGE BY MARTIJN@IDEO.com ----- */
+.meetup-page a {
+font-weight: 500;	
+}
+
+.meetup-page p {
+line-height: 1.8em;
+color: rgba(0,0,0,0.6);
+}
+
+
+.meetup-page  span.date {
+display: block;
+ font-family: "Sentinel A", "Sentinel B"; 
+ font-style: italic; 
+ font-weight: 500;
+width: 100%;
+text-align: left;
+}
+
+
+
+.meetup-page i.fa {
+font-style: normal !important;
+    margin-right: 10px;
+    color: rgba(0,0,0,0.3);
+} 
+
+.meetup-page .btn {
+    padding: 20px;
+    border: 2px solid;
+    border-radius: 4px;
+    font-family: lato,"Lucida Sans",Arial;
+    margin-top: 30px;
+    
+    -webkit-transition: background-color 200ms ease;
+    -moz-transition: background-color 200ms ease;
+    -o-transition: background-color 200ms ease;
+    transition: background-color 200ms ease;
+
+}
+
+.meetup-page .btn:hover {
+text-decoration: none;
+background-color: #11bad3;
+color: #fff;
+border-color: #11bad3;
+}
+
+.meetup-page ul li {
+ list-style-type: circle;	
+ padding-right: 15px;
+}
+
+
+.meetup-page h4 {
+    font-size: 32px !important;
+    font-family: "Sentinel A", "Sentinel B";
+    font-style: italic;
+    font-weight: 400 !important;
+    padding: 100px 0 0 0;
+    text-transform: none;
+    line-height: 150% !important;
+    text-transform: none !important;
+}
+
+.meetup-page h4 small {
+    font-size: 20px !important;
+    line-height: 100% !important;
+}
+
+
+.meetup-page .line {
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+width: 100%;
+    margin-top: 75px;
+height: 1px;
+
+}
+
+.meetup-page .distance-margin-top, .meetup-page .distance-margin-bottom {
+	margin: 0 !important;
+}
+
+.meetup-page .hero {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.meetup-page .hero .button-frame {
+display: inline-block;
+    width: 100%;
+    text-align: center;	
+	
+}
+
+.meetup-page .hero .btn {
+display: inline-block;
+text-align: center;
+margin-right: 8px;
+margin-left: 8px;    
+}
+
+.meetup-page .hero h2 {
+    font-size: 32px !important;
+    font-family: "Sentinel A", "Sentinel B";
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    line-height: 150% !important;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.meetup-page .hero-content {
+height: 100%;
+    padding-top: 25%;
+    padding-bottom: 25%;
+    min-height: 100%;
+    width: 100%;
+}
+
+.meetup-page .hero-content .col-md-8.col-md-offset-2{
+    z-index: 1000;
+}
+
+
+.meetup-page .hero .img-frame {
+	overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.meetup-page .hero img {
+    min-height: 100%;
+    min-width: 1280px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: -100px;
+    left: 0;
+	
+}
+
+.meetup-page .header, .meetup-page .header .main-nav>a {
+    border-bottom: none;
+	
+}
+
+.meetup-page .page-container .page-row-expanded {
+    display: block; 
+    height: auto !important; 
+}
+
+.meetup-page .page-container .page-row-expanded .header {
+    position: fixed;
+    z-index: 100000;
+    width: 100% !important;
+}
+
+.meetup-page .row {
+margin-bottom: 0 !important;
+}
+
+.meetup-page .page-row-expanded .grid {
+max-width: none;
+background-color: #fff;
+position: relative;
+z-index:9999;
+overflow: hidden;}
+
+.meetup-page .grid article {
+max-width: 1280px;
+margin: 0 auto	
+}
+
+
+
+.meetup-page .values .col-md-4 {
+padding-right: 20px;	
+img {
+  display: block;
+}
+}
+
+.meetup-page .values h3 {
+font-weight: 300;
+margin-top: 30px;
+}
+
+.meetup-page .values p {
+    font-size: 16px !important;
+    line-height: 1.8em !important;
+    color: rgba(0,0,0,0.6);
+}
+
+.meetup-page .community {
+    padding: 100px 0 0 0;
+}
+
+.meetup-page .community h4 {
+position: absolute;
+color: #fff;
+}
+
+.meetup-page .quotes {
+margin-top: -100px;	
+}
+
+
+.meetup-page .quotes .avatar {
+width: 100px;	
+height: 100px;
+margin: 40px auto 40px auto !important;
+border: 7px solid #fff;
+
+}
+
+.meetup-page .col-md-6:first-child .avatar-frame {
+margin-left: -15px;
+}
+
+.meetup-page .col-md-6:last-child .avatar-frame {
+margin-left: 15px;
+}
+
+.meetup-page .avatar {
+overflow:hidden;
+border-radius:50px;
+box-shadow: 0 2px 5px 0px rgba(0,0,0,0.1);
+}
+
+.meetup-page .avatar img {
+height: 100%;
+width: auto;
+}
+
+
+.meetup-page .quote {
+background-color: #fff;
+border-radius: 5px;
+box-shadow: 0 2px 5px 0px rgba(0,0,0,0.1);
+border-left: none;
+padding: 45px 50px !important;
+position: relative;
+}
+
+.meetup-page .quote .arrow {
+    text-align: center;
+    margin: 0 0 0 -15px !important;
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+}
+
+.meetup-page .col-md-6:first-child .quote {
+border-top: 5px solid #00BAD5;	
+margin: 0 15px 20px 0px !important
+}
+
+.meetup-page .col-md-6:last-child .quote {
+border-top: 5px solid #79C6BC;
+margin: 0 0px 20px 15px !important
+
+
+}
+
+
+.meetup-page .quote p {
+ font-family: "Sentinel A", "Sentinel B"; 
+ font-style: italic; 
+ font-weight: 500;
+ margin-bottom: 25px !important;
+}
+
+
+.meetup-page .quote h6 {
+margin-bottom: 0 !important;
+font-style: normal;
+    color: #000;
+
+}
+
+
+.meetup-page .quote h6 small {
+   font-weight: 300;
+    font-size: 16px;
+}
+
+ 
+
+.meetup-page .cities .col-md-10.col-md-offset-1 h5 {
+	 border-bottom: none;
+     margin: 30px 0 15px 0;
+    
+}
+.meetup-page .cities ul {
+    margin: 0 !important;
+    padding: 0 !important; 
+}
+.meetup-page .cities ul li {
+line-height: 40px;
+font-size: 16px;
+}
+
+
+
+.meetup-page .city {
+position: relative;	
+
+}
+
+.meetup-page .city .city_label {
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+ z-index: 1000; 
+}
+
+.meetup-page .city a:hover{
+text-decoration: none;
+}
+
+.meetup-page .city .city_label h3 {
+width: 100%;
+text-align:center;
+color: #fff;
+font-weight: bold;
+width: 100%;
+padding-top: 20px;
+margin-bottom: 0;
+}
+.meetup-page .cities span.date {
+    text-align: center;
+    color: #fff;
+}
+
+.meetup-page .cities h5 {
+	font-size: 18px;
+    color: #000;
+    font-weight: bold;	
+}
+.meetup-page .cities h6 {
+	font-size: 16px;
+    padding: 10px;
+}
+
+
+.meetup-page .cities .city .overlay-color {
+	    background-color: #000;
+}
+
+.meetup-page .cities .city .overlay-color>div {
+	    overflow:hidden;
+}
+
+.meetup-page .cities .city img {
+	   opacity: 0.7;
+	 -webkit-transform: scale(1.00);
+    -webkit-transition: all ease-in-out 350ms;
+    -moz-transition: all ease-in-out 350ms;
+    -ms-transition: all ease-in-out 350ms;
+    -o-transition: all ease-in-out 350ms;
+    transition: all ease-in-out 350ms; 
+	   
+}
+.meetup-page .cities .city:hover img {
+	   opacity: 0.85;
+	 -webkit-transform: scale(1.10);
+}
+
+.meetup-page .cities .avatar {
+width: 70px;	
+height: 70px;
+margin: 0 auto;
+margin-top: 0px;
+position: absolute;
+border: 5px solid #fff;
+    right: 15px;
+    bottom: 10px;
+}
+
+.meetup-page .cities p {
+    font-family: "Sentinel A", "Sentinel B";
+    font-style: italic;
+    font-weight: 400 !important;
+    margin: 50px 0;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.05);
+    background: rgba(0,0,0,0.05);
+    float: left;
+    width: 100%;
+}
+
+.meetup-page .coordinators {
+overflow: hidden;
+position: relative;
+}
+
+.meetup-page .coordinators .map-frame{
+
+    position: absolute;
+    height: 100%;
+    left: 0;
+    z-index: -1;
+    top: 90px; 
+}
+
+.meetup-page .coordinators .map-frame img{
+    height: auto;
+    max-width: none;
+    width: 100%;
+}
+
+.meetup-page .coordinators .btn {
+float:left;	
+}
+.meetup-page .coordinators p {
+    color: rgba(0,0,0,0.6);
+    line-height: 1.8em;
+}
+
+
+.meetup-page .story {
+    width: 100%;
+    float: left;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px 0px rgba(0,0,0,0.1);
+    margin-bottom: 150px;
+       position: relative; 
+}
+
+.meetup-page .story .content {
+padding: 75px;
+}
+
+.meetup-page .story .btn {
+float:left;	
+}
+
+.meetup-page .story h2 a {
+color:#000;	
+}
+.meetup-page .story .image {
+clear: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+    position: absolute;
+    right: 0;
+    height: 100%;
+ -webkit-border-top-right-radius: 8px;
+-webkit-border-bottom-right-radius: 8px;
+-moz-border-radius-topright: 8px;
+-moz-border-radius-bottomright: 8px;
+border-top-right-radius: 8px;
+border-bottom-right-radius: 8px;   
+	
+}
+.meetup-page .story .image img {
+
+    height: 100%;
+    width: auto !important;
+    max-width: none;
+    position: absolute;
+    left: -10%;
+}
+
+.meetup-page .footer {
+	position: relative;
+	display: block;
+	
+}
+
+
+
+
+.meetup-page .col-xs-1, .meetup-page .col-sm-1, .meetup-page .col-md-1, .meetup-page .col-lg-1, .meetup-page .col-xs-2, .meetup-page .col-sm-2, .meetup-page .col-md-2, .meetup-page .col-lg-2, .meetup-page .col-xs-3, .meetup-page .col-sm-3, .meetup-page .col-md-3, .meetup-page .col-lg-3, .meetup-page .col-xs-4, .meetup-page .col-sm-4, .meetup-page .col-md-4, .meetup-page .col-lg-4, .meetup-page .col-xs-5, .meetup-page .col-sm-5, .meetup-page .col-md-5, .meetup-page .col-lg-5, .meetup-page .col-xs-6, .meetup-page .col-sm-6, .meetup-page .col-md-6, .meetup-page .col-lg-6, .meetup-page .col-xs-7, .meetup-page .col-sm-7, .meetup-page .col-md-7, .meetup-page .col-lg-7, .meetup-page .col-xs-8, .meetup-page .col-sm-8, .meetup-page .col-md-8, .meetup-page .col-lg-8, .meetup-page .col-xs-9, .meetup-page .col-sm-9, .meetup-page .col-md-9, .meetup-page .col-lg-9, .meetup-page .col-xs-10, .meetup-page .col-sm-10, .meetup-page .col-md-10, .meetup-page .col-lg-10, .meetup-page .col-xs-11, .meetup-page .col-sm-11, .meetup-page .col-md-11, .meetup-page .col-lg-11, .meetup-page .col-xs-12, .meetup-page .col-sm-12, .meetup-page .col-md-12, .meetup-page .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+
+.meetup-page .col-xs-1, .meetup-page .col-xs-2, .meetup-page .col-xs-3,.meetup-page .col-xs-4,.meetup-page .col-xs-5,.meetup-page .col-xs-6,.meetup-page .col-xs-7,.meetup-page .col-xs-8,.meetup-page .col-xs-9,.meetup-page .col-xs-10,.meetup-page .col-xs-11,.meetup-page .col-xs-12 {
+  float: left;
+}
+.meetup-page .col-xs-12 {
+  width: 100%;
+}
+.meetup-page .col-xs-11 {
+  width: 91.66666667%;
+}
+.meetup-page .col-xs-10 {
+  width: 83.33333333%;
+}
+.meetup-page .col-xs-9 {
+  width: 75%;
+}
+.meetup-page .col-xs-8 {
+  width: 66.66666667%;
+}
+.meetup-page .col-xs-7 {
+  width: 58.33333333%;
+}
+.meetup-page .col-xs-6 {
+  width: 50%;
+}
+.meetup-page .col-xs-5 {
+  width: 41.66666667%;
+}
+.meetup-page .col-xs-4 {
+  width: 33.33333333%;
+}
+.meetup-page .col-xs-3 {
+  width: 25%;
+}
+.meetup-page .col-xs-2 {
+  width: 16.66666667%;
+}
+.meetup-page .col-xs-1 {
+  width: 8.33333333%;
+}
+.meetup-page .col-xs-offset-12 {
+  margin-left: 100%;
+}
+.meetup-page .col-xs-offset-11 {
+  margin-left: 91.66666667%;
+}
+.meetup-page .col-xs-offset-10 {
+  margin-left: 83.33333333%;
+}
+.meetup-page .col-xs-offset-9 {
+  margin-left: 75%;
+}
+.meetup-page .col-xs-offset-8 {
+  margin-left: 66.66666667%;
+}
+.meetup-page .col-xs-offset-7 {
+  margin-left: 58.33333333%;
+}
+.meetup-page .col-xs-offset-6 {
+  margin-left: 50%;
+}
+.meetup-page .col-xs-offset-5 {
+  margin-left: 41.66666667%;
+}
+.meetup-page .col-xs-offset-4 {
+  margin-left: 33.33333333%;
+}
+.meetup-page .col-xs-offset-3 {
+  margin-left: 25%;
+}
+.meetup-page .col-xs-offset-2 {
+  margin-left: 16.66666667%;
+}
+.meetup-page .col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+.meetup-page.col-xs-offset-0 {
+  margin-left: 0%;
+}
+
+
+
+
+@media (min-width: 768px) {
+.meetup-page .col-sm-1,.meetup-page .col-sm-2,.meetup-page .col-sm-3,.meetup-page .col-sm-4,.meetup-page .col-sm-5,.meetup-page .col-sm-6,.meetup-page .col-sm-7,.meetup-page .col-sm-8,.meetup-page .col-sm-9,.meetup-page .col-sm-10,.meetup-page .col-sm-11,.meetup-page .col-sm-12 {
+    float: left;
+  }
+ .meetup-page .col-sm-12 {
+    width: 100%;
+  }
+ .meetup-page .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .meetup-page .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .meetup-page .col-sm-9 {
+    width: 75%;
+  }
+  .meetup-page .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .meetup-page .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .meetup-page .col-sm-6 {
+    width: 50%;
+  }
+  .meetup-page .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .meetup-page .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .meetup-page .col-sm-3 {
+    width: 25%;
+  }
+  .meetup-page .col-sm-2 {
+    width: 16.66666667%;
+  }
+ .meetup-page .col-sm-1 {
+    width: 8.33333333%;
+  }
+  .meetup-page .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .meetup-page .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .meetup-page .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .meetup-page .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .meetup-page .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .meetup-page .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .meetup-page .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .meetup-page .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .meetup-page .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .meetup-page .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .meetup-page .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .meetup-page .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+ .meetup-page .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+}
+
+
+
+@media (min-width: 992px) {
+.meetup-page .col-md-1, .meetup-page .col-md-2, .meetup-page .col-md-3, .meetup-page .col-md-4, .meetup-page .col-md-5, .meetup-page .col-md-6, .meetup-page .col-md-7, .meetup-page .col-md-8, .meetup-page .col-md-9, .meetup-page .col-md-10, .meetup-page .col-md-11, .meetup-page .col-md-12 {
+    float: left;
+  }
+
+
+.meetup-page .col-md-12 {
+    width: 100%;
+  }
+
+.meetup-page .col-md-10 {
+    width: 83.33333333%;
+  }
+
+.meetup-page .col-md-8 {
+    width: 66.66666667%;
+  }
+  
+ .meetup-page .col-md-6 {
+    width: 50%;
+  }
+  
+  .meetup-page .col-md-5 {
+    width: 41.66666667%;
+  }
+
+ .meetup-page .col-md-4 {
+    width: 33.33333333%;
+  }
+  
+  .meetup-page .col-md-3 {
+    width: 25%;
+  }
+  
+  .meetup-page .col-md-2 {
+    width: 16.66666667%;
+  }
+  
+   .meetup-page .col-md-offset-6 {
+    margin-left: 50%;
+  }
+  .meetup-page .col-md-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  
+  
+   .meetup-page .col-md-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .meetup-page .col-md-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  
+
+
+}
+
+@media (max-width: 991px) {
+
+
+.meetup-page .quotes {
+    margin-top: 70px;
+}
+.meetup-page .story .content {
+    padding: 50px;
+       margin-top: 200px; 
+}
+
+.meetup-page .story .image img {
+	left: 0;
+    width: 100% !important;
+    height: auto;
+    border-radius: 0 !important;
+}
+
+.meetup-page .story .image {
+width: 100%;
+height: 200px;
+    top: 0;
+	
+}
+.meetup-page .story .btn {
+    margin-bottom: 50px;
+}
+
+.meetup-page .col-md-6:first-child .avatar-frame, .meetup-page .col-md-6:last-child .avatar-frame {
+margin-left: 0 !important;	
+}
+
+
+.meetup-page .col-md-6:first-child .quote {
+    margin: 0 0px 0px 0px !important;
+}
+.meetup-page .col-md-6:last-child .quote {
+    margin: 0 0px 0px 0px !important;
+}
+
+.meetup-page .story .image  {
+	 -webkit-border-top-right-radius: 8px;
+     -webkit-border-top-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-topright: 8px;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-bottomright: 0px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 0px;
+}
+
+.meetup-page .coordinators .map-frame {
+    opacity: 0.5;
+}
+    
+}
+
+
+@media (min-width : 772px) and (max-width : 991px) {
+.row {
+max-width: 80%;	
+margin: 0 auto !important;
+}
+.meetup-page .cities .avatar {
+    width: 100px !important;
+    height: 100px !important;
+    border: 7px solid #fff !important;
+    right: 25px !important;
+}
+.meetup-page .cities h6 {
+    margin-bottom: 40px !important;
+}
+}
+
+
+
+@media (min-width : 668px) and (max-width : 771px) {
+.row {
+max-width: 90%;
+margin: 0 auto !important;
+}
+.meetup-page .cities h6 {
+margin-bottom: 30px !important;
+}
+
+.meetup-page .cities .avatar {
+    width: 100px !important;
+    height: 100px !important;
+    border: 7px solid #fff !important;
+    right: 25px !important;
+}
+
+}
+
+
+/* iPhone 6 */
+@media (min-width : 375px) and (max-width : 667px) {
+.meetup-page .hero-content {
+padding-top:40% !important;
+padding-bottom:35% !important;
+}	
+	
+	
+.meetup-page .hero img {
+    top: -150px;
+    left: -200px;
+}
+.meetup-page .quote {
+    padding: 40px 30px !important;
+}
+
+
+.meetup-page .cities h6 {
+    margin-bottom: 20px !important;
+}
+
+.meetup-page .cities ul li {
+list-style-type : none;
+    padding-left: 0;
+}
+
+.meetup-page .community>.distance-margin-top {
+height: 200px;	
+}
+.meetup-page .community>.distance-margin-top img {
+    height: 100% !important;
+    margin-left: -100px !important;
+    max-width: none !important;
+}
+}
+
+
+
+
+/* ------ FULL SIZE RESPONSIVE SCAFFOLD ------- */
+
+.amplify-half { float: left; width: 50%; height: 450px; padding: 2% 5% 5% 5%; }
+
+
+@media only screen and (max-width: 767px) {
+
+.amplify-half { width: 100%; clear: both; }
+.amplify-challenge-title { font-size: 12px !important; line-height: 1em !important; }
+.amplify-challenge-subtitle { display: none !important; }
+.amplify-challenge-type { display: none; }
+
+.amplify-banner-content { top: 10%; left: 5%; width: 85%; }
+.amplify-logo { width: 25%; }
+.amplify-banner-title { font-size: 12px; padding: 2% 0 2% 0; }
+.amplify-banner-btn { font-size: 11px !important; }
+
+
+.amplify-quote { line-height: 1.25em; font-size: 18px !important; }
+	
+}
+
+
+
+
+
+.challenge-header-sponsor-logo {
+
+width: 100px; float: right; position: relative; z-index: 10; border: 0; margin-bottom: 20px; margin-left: 20px;
+
+}
+
+.brief-header-sponsor-logo {
+
+width: 100px;
+
+float: right;
+
+position: relative;
+
+z-index: 10;
+
+}
+
+@media (max-width: 767px) {
+
+.brief-header-sponsor-logo {
+
+position: absolute;
+
+left: 3%;
+
+bottom: 25%; }
+
+}
