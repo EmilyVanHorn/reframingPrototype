@@ -17,15 +17,12 @@ var meta=[
     },
     ];
 
-
-
 Template.ideasList.onCreated(function() {
   Meteor.subscribe('ideasPublication');
 });
 
 Template.ideasList.helpers({
-    //idea: Ideas.find()
-    idea: ideaData
+    idea: Ideas.find()
 });
 
 Template.instText.events({
@@ -44,14 +41,23 @@ Template.themesList.onCreated(function() {
 });
 
 Template.themesList.helpers({
-    theme: Themes.find()
+    theme: Themes.find(),
+    moreInfo: function(){ 
+        return Ideas.findOne({"clicked": true}).content;
+    }
 });
 
 Template.theme_item.helpers({
     
 });
 
-Template.idea_item.helpers({
+Template.idea_item.events({
+    'click': function(e){
+        var text = e.target.firstChild.nodeValue;
+        alert("click");
+        Ideas.findOne({'clicked': true}).clicked = false;
+        Ideas.findOne({'content': text}).clicked = true;
+    }
 });
 
 Template.input.events({

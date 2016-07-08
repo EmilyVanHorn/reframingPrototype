@@ -91,16 +91,12 @@
     <div class="full">
         <h1>{{content}}</h1>
         <!--<a href={{url}} target="_blank">More Details ....</a>-->
-        <p>likes: {{likes}}</p>
-        <p>comments: {{comments}}</p>
     </div>
 </template>
 
 <template name="themesList">
     <div class="themeList col-md-12">
-        {{#each theme}}
-            {{> theme_item}}
-        {{/each}}
+        {{moreInfo}}
     </div>
 </template>
 
