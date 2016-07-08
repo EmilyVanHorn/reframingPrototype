@@ -10,6 +10,17 @@
         .visible{
             border: 1px solid;
         }
+        .info{
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid;
+            width: 80%;
+            overflow: scroll;
+        }
+        #InspireMe{
+            width: 100%;
+            align: center;
+        }
         .full{
             width: 100%;
             min-height 100px;
@@ -78,7 +89,7 @@
 <template name="idea_item">
     <div class="full">
         <h1>{{content}}</h1>
-        <a href={{url}} target="_blank">More Details ....</a>
+        <!--<a href={{url}} target="_blank">More Details ....</a>-->
         <p>likes: {{likes}}</p>
         <p>comments: {{comments}}</p>
     </div>
@@ -111,8 +122,9 @@
         <div class="problem col-md-12 visible">
             <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?
                 <span class="link">
-                    <a href="{{pathFor route='inst'}}" target="_blank">See Instructions </a>|
-                    <a href="https://challenges.openideo.com/challenge/e-waste/brief" target="_blank">More about the project</a></span></h1>  
+                    <!--<a href="{{pathFor route='inst'}}" target="_blank">See Instructions </a>|-->
+                    <!--<a href="https://challenges.openideo.com/challenge/e-waste/brief" target="_blank">More about the project</a></span></h1> -->
+                    <a href="{{pathFor route='OpenIDEO2'}}">Project Description</a></span></h1>
         </div>
 
         <div class="list col-md-4">
@@ -124,13 +136,13 @@
         </div>
 
         <div class="input col-md-8">
-            {{> input}}
+            <!--{{> input}}-->
         </div>
     </div>
     
     <script src="ideaData.js"></script>
     <script> 
-        var i = 0;
+       /* var i = 0;
         var wait = setInterval(function(){
 
                                         Ideas.insert(ideaData[Ideas.find().count()]);
@@ -141,6 +153,27 @@
             
                                         i++;
 
-                                     }, 3000)
+                                     }, 3000)*/
     </script>
+</template>
+
+<template name="OpenIDEO1">
+    <div class="container">
+        {{> IDEO}}
+    </div>
+</template>
+
+<template name="OpenIDEO2">
+        {{> InspireMe}}
+        {{> IDEO}}
+</template>
+
+<template name="InspireMe">
+    <input type="button" value="Inspire Me" id="InspireMe"/>
+</template>
+
+<template name="IDEO">
+    <div class="info">
+    
+    </div>
 </template>

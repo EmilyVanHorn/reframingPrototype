@@ -10,3 +10,11 @@ Router.route("/crowd",{
     name:'crowd',
     template: 'aboutTheCrowd'
 });
+Router.route("/version1",{
+    name:'OpenIDEO1',
+    template:'OpenIDEO1'
+});
+Router.route("/version2",{
+    name:'OpenIDEO2',
+    template:'OpenIDEO2'
+});
