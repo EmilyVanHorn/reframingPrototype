@@ -13,14 +13,11 @@
         .info{
             margin-left: auto;
             margin-right: auto;
-            border: 1px solid;
             width: 80%;
             overflow: scroll;
         }
-        #InspireMe{
-            width: 100%;
-            height: 40px;   
-            align: center;
+        .Option{
+            float: right;
         }
         .full{
             width: 100%;
@@ -165,18 +162,23 @@
 </template>
 
 <template name="OpenIDEO2">
-        {{> InspireMe}}
         {{> IDEO}}
+        {{> InspireMe}}
 </template>
 
 <template name="InspireMe">
-    <input type="button" value="Inspire Me" id="InspireMe"/>
+    <div class="info">
+        <div class="Option">
+            <input type="button" value="Continue" id="continue" class="btn btn-success"/>
+            <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
+        </div>
+    </div>
 </template>
 
 <template name="IDEO">
-    <div class="info">
+    <div class="info visible">
         <p>Challenge:</p>
-        <h1>How can we mangage e-waste and discard electronics to sefeguard human health and protect our environment?</h1>
+        <h1>How can we manage e-waste and discard electronics to safeguard human health and protect our environment?</h1>
 
         <p>Ever wondered what happens to your outmoded cell phone when you replace it with the latest model? Or where a battery goes when you toss it in the trash? Around the world, end-of-life electronics that are waste, also known as e-waste, present a significant challenge for our environment and our health. Together with Brazilian bank Itaú Unibanco, the U.S. Department of State, the U.S. Environmental Protection Agency, and OpenIDEO, we’re asking you to help us find ways to manage e-waste to better safeguard human health and protect our environment.</p>
         <p>According to the Consumer Electronics Association, in 2012 global spending on electronics is expected to surpass US$1 trillion 1. As use of these electronics increases around the world, the question of how to properly manage them when consumers are finished with them becomes more urgent. Unfortunately, not enough of our electronics are re-used, recycled or refurbished. Too many of them end up directly in landfills or recovered in an unsafe manner. According to the UN Environmental Programme, some 20 to 50 million metric tons of e-waste are generated worldwide every year, with mobile phones and televisions contributing 10 million tons per year by 2015 2.</p>
