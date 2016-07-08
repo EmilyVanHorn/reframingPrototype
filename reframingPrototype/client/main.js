@@ -24,7 +24,8 @@ Template.ideasList.onCreated(function() {
 });
 
 Template.ideasList.helpers({
-    idea: Ideas.find()
+    //idea: Ideas.find()
+    idea: ideaData
 });
 
 Template.instText.events({
@@ -74,6 +75,12 @@ Template.input.events({
         else{
             metaIndex++;   
         } 
+    }
+});
+
+Template.InspireMe.events({
+    'click input': function(e){
+        Router.go("/home");   
     }
 });
 
