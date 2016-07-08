@@ -1,6 +1,8 @@
 Router.route('/',{
-    name:'inst',
-    template: 'inst'
+    //name:'inst',
+    //template: 'inst'
+    name:'OpenIDEO1',
+    template:'OpenIDEO1'
 });
 Router.route("/home", {
     name:'home',
@@ -10,10 +12,10 @@ Router.route("/crowd",{
     name:'crowd',
     template: 'aboutTheCrowd'
 });
-Router.route("/version1",{
+/*Router.route("/version1",{
     name:'OpenIDEO1',
     template:'OpenIDEO1'
-});
+});*/
 Router.route("/version2",{
     name:'OpenIDEO2',
     template:'OpenIDEO2'
