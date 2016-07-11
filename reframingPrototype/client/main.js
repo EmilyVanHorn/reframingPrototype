@@ -22,8 +22,16 @@ var meta=[
 Template.ideasList.onCreated(function() {
   Meteor.subscribe('ideasPublication');
 });
+Template.ideasList2.onCreated(function() {
+  Meteor.subscribe('ideasPublication');
+});
 
 Template.ideasList.helpers({
+    //idea: Ideas.find()
+    idea: ideaData
+});
+
+Template.ideasList2.helpers({
     //idea: Ideas.find()
     idea: ideaData
 });
@@ -52,6 +60,9 @@ Template.theme_item.helpers({
 });
 
 Template.idea_item.helpers({
+    'click': function(e){
+        alert('hi');  
+    }
 });
 
 Template.input.events({
@@ -80,6 +91,7 @@ Template.input.events({
 
 Template.InspireMe.events({
     'click #continue': function(e){
+        //go to the "next" page as determined by a switch statement?
         Router.go("/home");   
     }
 });

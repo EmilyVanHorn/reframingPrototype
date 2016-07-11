@@ -93,6 +93,18 @@
     </div>
 </template>
 
+<template name="ideasList2">
+    {{#each idea}}
+        {{> idea_item2}}
+    {{/each}}
+</template>
+
+<template name="idea_item2">
+    <div class="full">
+        <h1>{{content}}</h1>
+    </div>
+</template>
+
 <template name="themesList">
     <div class="themeList col-md-12">
         {{#each theme}}
@@ -155,22 +167,70 @@
     </script>
 </template>
 
+<template name="homeNoMeta">
+    <div class="container">
+        <div class="problem col-md-12 visible">
+            <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?
+                <span class="link">
+                    <!--<a href="{{pathFor route='inst'}}" target="_blank">See Instructions </a>|-->
+                    <!--<a href="https://challenges.openideo.com/challenge/e-waste/brief" target="_blank">More about the project</a></span></h1> -->
+                    <a href="{{pathFor route='OpenIDEO2'}}">Project Description</a></span></h1>
+        </div>
+
+        <div class="list col-md-4">
+            {{> ideasList2}}
+        </div>
+
+        <div class="themes col-md-8 visible">
+            {{> themesList}}
+        </div>
+
+        <div class="input col-md-8">
+            <!--{{> input}}-->
+        </div>
+    </div>
+    
+    <script src="ideaData.js"></script>
+    <script> 
+       /* var i = 0;
+        var wait = setInterval(function(){
+
+                                        Ideas.insert(ideaData[Ideas.find().count()]);
+                                        //if no more ideas stop interval
+                                        if(i > ideaData.length){
+                                            clearInterval(wait);   
+                                        }
+            
+                                        i++;
+
+                                     }, 3000)*/
+    </script>
+</template>
+
 <template name="OpenIDEO1">
         {{> IDEO}}
 </template>
 
 <template name="OpenIDEO2">
         {{> IDEO}}
-        {{> InspireMe}}
+        {{> NextPhase}}
 </template>
 
-<template name="InspireMe">
+<template name="NextPhase">
     <div class="info">
         <div class="Option">
             <input type="button" value="Continue" id="continue" class="btn btn-success"/>
             <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
         </div>
     </div>
+</template>
+
+<template name="newInst">
+    <div class="info">
+        aklsdjflaskjdflaskjdf
+    </div>
+    
+    {{> NextPhase}}
 </template>
 
 <template name="IDEO">
