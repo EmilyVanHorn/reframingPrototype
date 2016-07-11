@@ -18,22 +18,21 @@ var meta=[
     ];
 
 
-
 Template.ideasList.onCreated(function() {
-  Meteor.subscribe('ideasPublication');
+    Meteor.subscribe('ideasPublication');
 });
 Template.ideasList2.onCreated(function() {
   Meteor.subscribe('ideasPublication');
 });
 
 Template.ideasList.helpers({
-    //idea: Ideas.find()
-    idea: ideaData
+    idea: Ideas.find()
+    //idea: ideaData
 });
 
 Template.ideasList2.helpers({
     //idea: Ideas.find()
-    idea: ideaData
+    idea: Ideas.find()
 });
 
 Template.instText.events({
@@ -52,16 +51,33 @@ Template.themesList.onCreated(function() {
 });
 
 Template.themesList.helpers({
-    theme: Themes.find()
+    theme: Themes.find(),
+    moreInfo: function(){ 
+        return Ideas.findOne({"clicked": true}).content;
+    }
 });
 
 Template.theme_item.helpers({
     
 });
 
-Template.idea_item.helpers({
-    'click': function(e){
-        alert('hi');  
+Template.idea_item.events({
+    'click div': function(e){
+        var text = e.target.firstChild.nodeValue;
+        var old;
+        if(old = Ideas.find({'clicked': true}).fetch()[0]){
+        }
+        else{
+            old = Ideas.find().fetch()[0];   
+        }
+        var newClick = Ideas.find({'content': text}).fetch()[0];
+        Ideas.update({_id: old._id}, {
+            $set: {clicked: false}
+        });
+        
+        Ideas.update({_id: newClick._id}, {
+            $set: {clicked: true}
+        });
     }
 });
 
