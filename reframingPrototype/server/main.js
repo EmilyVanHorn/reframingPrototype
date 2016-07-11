@@ -10,7 +10,7 @@ Meteor.methods({
     },
     removeAllThemes: function(){
         Themes.remove({});   
-    }
+    },
 });
 
 Meteor.publish('ideasPublication', function() {

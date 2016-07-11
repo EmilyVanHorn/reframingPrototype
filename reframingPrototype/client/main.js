@@ -17,6 +17,7 @@ var meta=[
     },
     ];
 
+var version;
 
 Template.ideasList.onCreated(function() {
     Meteor.subscribe('ideasPublication');
@@ -53,7 +54,7 @@ Template.themesList.onCreated(function() {
 Template.themesList.helpers({
     theme: Themes.find(),
     moreInfo: function(){ 
-        return Ideas.findOne({"clicked": true}).content;
+        return Ideas.findOne({"clicked": true}).moreInfo;
     }
 });
 
@@ -61,14 +62,16 @@ Template.theme_item.helpers({
     
 });
 
+
+
 Template.idea_item.events({
     'click div': function(e){
         var text = e.target.firstChild.nodeValue;
-        var old;
+        var old = null;
         if(old = Ideas.find({'clicked': true}).fetch()[0]){
         }
         else{
-            old = Ideas.find().fetch()[0];   
+            old = Ideas.find().fetch()[0];  
         }
         var newClick = Ideas.find({'content': text}).fetch()[0];
         Ideas.update({_id: old._id}, {
@@ -78,6 +81,7 @@ Template.idea_item.events({
         Ideas.update({_id: newClick._id}, {
             $set: {clicked: true}
         });
+        
     }
 });
 
@@ -105,10 +109,80 @@ Template.input.events({
     }
 });
 
-Template.InspireMe.events({
+Template.NextPhase.events({
     'click #continue': function(e){
         //go to the "next" page as determined by a switch statement?
-        Router.go("/home");   
+        var path = Router.current().route.path();
+        
+        switch(path){
+            case "/":
+                Router.go("/login");
+                break;
+            case '/Login':
+                if(Meteor.userId()){
+                    switch(version){
+                        case 1:
+                            Router.go('/version1');
+                            break;
+                        case 2:
+                            Router.go('/version2');
+                            break;
+                        case 3:
+                            Router.go('/version2');
+                            break;
+                    }   
+                }
+                else{
+                    alert("Please sign in before starting the brainstorm");   
+                }
+                break;
+            default:
+                switch(version){
+                    case 2:
+                        Router.go('homeNoMeta');
+                        break;
+                    case 3:
+                        Router.go('home');
+                        break;
+                }
+        }  
+    },
+    'click #quit': function(e){
+        Router.go("/thankyou");   
+    }
+});
+
+Template.setup.events({
+    'mouseover #1, mouseover #2, mouseover #3': function(e){
+        e.target.style=
+            "background-color: black;" +
+            "color: white;" +
+            "font-size: 20px;"
+            
+    },
+    'mouseout #1, mouseout #2, mouseout #3': function(e){
+        e.target.style=
+            "background-color: white;" +
+            "color: black;" +
+            "font-size: 14px;"
+    },
+    'click #1': function(e){
+        version = 1;
+        
+    },
+    'click #2': function(e){
+        //Router.go('/version2/home');
+        version = 2;
+    },
+    'click #3': function(e){
+        //Router.go('/version3/home');
+        version = 3;
+    }
+});
+
+Template.done.events({
+    'click #done':function(e){
+        Router.go("/thankyou");   
     }
 });
 

@@ -1,29 +1,77 @@
 ideaData = [
     {
-        content: "Rewire.com: A collaborative platform where innovative ideas for reusing electronics can get the traction they need to get to the marketplace. It starts with an idea, share it with the rewire community, use rewire to network and build a team, get funding, get help with logistics, find success, and give back to rewire to fund the process for future teams.",
-        likes: 13,
-        comments: 55,
-        url: "https://challenges.openideo.com/challenge/e-waste/concepting/rewire.com",
+        openIDEOid: "C-001",
+        content: "Bringing Transparency to the People" +
+            "How can we help provide information, education and transparency to the electronics supply chain – so that consumers make more informed decisions?",
+        moreInfo: ["Bringing Transparency to the People", 
+                   "How can we help provide information, education and transparency to the electronics supply chain – so that consumers make more informed decisions?",
+                   "Today Today at IDEO Palo Alto we hosted an E-Waste Challenge brainstorm (using the Brainstorm in a Box toolkit).",
+                    "We started by talking through the question of what e-waste is – and found that many people had different definitions of it. How might we help people understand where their electronics come from, what materials go into them, and how to reuse or recycle them when they're done?", "One idea we had was to create a website that helps anyone – kids, teachers, interested computer fans – how to dismantle and reuse their electronics safely. Maybe this website could even be a clearinghouse or catalogue where you could look up a specific product and how to take it a part or reuse it?", "We also thought we could leverage online platforms to help people share their own stories of creative reuse and recycling, like an e-waste hall of fame. Maybe we could even get celebrities to add their own stories!", "Finally we thought through how electronics packaging might also help bring transparency to the e-waste supply chain. Maybe a computer box could have a map that shows where its parts came from, and what consumers could do after they're done with it? Or the box could even have a prompt about how to turn your old stereo into a flower pot, a toy or clock!", "What other ways can we help educate consumers to better understand their role in the e-waste lifecycle?"],
+        likes: 3,
+        comments: 6,
+        authorName: "IDEO Palo Alto",
+        timestamp: "July 28, 2012, 12:45AM",
+        views: 251,
+        url: "https://challenges.openideo.com/challenge/e-waste/concepting/bringing-transparency-to-the-people",
         clicked: true
     },
     {
-        content: "A strong and targeted marketing campaign to raise awareness and provide solutions",
-        likes: 15,
-        comments: 49,
-        url: "https://challenges.openideo.com/challenge/e-waste/concepting/marketing-campaign-to-raise-awareness-and-provide-solutions",
+        openIDEOid: "C-002",
+        content: "Build a DIY community to recycle e-waste\n" +
+            "E-Waste has a defining feature that sets it apart from all other types of waste... and that is its growing potential. What people need is a strong community of designers that can help ordinary people turn their electronic trash into treasure.",
+        moreInfo: ["Ideally, we would like to find a way that our old devices don't end up in trash heaps or landfills-- damaging our environment as well as our health. What better way to get in touch with the wonders of technology by reusing old electronics to design new knick-knacks, gadgets, or art pieces? What we need is an accesible way to know what is safe to touch, twist, cut and use in new, exciting projects as well as what needs to go into safe receptacles. By building a DIY community of people of all walks of life who can sort out the valuable pieces of e-waste from the dangerous ones - we can not only safely design and innovate, but also advocate for the safe disposal and recycling of our old electronics.",
+        "How does your concept safeguard human health and protect our environment?",
+        "This concept reduces the amount of e-waste going into the trash and encourages people to reuse their waste in safe ways to do cool projects or revive old electronics. This should also teach everyday people what is safe to reuse and what isn't, and why. By highlighting the safety hazards of e-waste, it would remind users that these electronics do not belong in a regular trash bin.",
+        "Where does your concept fit into the lifecycle of electronic devices?",
+        "This concept embraces the afterlife and reincarnation of everyday devices into new innovative ideas. It encourages users to look at technology differently by realizing its incredible abilities as well as its potential. It should also get ordinary people who like to play and build interested on how certain technology works and how to reverse engineer and design some innovative products.",
+        "What steps could be taken today to start implementing your concept?",
+        "Designers, engineers, and any curious takers could begin documenting and designing new products and art from their old gadgets and together build an accessible community with all the right tools to bring out the designers in everyone.",
+        "What kinds of resources will be needed to fully implement and scale your concept?",
+        "In order to fully implement the concept, we would need a way to get in touch with the other DIYers out there to start building this collaborative. A website or forum would most likely be the best way to do this. This would take some time, a bit (but not too much!) money, and a little creative juices to get started."],
+        likes: 6,
+        comments: 6,
+        authorName: "Kelly Hering",
+        timestamp: "July 17, 2012, 03:34AM",
+        views: 637,
+        url: "https://challenges.openideo.com/challenge/e-waste/concepting/build-a-diy-community-to-recycle-e-waste",
+        clicked: false,
+    },
+    {
+        openIDEOid:"C-003", 
+        content: "BuyCycle: If you want to buy (a)new, pay your due. (Or buy refurbished instead.)\n" +
+            "This may sound unusual &amp; \"interventionist\" at first, but once you think about it, it's actually not asking for much: People who want to buy a new device could be required to return (\"buycycle\") an old one in order to be granted the right to purchase.",
+        moreInfo:"BuyCycle: If you want to buy (a)new, pay your due. (Or buy refurbished instead.)\n"+
+            "This may sound unusual &amp; \"interventionist\" at first, but once you think about it, it's actually not asking for much: People who want to buy a new device could be required to return (\"buycycle\") an old one in order to be granted the right to purchase.\n" +         
+            "The summary pretty much says it all already. You want to buy a new electronic device? Here are your choices:\n" +
+                "/t 1. Either return (\"buycycle\") an old one to acquire the right to buy new, or: \n" +
+                "/t 2. Buy a refurbished/recycled one instead.\n" +
+            "(The old device wouldn't have to be the customer's most recent one, nor would it need to have been in his or her possession. Any old device is fine.)\n" +
+            "Implementing these conditions of purchase by law then would have several positive effects: \n" +
+            "\t It would make sure that discarded devices would rather promptly find their way back into the market – rather than waste their huge economic and ecological potential getting buried in some drawer somewhere.\n" +
+            "Put differently, people who up to now tended to keep and \"collect\" old cell phones for example (be it out of laziness, for hoarding goods or because they're not sure how and where to recycle them), wouldn't suffer any loss, but would be effectively incentivized to feed those devices' remaining economic and ecological potential back into the market.Those customers who keep using their phones for years and years could additionally be rewarded with special discounts, as suggested in Marie No's \"Hold on to your device and save!\" concept: http://www.openideo.com/open/e-waste/concepting/hold-on-to-your-device-and-save-the-green-deposit-system-for-newly-purchased-electronicsFirst-time product buyers would simply trade in unused devices from one of their friends or family members, thus actively helping to get those back into usageThe cost of this measure/incentive then would only be payed for by _those_ customers who decidedly want to buy the newest technology, although they still own very recent/valuable technology that they otherwise would have sold. (They could still try to trade in some very old and cheap device and sell their valuable one on the market, but due to the massive return flow of \"buycycled\" used phones into the retail market, even those market prices would be likely to drop significantly.)...which would also prove advantageous to the underprivileged people, who so far have had trouble to afford a cell phone for example in the first place, but could now benefit from the big supply and dropping prices of recycled and refurbished devices on the market.Lastly, this might even affect the prices for the new, cutting edge technology which would now face a relatively increased competition with relatively cheap but still valuable \"buycycled\" devices.\n" +
+            "(Sorry if I sketched this out rather apodictically. This is definitely more like a thought experiment. I'm not an economist, and especially the last three points are undoubtedly very speculative on my part. Even more so, I'd be happy to hear what other more economically-versed people think about my two cents here...)\n"+
+
+            "What steps could be taken today to start implementing your concept?\n" +
+            "Well, obviously it would take a number of steps in figuring out how to legally, logistically and economically implement the \"buycycle\" market. Much expertise and planning would be needed here: Who would \"own\" the \"buycycled\" devices? The state? The people? How would they be processed, how exactly returned into the market – and where? How exactly can the regulation be enforced? Might there eventually be a scarcity of \"buycyclable\" devices? If so, then how would the regulatory measure need to be adjusted? How can one make sure that the \"buycycle\" market is fair, transparent and can't be cheated? ...;\n"+
+            "A lot to think about, but maybe worth the effort? =)\n" +
+
+            "What kinds of resources will be needed to fully implement and scale your concept?\n" +
+            "Certainly a rather big interdisciplinary think tank of experts: economists, politicians, consumerists, legal advisers, environmentalists, manufacturers and technical experts (just to name a few...). Still, as I mentioned before, the regulatory mechanism itself could be pretty straightforward eventually.\n",
+        likes: 5,
+        comments: 13,
+        authorName: "Hannes Mandel",
+        timestamp: "August 12, 2012, 10:55PM", 
+        views: 528,
+        url: "https://challenges.openideo.com/challenge/e-waste/concepting/buycycle-if-you-want-to-buy-anew-pay-your-due.-or-buy-refurbished-instead.",
         clicked: false
     },
     {
-        content: "The Hacker's Cookbook:An online comnunity of people interested in learning and sharing ways to upgrade and re-appropriate old devices and make something cool with them instead of throwing them away. ",
+        openIDEOid:"C-004",
+        content: "",
+       
         likes: 25,
         comments: 42,
-        url: "https://challenges.openideo.com/challenge/e-waste/concepting/the-hacker-s-cookbook-to-be-updated..",
-        clicked: false
-    },
-    {
-        content: "The Hacker's Kitchen:A place where people can meet, learn how to re-work their old devices into cool new things, and build together.",
-        likes: 25,
-        comments: 42,
+       
         url: "https://challenges.openideo.com/challenge/e-waste/concepting/the-hacker-s-cookbook-to-be-updated..",
         clicked: false
     },

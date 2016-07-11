@@ -15,9 +15,15 @@
             margin-right: auto;
             width: 80%;
             overflow: scroll;
+            min-height: 500px;
         }
         .Option{
             float: right;   
+        }
+        .version{
+            display: inline-block;
+            border: 1px solid;
+            align: center;
         }
         .full{
             width: 100%;
@@ -73,6 +79,10 @@
                     .input .button{
                         float: right;  
                     }
+        .hover{
+            background-color: black;
+            color: white;
+        }
                     
                     
     </style>
@@ -85,7 +95,7 @@
 </template>
 
 <template name="idea_item">
-    <div class="full">
+    <div class="full" role="button">
         <h1>{{content}}</h1>
         <!--<a href={{url}} target="_blank">More Details ....</a>-->
         <p>likes: {{likes}}</p>
@@ -100,14 +110,16 @@
 </template>
 
 <template name="idea_item2">
-    <div class="full">
+    <div class="full" role="button">
         <h1>{{content}}</h1>
     </div>
 </template>
 
 <template name="themesList">
     <div class="themeList col-md-12">
-        {{moreInfo}}
+        {{#each item in moreInfo}}
+            <p>{{item}}</p>
+        {{/each}}
     </div>
 </template>
 
@@ -145,9 +157,9 @@
 
         <div class="input col-md-8">
             <!--{{> input}}-->
+             {{> done}}
         </div>
     </div>
-    
     <script src="ideaData.js"></script>
     <script> 
        /* var i = 0;
@@ -185,6 +197,7 @@
 
         <div class="input col-md-8">
             <!--{{> input}}-->
+            {{> done}}
         </div>
     </div>
     
@@ -219,6 +232,7 @@
         <div class="Option">
             <input type="button" value="Continue" id="continue" class="btn btn-success"/>
             <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
+            
         </div>
     </div>
 </template>
@@ -264,4 +278,23 @@
         <p>The U.S. Environmental Protection Agency (EPA) is an agency of the federal government of the United States charged with protecting human health and the environment, by writing and enforcing regulations based on laws passed by Congress. Proposed by President Richard Nixon, the EPA began operation on December 2, 1970. The Agency is currently led by Administrator Lisa P. Jackson, who was appointed by President Obama and approved by Congress. More than half of EPA employees are engineers, scientists, and environmental protection specialists; other groups include legal, public affairs, financial, and information technologists. These employees conduct environmental assessments, research, and education on environmental and human health issues. The agency also works with industries and all levels of government in a wide variety of voluntary pollution prevention programs and energy conservation efforts. <a href="https://www.epa.gov/recycle">Learn more.</a></p>
         
     </div>
+</template>
+
+<template name="setup">
+    <div class="info">
+        {{> header}}
+        <p>Please select the version you have been instructed to participate in.</p>
+        <div class="version col-md-2 col-md-offset-3" id="1" role="button">Version1</div>
+        <div class="version col-md-2" id="2" role="button">Version2</div>
+        <div class="version col-md-2" id="3" role="button">Version3</div>
+    </div>
+    {{> NextPhase}}
+</template>
+
+<template name="thankyou">
+    <p><center>Thank You for your participation!</center></p>
+</template>
+
+<template name="done">
+            <input type="button" value="Done" id="done" class="btn btn-success"/> 
 </template>

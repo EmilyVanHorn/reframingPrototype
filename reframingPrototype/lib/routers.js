@@ -9,10 +9,10 @@ Router.route('/',{
     name: 'newInst',
     template: 'newInst'
 });
-/*Router.route('/Login'),{
-    name: 'setup',
-    template: 'setup'
-});*/
+Router.route("/Login",{
+    name:"login",
+    template: "setup"
+});
 Router.route("version2/home", {
     name:'homeNoMeta',
     template: 'homeNoMeta'
@@ -32,4 +32,13 @@ Router.route("/version1",{
 Router.route("/version2",{
     name:'OpenIDEO2',
     template:'OpenIDEO2'
+});
+
+Router.route("/inst",{
+   name: 'inst',
+    template:'inst'
+});
+Router.route("/thankyou",{
+    name: 'thankyou',
+    template: 'thankyou'
 });
