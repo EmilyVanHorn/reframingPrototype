@@ -123,6 +123,26 @@
     </div>
 </template>
 
+<template name="themesList3">
+    <div class="themeList col-md-12">
+        {{#each item in moreInfo}}
+            <p>{{item}}</p>
+        {{/each}}
+        <hr>
+        <big>Comments</big>
+        {{#each comment}}
+            {{> comment_item}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="comment_item">
+    <div class="full">
+        <h1>{{text}}</h1>
+        <p>{{authorName}}</p>
+    </div>
+</template>
+
 <template name="theme_item">
     <div class="theme_item col-md-3">
         <big>{{content}}</big><br>
@@ -152,7 +172,7 @@
         </div>
 
         <div class="themes col-md-8 visible">
-            {{> themesList}}
+            {{> themesList3}}
         </div>
 
         <div class="input col-md-8">
@@ -282,7 +302,7 @@
 
 <template name="setup">
     <div class="info">
-        {{> header}}
+        <!--{{> header}}-->
         <p>Please select the version you have been instructed to participate in.</p>
         <div class="version col-md-2 col-md-offset-3" id="1" role="button">Version1</div>
         <div class="version col-md-2" id="2" role="button">Version2</div>

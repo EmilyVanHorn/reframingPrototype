@@ -51,10 +51,26 @@ Template.themesList.onCreated(function() {
   Meteor.subscribe('themesPublication');
 });
 
+Template.themesList3.onCreated(function(){
+    Meteor.subscribe('commentsPublication');
+});
+
 Template.themesList.helpers({
     theme: Themes.find(),
     moreInfo: function(){ 
         return Ideas.findOne({"clicked": true}).moreInfo;
+    }
+});
+
+Template.themesList3.helpers({
+    theme: Themes.find(),
+    moreInfo: function(){ 
+        return Ideas.findOne({"clicked": true}).moreInfo;
+    },
+    comment: function(){
+        idea = Ideas.findOne({"clicked": true}).openIDEOid;
+        //alert(idea);
+        return Comments.find({"ideaID": idea});
     }
 });
 
@@ -65,6 +81,27 @@ Template.theme_item.helpers({
 
 
 Template.idea_item.events({
+    'click div': function(e){
+        var text = e.target.firstChild.nodeValue;
+        var old = null;
+        if(old = Ideas.find({'clicked': true}).fetch()[0]){
+        }
+        else{
+            old = Ideas.find().fetch()[0];  
+        }
+        var newClick = Ideas.find({'content': text}).fetch()[0];
+        Ideas.update({_id: old._id}, {
+            $set: {clicked: false}
+        });
+        
+        Ideas.update({_id: newClick._id}, {
+            $set: {clicked: true}
+        });
+        
+    }
+});
+
+Template.idea_item2.events({
     'click div': function(e){
         var text = e.target.firstChild.nodeValue;
         var old = null;
@@ -119,7 +156,7 @@ Template.NextPhase.events({
                 Router.go("/login");
                 break;
             case '/Login':
-                if(Meteor.userId()){
+                /*if(Meteor.userId()){
                     switch(version){
                         case 1:
                             Router.go('/version1');
@@ -134,7 +171,18 @@ Template.NextPhase.events({
                 }
                 else{
                     alert("Please sign in before starting the brainstorm");   
-                }
+                }*/
+                switch(version){
+                    case 1:
+                        Router.go('/version1');
+                        break;
+                    case 2:
+                        Router.go('/version2');
+                        break;
+                    case 3:
+                        Router.go('/version2');
+                        break;
+                }   
                 break;
             default:
                 switch(version){

@@ -20,3 +20,7 @@ Meteor.publish('ideasPublication', function() {
 Meteor.publish('themesPublication', function() {
     return Themes.find({owner: this.userId});
   });
+
+Meteor.publish('commentsPublication', function(){
+    return Comments.find();             
+});
