@@ -371,72 +371,218 @@ if(Comments.find().count() === 0){
         timestamp:  "August 15, 2012, 11:27PM",
         text:       "Hi there, I think this is a really interesting concept. I frequently travel to The Gambia and one thing I have learnt there is that if you can't open machines up, it's easy to understand how they can be repaired,  and you can't get replacement bits for broken parts that work, they quickly turn into obsolete junk. There you find donated computers in clinics that locals call 'ornaments', ultra sound machines that cost a fortune but don't work because one tiny part has broken and on the other hand you have cars that are 3 decades old but still run because they don't require software to be repaired and replacement parts don't have to be a perfect fit.  Could you maybe look at gadgets such as phones not necessarily to be modular but to be repairable. I think this would open it up a bit more. Maybe this means that components have to be modular but it might also mean that not just the outside (buttons, etc) follows a particular colour coding for usability but also that the inside is designed for usability that allows easy repair. "
     });
-}
-/*    Comments.insert({
-      ideaID:     "C-014",
+    Comments.insert({
+      ideaID:       "C-014",
+        authorName: "ashleysbp",
+        timestamp:  "August 14, 2012, 06:01PM",
+        text:       "Nice idea Anne! I especially like that you've honed in on one specific consumer pain point and designed a concept to resolve that. Do you have a sense of what this service would look like? Would consumers have to go somewhere to have their data scrubbed? Could it be an add-on service that consumers pay for when they first buy their phone? I'm curious to hear what you think. "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "223103034",
+        timestamp:  "August 15, 2012, 10:29PM",
+        text:       "Hi Ashley, thank you for your comments. I did think about writing something on legislation that stops EU countries dumping their e-waste in places like Ghana (there seems to be a legislative loophole) but my personal interest lies with bottom-up/ user behaviour type stuff. I live in the UK which apparently is one of the top countries for phone take-back schemes but even there only a fraction of old phones are recycled or re-used.  The way I imagine this to work (but Im all ears for suggestions) is that someone would walk into a mobile phone retail outlet with an old phone, possibly looking for a new one. There, data could simply be taken off the old phone before it is collected by the retailer or if a new phone is purchased, data could be transferred onto the new device. There might even be a financial incentive to hand in phones.  Alternatively, someone might just want to delete or transfer data to give the phone to a friend or family member. Someone I spoke to yesterday even suggested that he would be happy to pay a fee to have data taken off a phone to be able to pass it to someone else.  I think what you said about this being an add-on service is interesting. I guess from a business point of view it might even strengthen brand loyalty.  In the UK you can check how much money you can receive for an old phone through a number of providers online. Then you register your details, they send you an envelope, you post the phone and they post you a cheque. Im not sure how the concept could work with online take-back schemes like this but as I said earlier, this only accounts for a fraction of discarded phones. "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "ubiquity",
+        timestamp:  "August 16, 2012, 01:33AM",
+        text:       "Wonderful Anne! Great and practical concept in the context of making 'safe' all sorts of devices that may have personal data. Also very sensible suggestion to determine the extent to which data sensitivity is a factor in people's disposal decisions. Interesting provocations too Ashley. "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "graffikki",
+        timestamp:  "August 28, 2012, 11:51AM",
+        text:       "Maybe consumers could go into a drop-off point, and on the wall they can plug in their device and a memory stick, press a button, all data is then transferred to the stick and it confirms the device is clean.  Then they put the device in a drop-off container. May be a bit technical but I would certainly be more than happy to do that! I like you idea, best of luck :) "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "ubiquity",
+        timestamp:  "September 03, 2012, 06:48AM",
+        text:       "Congratulations on making the refinement shortlist Anne! I will look at linking some of your comments from above, together with this concept to some others, particularly those that incorporate an element of residual value. This service is needed at a variety of stages in a device's life-cycle. I have friends in the Philippines who are often in need of ready cash so have a tendency to 'pawn' things from PCs to CPs - in one case they pawned a netbook then failed to make the interest payments and lost the family photos, on a previous occasion they got the device back but when we examined it there had obviously been some use of it while in 'pawn'.  I think Gail's idea of a plug-in point for some devices (like CPs) is worth incorporating in the concept, and possibly extending the service to other points at which transfer of ownership (either temporary or permanent) occurs. "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "ubiquity",
+        timestamp:  "September 03, 2012, 02:27PM",
+        text:       "In this comment ( http://www.openideo.com/open/e-waste/concepting/chargers-and-cords-exchange-box#c-1718d3a3c83c1bdb93fe53468a609557 ) I suggested that a number of other concepts provided potential locations for both the exchange service and for your transfer and elimination service. The potential for marketing this service is huge but I particularly like the prospect of combining/partnering with other concepts out of this challenge. "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "admin",
+        timestamp:  "August 27, 2012, 10:40PM",
+        text:       "Anne, congratulations on your Top 20 concept! We really liked that your solution pinpoints a really important potential hurdle in the recycling process. As you refine in this next phase, we encourage you to think about how your might research and learn more about this hurdle. You mentioned creating a survey to understand if personal data is one reason that consumers don't recycle  how could you give this a try? We're excited to hear about your learning.  For more tips on how to iterate and prototype your idea during the Refinement phase, check this update on how the shortlist was chosen http://bit.ly/ewaste-top20 and the Lowdown on Refinement: http://bit.ly/oi_refine  (Note: We're currently facing a bug which may prevent you from being able to directly update your concept post. Our developers are busy working on it. Meanwhile, if you're wanting to iterate your ideas, you can use the comments feature to promote further conversation from others. We'll let you know once the bug is fixed, then you can incorporate your refinement moves into your concept post. Let's be agile, together!) "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "admin",
+        timestamp:  "August 28, 2012, 09:23PM",
+        text:       "Right on! Our development team have been busy fixing the Update Entry bug and we're back on track now. You'll now be able to edit your posts to add all that refinement-goodness to build out your concepts for improved impact. Bring it on, together! "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "admin",
+        timestamp:  "August 14, 2012, 11:12PM",
+        text:       "Congrats on this post being today's onsite Featured Concept! "
+    });
+    Comments.insert({
+        ideaID:     "C-014",
+        authorName: "223103034",
+        timestamp:  "August 15, 2012, 09:58PM",
+        text:       "Thank you. :) "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "patricio007",
+        timestamp:  "August 22, 2012, 06:49PM",
+        text:       "I like your incentive wrapped up at the policy level opportunistically. #collaboration "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "andrew8d9",
+        timestamp:  "August 21, 2012, 05:19PM",
+        text:       "Love the thought process (in your update) for how all these concepts can work together! "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "661942485",
+        timestamp:  "August 22, 2012, 08:05AM",
+        text:       "Thanks, Andrew! "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "ashleysbp",
+        timestamp:  "August 13, 2012, 05:53PM",
+        text:       "Really interesting take on using financial (dis)incentives to motivate specific design priorities! "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "tudannguyen",
+        timestamp:  "August 16, 2012, 02:52PM",
+        text:       "Agree - I really like the bigger system change thinking in this concept and can see it being part of many other ideas! "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "661942485",
+        timestamp:  "August 16, 2012, 09:58PM", 
+        text:       "Thanks Ashely and Annie! Do you have any specific suggestions on with which concepts this idea might be combined with? "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "ubiquity",
+        timestamp:  "August 17, 2012, 01:42PM",
+        text:       "Hi Juho - interesting thoughts that I will look at fully shortly. I expect James Moyer ( http://www.openideo.com/profiles/jimbobjoe/ ) may visit this concept as I think he has some thoughts on differential tax options (see discussion on Andrew Allen's concept http://www.openideo.com/open/e-waste/concepting/rewire.com/  )  Andrew actually has another concept ( http://www.openideo.com/open/e-waste/concepting/e-rating-a-lesson-from-fast-food-menus/ ) that you might find some affinity with, also Priscilla Melo's (http://www.openideo.com/open/e-waste/concepting/non-obsolescence-index/  ) and I had some interest in the issues you raise in my labeling concept ( http://www.openideo.com/open/e-waste/concepting/recy-cool-ability/  ) at the point of purchase (which is where James might have some input). "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "ubiquity",
+        timestamp:  "August 17, 2012, 01:56PM",
+        text:       "On the design side you might find it appropriate to link to Valentina's ( http://www.openideo.com/open/e-waste/concepting/recycling-model-in-the-mind-while-develping-every-new-product./ ); Alexis Cooke's ( http://www.openideo.com/open/e-waste/concepting/make-the-modular-phone-into-a-reality-/ ) and ( http://www.openideo.com/open/e-waste/concepting/design-with-the-end-in-mind./ ) from Christine Thompson. I expect there are more as I haven't looked at all 106 concepts yet.  Joe Lee has a database proposal that might incorporate parameters related to your concept and provide a useful reference point ( http://www.openideo.com/open/e-waste/concepting/mint-for-e-waste-management-what-s-my-electronic-footprint/ ) "
+    });
+    Comments.insert({
+       ideaID:     "C-015",
+        authorName: "661942485",
+        timestamp:  "August 18, 2012, 08:38AM",
+        text:       "Thanks Paul! I'm going to take a look on these and see what I can do! "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "661942485",
+        timestamp:  "August 20, 2012, 12:09PM",
+        text:       "I made an update to the concept according to suggestions. "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "ubiquity",
+        timestamp:  "August 20, 2012, 12:47PM",
+        text:       "Great refinements Juho and very effective way of showing interrelationships (makes my use of CMap Tools look like overkill). "
+    });
+    Comments.insert({
+        ideaID:     "C-015",
+        authorName: "661942485",
+        timestamp:  "August 21, 2012, 10:14AM",
+        text:       "Thanks! I use post-it notes quite a lot to help me think. Turning that to an illustration was just an afterthought, but it worked out nicely :) "
+    });
+}/*
+    Comments.insert({
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
     Comments.insert({
-        ideaID:     "C-014",
+        ideaID:
         authorName:
         timestamp:
         text:
     });
-}
+    Comments.insert({
+        ideaID:
+        authorName:
+        timestamp:
+        text:
+    });
+    Comments.insert({
+        ideaID:
+        authorName:
+        timestamp:
+        text:
+    });
+}*/
 
 
 
-Comments.insert({
+/*
+
+    Comments.insert({
         ideaID:
         authorName:
         timestamp:

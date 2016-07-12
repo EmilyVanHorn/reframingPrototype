@@ -361,7 +361,7 @@ ideaData = [
         views:      493,
         url: "https://challenges.openideo.com/challenge/e-waste/concepting/disassembly-time-tax",
         clicked: false
-    },
+    }];/*
     {
         openIDEOid: "C-016",
         content: "Don't Debate, Granulate!: Turning e-Waste into Rugged Building Materials",
@@ -507,7 +507,7 @@ ideaData = [
         views:      329,
         url: "https://challenges.openideo.com/challenge/e-waste/concepting/e-life-cycled",
         clicked: false
-    }];
+    }];*/
     /*{
         openIdeoid: "C-020",
         content: "install chargers and cords exchange boxes in local stores and shops",

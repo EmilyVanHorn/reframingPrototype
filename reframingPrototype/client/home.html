@@ -20,11 +20,17 @@
         .Option{
             float: right;   
         }
+        
         .version{
             display: inline-block;
             border: 1px solid;
             align: center;
         }
+            .version:hover{
+                background-color: black;
+                color: white;
+                font-size: 20px;
+            }
         .full{
             width: 100%;
             min-height 100px;
@@ -94,7 +100,7 @@
     {{/each}}
 </template>
 
-<template name="idea_item">
+<template name="idea_item" id="idea_item">
     <div class="full" role="button">
         <h1>{{content}}</h1>
         <!--<a href={{url}} target="_blank">More Details ....</a>-->
@@ -258,8 +264,25 @@
 </template>
 
 <template name="newInst">
-    <div class="info">
-        aklsdjflaskjdflaskjdf
+    <div class="info"> 
+        <p>In the following screens, your in person instructor will assign you a "version" of the study to complete and provide you with two sheets of paper, one titled "Your Ideas", and the other "New Framings". You will then be given a problem to solve. Within the 15 minute time limit, please write down as many ideas to solve the problem as you can on the "Your Ideas" sheet, as well as any new problem framings you come up with on the "New Framings" sheet. </p>
+        <p style="font-size: 20px">What do we mean by "framings"?</p>
+        <p>A framing is just a new angle at which you look at a problem.</p>
+        <hr>
+        <p>For example, if the problem was:</p>
+            <p>
+                <p style="font-size: 20px">"How do we improve the public transporation experience?" </p>
+            some of your reframings may be:
+            <ul>
+                <li>Increasing the number of buses on the road is a good idea, but may pose logistical issues. What are those logistical issues, and how might we get around them?</li>
+                <li>Rather than add bus routes, how can we reinvent the ones we have to be more efficient?</li>
+                <li>How can we integrate the bus and train system to work together cohesively?</li>
+                <li>Maybe the problem isn't the transportation system, but the ease of access for commuters. How can we make it easier for people to get to their bus stops, train stations, and other transportation terminals?</li>
+                <li>How can we raise more revenue to go towards public transit improvements?</li>
+            </ul>
+            </p>
+    <hr>
+    <p style="text-align: center">When you're ready, please click the "Continue" button below. If you've decided not to participate, click the "Quit" button. <br>Good Luck!</p>
     </div>
     
     {{> NextPhase}}

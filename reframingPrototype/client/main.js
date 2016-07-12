@@ -18,6 +18,7 @@ var meta=[
     ];
 
 var version;
+var currentDivClicked;
 
 Template.ideasList.onCreated(function() {
     Meteor.subscribe('ideasPublication');
@@ -27,7 +28,7 @@ Template.ideasList2.onCreated(function() {
 });
 
 Template.ideasList.helpers({
-    idea: Ideas.find()
+    idea: Ideas.find(),
     //idea: ideaData
 });
 
@@ -98,6 +99,14 @@ Template.idea_item.events({
             $set: {clicked: true}
         });
         
+        if(!currentDivClicked){
+            currentDivClicked = e.target.parentElement;   
+        }
+        else{
+            currentDivClicked.style="background-color: white";   
+        }
+        e.target.parentElement.style="background-color: lightblue";
+        currentDivClicked = e.target.parentElement;
     }
 });
 
@@ -118,6 +127,15 @@ Template.idea_item2.events({
         Ideas.update({_id: newClick._id}, {
             $set: {clicked: true}
         });
+        
+        if(!currentDivClicked){
+            currentDivClicked = e.target.parentElement;   
+        }
+        else{
+            currentDivClicked.style="background-color: white";   
+        }
+        e.target.parentElement.style="background-color: lightblue";
+        currentDivClicked = e.target.parentElement;
         
     }
 });
@@ -201,7 +219,7 @@ Template.NextPhase.events({
 });
 
 Template.setup.events({
-    'mouseover #1, mouseover #2, mouseover #3': function(e){
+    /*'mouseover #1, mouseover #2, mouseover #3': function(e){
         e.target.style=
             "background-color: black;" +
             "color: white;" +
@@ -213,18 +231,60 @@ Template.setup.events({
             "background-color: white;" +
             "color: black;" +
             "font-size: 14px;"
-    },
+    },*/
     'click #1': function(e){
         version = 1;
+        
+        var one = document.getElementById("1");
+        var two = document.getElementById("2");
+        var three = document.getElementById("3");
+        
+        one.style=
+            "background-color: black;" +
+            "color: white;"
+        two.style=
+            "background-color: white;" +
+            "color: black;"
+        three.style=
+            "background-color: white;" +
+            "color: black;"
         
     },
     'click #2': function(e){
         //Router.go('/version2/home');
         version = 2;
+        
+        var one = document.getElementById("1");
+        var two = document.getElementById("2");
+        var three = document.getElementById("3");
+        
+        one.style=
+            "background-color: white;" +
+            "color: black;"
+        two.style=
+            "background-color: black;" +
+            "color: white;"
+        three.style=
+            "background-color: white;" +
+            "color: black;"
     },
     'click #3': function(e){
         //Router.go('/version3/home');
         version = 3;
+        
+        var one = document.getElementById("1");
+        var two = document.getElementById("2");
+        var three = document.getElementById("3");
+        
+        one.style=
+            "background-color: white;" +
+            "color: black;"
+        two.style=
+            "background-color: white;" +
+            "color: black;"
+        three.style=
+            "background-color: black;" +
+            "color: white;"
     }
 });
 
