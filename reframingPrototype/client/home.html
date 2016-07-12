@@ -50,8 +50,23 @@
             overflow: hidden;
         }
         .themes{
-            overflow: scroll;   
+            overflow: scroll;  
         }
+        .commentcss{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 14px;
+            border: 1px solid;
+            margin-top: 20px;
+            border-radius: 20px;
+        }
+            .commentcss p{
+                text-align: right;
+            }
+            .commentcss h1{
+                font-size: 15px;   
+            }
         .link{
             font-size: 15px;
             float: right;
@@ -143,7 +158,7 @@
 </template>
 
 <template name="comment_item">
-    <div class="full">
+    <div class="commentcss">
         <h1>{{text}}</h1>
         <p>{{authorName}}</p>
     </div>
@@ -250,7 +265,7 @@
 
 <template name="OpenIDEO2">
         {{> IDEO}}
-        {{> NextPhase}}
+        {{> NextPhase2}}
 </template>
 
 <template name="NextPhase">
@@ -263,16 +278,26 @@
     </div>
 </template>
 
+<template name="NextPhase2">
+    <div class="info">
+        <div class="Option">
+            <input type="button" value="See Ideas" id="continue" class="btn btn-success"/>
+            <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
+            
+        </div>
+    </div>
+</template>
+
 <template name="newInst">
     <div class="info"> 
-        <p>In the following screens, your in person instructor will assign you a "version" of the study to complete and provide you with two sheets of paper, one titled "Your Ideas", and the other "New Framings". You will then be given a problem to solve. Within the 15 minute time limit, please write down as many ideas to solve the problem as you can on the "Your Ideas" sheet, as well as any new problem framings you come up with on the "New Framings" sheet. </p>
+        <p>In the following screens, your in person instructor will assign you a "version" of the study to complete and provide you with two sheets of paper, one titled "Your Ideas", and the other "New Framings". You will then be given a problem to solve. Within the 10 minute time limit, please write down as many ideas to solve the problem as you can on the "Your Ideas" sheet, as well as any new problem framings you come up with on the "New Framings" sheet. </p>
         <p style="font-size: 20px">What do we mean by "framings"?</p>
-        <p>A framing is just a new angle at which you look at a problem.</p>
+        <p>A framing is an "angle" for a problem which includes an idea of what the goal is and a high level idea of how that goal might be acheived. </p>
         <hr>
         <p>For example, if the problem was:</p>
             <p>
                 <p style="font-size: 20px">"How do we improve the public transporation experience?" </p>
-            some of your reframings may be:
+            some of your framings may be:
             <ul>
                 <li>Increasing the number of buses on the road is a good idea, but may pose logistical issues. What are those logistical issues, and how might we get around them?</li>
                 <li>Rather than add bus routes, how can we reinvent the ones we have to be more efficient?</li>

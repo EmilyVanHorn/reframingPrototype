@@ -218,6 +218,60 @@ Template.NextPhase.events({
     }
 });
 
+Template.NextPhase2.events({
+    'click #continue': function(e){
+        //go to the "next" page as determined by a switch statement?
+        var path = Router.current().route.path();
+        
+        switch(path){
+            case "/":
+                Router.go("/login");
+                break;
+            case '/Login':
+                /*if(Meteor.userId()){
+                    switch(version){
+                        case 1:
+                            Router.go('/version1');
+                            break;
+                        case 2:
+                            Router.go('/version2');
+                            break;
+                        case 3:
+                            Router.go('/version2');
+                            break;
+                    }   
+                }
+                else{
+                    alert("Please sign in before starting the brainstorm");   
+                }*/
+                switch(version){
+                    case 1:
+                        Router.go('/version1');
+                        break;
+                    case 2:
+                        Router.go('/version2');
+                        break;
+                    case 3:
+                        Router.go('/version2');
+                        break;
+                }   
+                break;
+            default:
+                switch(version){
+                    case 2:
+                        Router.go('homeNoMeta');
+                        break;
+                    case 3:
+                        Router.go('home');
+                        break;
+                }
+        }  
+    },
+    'click #quit': function(e){
+        Router.go("/thankyou");   
+    }
+});
+
 Template.setup.events({
     /*'mouseover #1, mouseover #2, mouseover #3': function(e){
         e.target.style=
