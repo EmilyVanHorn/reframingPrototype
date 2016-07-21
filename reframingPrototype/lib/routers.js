@@ -5,7 +5,7 @@
     template:'OpenIDEO1'
 });*/
 
-Router.route('/',{
+/*Router.route('/',{
     name: 'newInst',
     template: 'newInst'
 });
@@ -41,4 +41,28 @@ Router.route("/inst",{
 Router.route("/thankyou",{
     name: 'thankyou',
     template: 'thankyou'
+});*/
+
+Router.configure({
+    layoutTemplate: 'layout1'
+});
+
+Router.route('/', {
+    name: 'signin',
+    tempate:'signin'
+});
+
+Router.route('/consent',{
+    name: 'consent',
+    template: 'consent'
+});
+
+Router.route('/aboutFraming',{
+    name: 'whatIsFraming',
+    template: 'whatIsFraming'
+});
+
+Router.route('/layout2Testing', function(){
+    this.render('temp');
+    this.layout('layout2');
 });

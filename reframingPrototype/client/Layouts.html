@@ -1,0 +1,117 @@
+<!-----------------------------------------------------------------------------
+    LAYOUTS.HTML TEMPLATE OUTLINE
+    search "##{templateName}" for any of the templateNames listed below to eas-
+    ily find it's code and a more detailed description
+
+    Layout1:                simple text layout   
+    Layout2:                activity layout
+        TabBox:             user input field -- a collection of tabs
+            ideaPad:        user input of ideas -- a tab in TabBox
+            framePad:       user input of frames-- a tab in TabBox
+------------------------------------------------------------------------------->
+
+<!-- 
+    ##Layout 1 contains a nav bar at the top, a(n invisible) footer at the bottom,
+    and content space in between. It is designed for info/text rich pages and 
+    basic progressive functions.
+        - client/Signin.html
+        - client/Consent.html
+        - client/WhatIsFraming.html
+ -->
+<template name="layout1"> 
+    <div class="container">
+        <div class="buffer">
+            <div class="navbar navbar-default" role="navigation">
+                <p class="navbar-text">Some Text Here</p>
+            </div>
+            <hr/>
+            <div class ="content">
+                {{> yield}}
+            </div>
+        </div>
+        <hr/>
+        <div class ="footer">
+            {{> Next}}
+        </div>
+    </div>
+</template>
+
+<!--
+    ##Layout 2 contains the same navbar and footer as in layout 1 in addition to
+    a left panel for populating ideas or other information (via yield) and a 
+    right panel for user input.
+ -->
+<template name="layout2">
+    <div class="container">
+        <div class="problem"></div>
+        
+        <div class="left col-sm-6">
+            {{> yield}}
+        </div>
+        <div class="right col-sm-6">
+            {{> TabBox}}
+        </div>    
+        <hr/>
+        <div class ="footer">
+            {{> Next}}
+        </div>
+    </div>
+</template>
+
+<!--
+    ##TabBox is the right pane of layout 2. It's where the user is expected to 
+    enter their ideas/framings and anything else we may think up.
+    It consists of a series of tabs and a notepad associated with each.
+ -->
+<template name="TabBox">
+<!-- 1. Create the tabs themselves  -->
+    <ul class="nav nav-tabs viz-tabs" role="tablist">
+      <li class="active"><a href="#inputIdeas" role="tab" data-toggle="tab">Ideas</a></li>
+      <li><a href="#frames" role="tab" data-toggle="tab">Framings</a></li>
+    </ul>
+ 
+    <!-- 2. Create a matching tab pane for each tab. Content goes within these panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="ideas">
+            <!--{{> HcompIdeaWordCloud}}-->
+        </div>
+        <div class="tab-pane" id="framings">
+    <!--        {{> ForceV }}-->
+        </div>
+    </div>
+</template>
+
+<!--
+    ##ideaPad is a notepad for entering ideas
+    uses tinyMCE -- https://tinymce.com
+ -->
+<template name="ideaPad">
+    <div id="inputIdeas">
+        <!-- TODO: PUT TINYMCE HERE -->
+    </div>
+</template>
+
+<!--
+    ##framePad is a notepad for entering frames
+    uses tinyMCE -- https://tinymce.com
+ -->
+<template name="framePad">
+    <div id="frames">
+        <!-- TODO: PUT TINYMCE HERE -->
+    </div>
+</template>
+
+<template name="temp">
+    asdfasdf
+</template>
+
+<!-- TODO: GET RID OF THIS WHILE LINKING PAGES!!!! -->
+<template name="Next">
+    <form class="navbar-form next">
+        <input type="button" value="Continue" id="continue" class="btn btn-success"/>
+        <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
+    </form>
+</template>
+
+
+

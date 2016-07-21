@@ -1,0 +1,41 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    height: 100%;
+    overflow: scroll;
+}
+.buffer{
+    min-height: 100%;
+    margin-bottom: -80px;
+    overflow: auto;
+}
+.visible{
+    border: 1px solid;
+}
+.disabled{
+    display: none;
+}
+.content{
+    margin: 0px;
+    margin-bottom: 75px;
+}
+.footer{
+    height: 75px;
+}
+.next{
+    float: right;
+    padding: 15px;
+}
+.left, .right{
+    height: 75%;
+    border: 1px solid;
+}
+.problem{
+    width: 100%;
+    height: 75px;
+    border: 1px solid;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
