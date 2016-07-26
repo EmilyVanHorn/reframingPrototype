@@ -1,0 +1,17 @@
+.list{
+    width: 100%;
+    min-height:100px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+.list h1{
+    font-size: 15px;
+               
+}
+.list p{
+    text-align: right;
+}
+.msg{
+    color: darkgray;
+    text-align: center;
+}

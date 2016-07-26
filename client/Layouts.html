@@ -1,0 +1,112 @@
+<!-----------------------------------------------------------------------------
+    LAYOUTS.HTML TEMPLATE OUTLINE
+    search "##{templateName}" for any of the templateNames listed below to eas-
+    ily find it's code and a more detailed description
+
+    Layout1:                simple text layout   
+    Layout2:                activity layout
+        TabBox:             user input field -- a collection of tabs
+            ideaPad:        user input of ideas -- a tab in TabBox
+            framePad:       user input of frames-- a tab in TabBox
+------------------------------------------------------------------------------->
+
+<!-- 
+    ##Layout 1 contains a nav bar at the top, a(n invisible) footer at the bottom,
+    and content space in between. It is designed for info/text rich pages and 
+    basic progressive functions.
+        - client/Signin.html
+        - client/Consent.html
+        - client/WhatIsFraming.html
+    in Layout.css:
+        - .content
+        - .footer
+        - .container
+ -->
+<template name="layout1"> 
+    <div class="container">
+        <div class="navbar navbar-default" role="navigation">
+            <p class="navbar-text">Some Text Here</p>
+        </div>
+        <hr/>
+        <div class ="content">
+            {{> yield}}
+        </div>
+        <hr/>
+    </div>
+</template>
+
+<!--
+    ##Layout 2 contains the same navbar and footer as in layout 1 in addition to
+    a left panel for populating ideas or other information (via yield) and a 
+    right panel for user input.
+ -->
+<template name="layout2">
+    <div class="container">
+        <div class="problem">
+            <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?
+                <span class="link">
+                    <!--<a href="{{pathFor route='inst'}}" target="_blank">See Instructions </a>|-->
+                    <!--<a href="https://challenges.openideo.com/challenge/e-waste/brief" target="_blank">More about the project</a></span></h1> -->
+                    <a class="back">Project Description</a></span></h1>
+        </div>
+        
+        <div class="left col-sm-6">
+            {{> yield}}
+        </div>
+        <div class="right col-sm-6">
+            {{> TabBox}}
+        </div>    
+        <hr/>
+        <form class="navbar-form next">
+            <input type="button" value="Done" id="done" class="btn btn-success"/>
+            <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
+        </form>
+    </div>
+</template>
+
+<!--
+    ##TabBox is the right pane of layout 2. It's where the user is expected to 
+    enter their ideas/framings and anything else we may think up.
+    It consists of a series of tabs and a notepad associated with each.
+ -->
+<template name="TabBox">
+<!-- 1. Create the tabs themselves  -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#ideas" role="tab" data-toggle="tab">Ideas</a></li>
+        <li><a href="#framings" role="tab" data-toggle="tab">Framings</a></li>
+        {{> timer}}
+    </ul>
+    
+ 
+    <!-- 2. Create a matching tab pane for each tab. Content goes within these panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="ideas">
+            {{> ideaPad}}
+        </div>
+        <div class="tab-pane" id="framings">
+            {{> framePad}}
+        </div>
+    </div>
+</template>
+
+<!--
+    ##ideaPad is a notepad for entering ideas
+    uses tinyMCE -- https://tinymce.com
+ -->
+<template name="ideaPad" id="ideaPad">
+    <div id="inputIdeas">
+        <textarea id="itext">Idea</textarea>
+    </div>
+</template>
+
+<!--
+    ##framePad is a notepad for entering frames
+    uses tinyMCE -- https://tinymce.com
+ -->
+<template name="framePad" id="framePad">
+    <div id="frames">
+       <textarea id="ftext">Frame</textarea>
+    </div>
+</template>
+
+

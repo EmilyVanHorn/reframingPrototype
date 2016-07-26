@@ -1,0 +1,13 @@
+<template name="activity3">
+    {{#each idea}}
+    {{> idea_item3}}
+    {{/each}}
+</template>
+
+<template name="idea_item3">
+    <div class="list" role="button">
+        <h1>{{content}}</h1>
+        <p>likes: {{likes}}</p>
+        <p>comments: {{comments}}</p>
+    </div>
+</template>
