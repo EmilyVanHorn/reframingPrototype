@@ -11,7 +11,30 @@
 .list p{
     text-align: right;
 }
+/*.ideasList{
+    background-color: #ddd;
+}*/
 .msg{
     color: darkgray;
     text-align: center;
 }
+/*.commentlistcss{
+    background-color: white;
+}*/
+.commentcss{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    border: 1px solid;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    /*background-color: white;*/
+}
+    .commentcss p{
+        text-align: right;
+    }
+    .commentcss h1{
+        font-size: 15px;   
+    }

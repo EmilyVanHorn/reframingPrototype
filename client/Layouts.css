@@ -33,6 +33,9 @@ html, body{
     border: 1px solid;
     overflow: scroll;
 }
+/*.left{
+    background-color: #ddd;
+}*/
 .problem{
     width: 100%;
     min-height: 75px;

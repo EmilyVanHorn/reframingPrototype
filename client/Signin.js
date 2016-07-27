@@ -1,3 +1,5 @@
+Session.set("started", "notStarted");
+
 
 var logger = new Logger('Client:Exp:MturkLogin');
 // Comment out to use global logging level
