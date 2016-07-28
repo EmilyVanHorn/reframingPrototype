@@ -108,26 +108,19 @@ EventLogger = (function () {
       var msg = "User consented to experiment";
       //var type = EventTypeManager.get(msg);
       this.log(msg);
+      console.log(msg);
     },
     logDenyParticipation: function() {
       var msg = "User was denied participation in experiment";
       //var type = EventTypeManager.get(msg);
-      var exp = Session.get("currentExperiment")
-      var data = {'expID': exp._id, 'expDescr': exp.description}
-      this.log(msg, data);
+      //var exp = Session.get("currentExperiment")
+      //var data = {'expID': exp._id, 'expDescr': exp.description}
+      this.log(msg);
     },
-    logExitStudy: function() {
+    logExitStudy: function(prompt) {
       var msg = "User exited study early";
-      var prompt = Session.get("currentPrompt");
-      var role = Session.get("currentRole");
-      //var type = EventTypeManager.get(msg);
-      var data = {'promptID': prompt._id,
-          'role': role.title
-      };
+      var data = {'pageOfExit': prompt};
       this.log(msg, data);
-      var part = Session.get("currentParticipant");
-      Participants.update({_id: part._id},
-        {$set: {exitedEarly: true}});
     },
     logTutorialStarted: function () {
       var msg = "User started a tutorial";
@@ -491,6 +484,78 @@ EventLogger = (function () {
       var data = {'isHidden': isHidden};
       logger.debug(data);
       this.log(msg, data);
+    },
+    logIdeaClick: function(id){
+        var msg = "User clicked on an idea";
+        var data = {'ideaID': id};
+        this.log(msg, data);
+        console.log(msg, data);
+    },
+    logCommentClick: function(id){
+        var msg = "User clicked to see the comments on an idea";
+        var data = {'openIDEOid(idea)': id};
+        this.log(msg, data);
+        console.log(msg, data);
+    },
+    logMoreInfoClick: function(id){
+        var msg = "User clicked to see more information about the idea";
+        var data = {'openIDEOID(idea)': id};
+        this.log(msg, data);
+        console.log(msg, data);
+    },
+    logBackToProblemBrief: function(){
+        var msg = "User went back to the problem brief";
+        this.log(msg);
+        console.log(msg);
+    },
+    logExternalLinkClick: function(url){
+        var msg = "User followed an external link in the problem brief";
+        this.log(msg);
+        console.log(msg);
+    },
+    logEnterProblemBrief: function(version){
+        var msg = "User entered the problem brief";
+        var data = {'version': version};
+        this.log(msg, data);
+        console.log(msg, data);
+    },
+    logEnterActivity: function(version){
+        var msg = "User entered the activity";
+        var data = {'version': version};
+        this.log(msg, data);
+        console.log(msg, data);
+    },
+    logReEnterActivity: function(version){
+        var msg = "User reEntered the activity from the problem brief";
+        var data = {'version': version};
+        this.log(msg, data);
+        console.log(msg, data);
+    },
+    logFinished: function(){
+        var msg = "User has finished the activity";
+        this.log(msg);
+        console.log(msg);
+    },
+    logFrameEntryClick: function(){
+        var msg = "User has switched to the frame entry tab.";
+        this.log(msg);
+        console.log(msg);
+    },
+    logIdeaEntryClick(){
+       var msg = "User has switched to the idea entry tab.";
+       this.log(msg);
+       console.log(msg);
+    },
+    logIdeaClick(id){
+        var msg = "User has clicked on an idea.";
+        var data = {'openIDEOid(idea)': id};
+        this.log(msg, data);
+        console.log(msg, data);
+    },
+    logTimeout(){
+        var msg = "User has run out of time.";
+        this.log(msg);
+        console.log(msg);
     },
   };
 }());

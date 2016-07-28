@@ -1,5 +1,7 @@
 Session.set("started", "notStarted");
-
+Session.set("ActivityStarted", false);
+Session.set("clicked", listOfIdeas.find()[0]);
+Session.set("time", 0);
 
 var logger = new Logger('Client:Exp:MturkLogin');
 // Comment out to use global logging level
@@ -41,12 +43,3 @@ Template.signin.events({
       }
     },
 });
-
-
-
-/*//UNCOMMENT EVERYTHING ELSE AND GET RID OF THIS
-Template.signin.events({
-    'click #continue': function(e){
-        Router.go("consent");   
-    }
-});*/

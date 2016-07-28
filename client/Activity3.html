@@ -2,8 +2,6 @@
     <div class="ideaslist">
         {{#each idea}}
             {{> idea_item3}}
-            {{> commentList}}
-            {{incrementID}}
         {{/each}}
     </div>
 </template>
@@ -17,7 +15,7 @@
 </template>
 
 <template name="commentList">
-    <div id="{{id}}" class="collapse commentlistcss">
+    <div id="{{id}}" class="commentlistcss">
         <big>Comments</big>
         {{#each comment}}
             {{> comment_item}}

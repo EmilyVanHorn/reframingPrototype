@@ -541,6 +541,17 @@ LoginManager = (function () {
         }
       }
       Session.set("currentUser", myUser);
+      EventLogger.logUserLogin();
+      /*if(MyUsers.find({current: "CurrentUser"}).count > 0){
+        alert("found");
+        var currents = MyUsers.find({current: "CurrentUser"}).fetch();
+        for(var i = 0; i < currents.length; i++){
+            MyUsers.update(currents[i]._id, {$set: {current: ""}});   
+        }
+      }
+        
+      MyUsers.update(myUser.id, {$set: {current: "CurrentUser"}});
+        alert("update");*/
       if (Session.get("currentRole") == null) {
         logger.trace("Setting current role to unassigned");
         logger.debug(RoleManager.defaults['Unassigned']);

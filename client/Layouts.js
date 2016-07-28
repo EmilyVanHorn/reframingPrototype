@@ -27,8 +27,6 @@ Template.layout2.created = function(){
         if(Session.get("framesMostREcent") && tinyMCE.get("itext")){
             Session.set("framesMostRecent", tinyMCE.get("ftext").getContent({format: 'raw'}));    
         }
-        //intervals(900);//10second interval --do it on the start button
-        intervals(10);
     }
     else if(Session.get("started") == "Done"){
         Router.go("thankyou"); 
@@ -47,12 +45,14 @@ Template.layout2.events({
         MyUsers.update(Session.get("currentUser")._id, {
             $set: {finished: true}
         });
-        Router.go("thankyou");   
+        EventLogger.logFinished();
+        Router.go("Survey");   
     },
     'click #quit': function(e){
         saveData();
         Session.set("started", "Quit");
         Router.go("NoParticipation");
+        EventLogger.logExitStudy(Router.current().route.path());
     },
     'click .back': function(e){
         saveData();
@@ -61,7 +61,51 @@ Template.layout2.events({
         
         tinymce.get('itext').remove();
         tinymce.get('ftext').remove();
+        
+        EventLogger.logBackToProblemBrief();
         history.back();   
+    }
+});
+
+Template.layout2.helpers({
+    first: function(){
+        return (!Session.get("ActivityStarted"));      
+    }
+});
+
+Template.TabBox.helpers({
+    notV1: function(){
+        if(Router.current().route.path() == "/activity1"){
+            return false;
+        }
+        else{
+            return true;   
+        }
+    },
+    isV3: function(){
+        if(Router.current().route.path() == "/activity3"){
+            return true;
+        }
+        else{
+            return false;   
+        }
+    }
+});
+
+Template.TabBox.events({
+    'click #comm': function(e){
+        var idea = listOfIdeas.findOne({'clicked': true}).openIDEOid;
+        EventLogger.logCommentClick(idea);
+    },
+    'click #MoreInfo': function(e){
+        var idea = listOfIdeas.findOne({'clicked': true}).openIDEOid;
+        EventLogger.logMoreInfoClick(idea);
+    },
+    'click #ids': function(e){
+        EventLogger.logIdeaEntryClick();
+    },
+    'click #fr': function(e){
+        EventLogger.logFrameEntryClick();
     }
 });
 
@@ -72,8 +116,12 @@ function intervals(clock){
             Session.set("time", clock);
         }//if
         else{
+            EventLogger.logTimeout();
             alert("Time's Up! Finish up any last thoughts and then click 'Done' at the bottom.");
+            var done = document.getElementById("done");
+            done.disabled = false;
             return Meteor.clearInterval(interval);  
+            
         }
         
         if(tinyMCE.get('itext') &&
@@ -126,6 +174,81 @@ function saveData(){
         readableTime: date.toString()
     });
 }
+
+Template.moreInfo.helpers({
+    moreInfo: function(){
+        return listOfIdeas.findOne({"clicked": true}).moreInfo;   
+    },
+    comment: function(){
+        idea = listOfIdeas.findOne({"clicked": true}).openIDEOid;
+        //alert(idea);
+        return Comments.find({"ideaID": idea});
+    },
+    isV3: function(){
+        if(Router.current().route.path() == "/activity3"){
+            return true;
+        }
+        else{
+            return false;   
+        }
+    },
+    isV2: function(){
+        if(Router.current().route.path() == "/activity2"){
+            return true;
+        }
+        else{
+            return false;   
+        }
+    },
+    id: function(){
+        return listOfIdeas.findOne({"clicked": true}).openIDEOid;
+    }
+});
+
+Template.insts2.events({
+   'click #agree': function(){
+        EventLogger.logEnterActivity("version1");
+        Session.set("ActivityStarted", true);
+       
+        var backdrop = document.getElementById("backdrop");
+        var inst = document.getElementById("instructions");
+        
+        backdrop.parentElement.removeChild(backdrop);
+        inst.parentElement.removeChild(inst);
+        
+        //intervals(900);//10minute interval
+        intervals(10);
+        
+   }
+});
+
+Template.insts2.helpers({
+    isV1: function(){
+        if(Router.current().route.path() == "/activity1"){
+            return true;
+        }
+        else{
+            return false;   
+        }
+    },
+    isV2: function(){
+        if(Router.current().route.path() == "/activity2"){
+            return true;
+        }
+        else{
+            return false;   
+        }
+        
+    },
+    isV3: function(){
+        if(Router.current().route.path() == "/activity3"){
+            return true;
+        }
+        else{
+            return false;   
+        }
+    }
+});
 
 
 
