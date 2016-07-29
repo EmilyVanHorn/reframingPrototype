@@ -36,9 +36,10 @@ Template.layout2.created = function(){
 
 Template.layout2.events({
     'click #done': function(e){
-        if(Session.get("time") > 0){
+        if(Session.get("time") == 0){
             saveData();
-
+            
+            Session.set("currentUser", user(Router.current().params.userID));
             EventLogger.logFinished();
             var newState = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
             MyUsers.update(Router.current().params.userID, {state: "7."+ newState});
@@ -50,9 +51,10 @@ Template.layout2.events({
     },
     'click #quit': function(e){
         saveData();
-        Session.set("started", "Quit");
-        Router.go("NoParticipation");
-        EventLogger.logExitStudy(Router.current().route.path());
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logExitStudy();
+        MyUsers.update(Router.current().params.userID, {$set: {state: "9"}});
+        redirect("9"); 
     },
     'click .back': function(e){
         saveData();
@@ -72,7 +74,6 @@ Template.layout2.events({
 Template.layout2.helpers({
     first: function(){
         var state = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state;
-        alert(state);
         return (state < "6");  
     }
 });
@@ -87,12 +88,7 @@ Template.TabBox.helpers({
         }
     },
     isV3: function(){
-        if(Router.current().route.path() == "/activity3"){
-            return true;
-        }
-        else{
-            return false;   
-        }
+        return isV3(Router.current().params.userID);
     }
 });
 

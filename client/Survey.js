@@ -12,6 +12,7 @@ Template.survey.events({
             });
         }//for
         
-        Router.go("thankyou");
+         MyUsers.update(Router.current().params.userID, {state: "8"});
+         redirect(user(Router.current().params.userID).state);
     }//click
 });//template
