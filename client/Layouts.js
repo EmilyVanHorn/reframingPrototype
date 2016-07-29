@@ -1,6 +1,10 @@
 Session.set("ideasMostRecent", "IDEAS");
 Session.set("framesMostRecent", "FRAMES");
 
+Template.layout1.onCreated(function(){
+    Session.set("currentUser", user(Router.current().params.userID));
+});
+
 Template.ideaPad.rendered = function(){
     tinymce.init({
         selector: '#itext',
@@ -28,25 +32,21 @@ Template.layout2.created = function(){
             Session.set("framesMostRecent", tinyMCE.get("ftext").getContent({format: 'raw'}));    
         }
     }
-    else if(Session.get("started") == "Done"){
-        Router.go("thankyou"); 
-    }
-    else if(Session.get("started") == "Quit"){
-        Router.go("NoParticipation");   
-    }
-    
-    Session.set("started", "started");
 };
 
 Template.layout2.events({
     'click #done': function(e){
-        Session.set("started", "Done");
-        saveData();
-        MyUsers.update(Session.get("currentUser")._id, {
-            $set: {finished: true}
-        });
-        EventLogger.logFinished();
-        Router.go("Survey");   
+        if(Session.get("time") > 0){
+            saveData();
+
+            EventLogger.logFinished();
+            var newState = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
+            MyUsers.update(Router.current().params.userID, {state: "7."+ newState});
+            redirect(user(Router.current().params.userID).state); 
+        }
+        else{
+            alert("There's still time left! Keep Going!");   
+        }
     },
     'click #quit': function(e){
         saveData();
@@ -62,14 +62,18 @@ Template.layout2.events({
         tinymce.get('itext').remove();
         tinymce.get('ftext').remove();
         
+        Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logBackToProblemBrief();
-        history.back();   
+        var version = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
+        Router.go(version, {userID: Router.current().params.userID});
     }
 });
 
 Template.layout2.helpers({
     first: function(){
-        return (!Session.get("ActivityStarted"));      
+        var state = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state;
+        alert(state);
+        return (state < "6");  
     }
 });
 
@@ -119,7 +123,6 @@ function intervals(clock){
             EventLogger.logTimeout();
             alert("Time's Up! Finish up any last thoughts and then click 'Done' at the bottom.");
             var done = document.getElementById("done");
-            done.disabled = false;
             return Meteor.clearInterval(interval);  
             
         }
@@ -140,81 +143,58 @@ function saveData(){
     UserInput.insert({
         ID: id,
         type: "text",
+        from: "ideas",
         content: tinyMCE.get("itext").getContent({format : 'text'}),
-        authorID: Session.get("currentUser")._id,
-        authorName: Session.get("currentUser").name,
+        authorID: Router.current().params.userID,
         time: date.valueOf(),
         readableTime: date.toString()
     });
     UserInput.insert({
         ID: id,
         type: "raw",
+        from: "ideas",
         content: tinyMCE.get("itext").getContent({format : 'raw'}),
-        authorID: Session.get("currentUser")._id,
-        authorName: Session.get("currentUser").name,
+        authorID: Router.current().params.userID,
         time: date.valueOf(),
         readableTime: date.toString()
     });
     UserInput.insert({
         ID: id,
         type: "text",
+        from: "frames",
         content: tinyMCE.get("ftext").getContent({format : 'text'}),
-        authorID: Session.get("currentUser")._id,
-        authorName: Session.get("currentUser").name,
+        authorID: Router.current().params.userID,
         time: date.valueOf(),
         readableTime: date.toString()
     });
     UserInput.insert({
         ID: id,
         type: "raw",
+        from: "frames",
         content: tinyMCE.get("ftext").getContent({format : 'raw'}),
-        authorID: Session.get("currentUser")._id,
-        authorName: Session.get("currentUser").name,
+        authorID: Router.current().params.userID,
         time: date.valueOf(),
         readableTime: date.toString()
     });
+    
+    console.log("Data Saved to Collection");
 }
 
-Template.moreInfo.helpers({
-    moreInfo: function(){
-        return listOfIdeas.findOne({"clicked": true}).moreInfo;   
-    },
-    comment: function(){
-        idea = listOfIdeas.findOne({"clicked": true}).openIDEOid;
-        //alert(idea);
-        return Comments.find({"ideaID": idea});
-    },
-    isV3: function(){
-        if(Router.current().route.path() == "/activity3"){
-            return true;
-        }
-        else{
-            return false;   
-        }
-    },
-    isV2: function(){
-        if(Router.current().route.path() == "/activity2"){
-            return true;
-        }
-        else{
-            return false;   
-        }
-    },
-    id: function(){
-        return listOfIdeas.findOne({"clicked": true}).openIDEOid;
-    }
-});
+
 
 Template.insts2.events({
    'click #agree': function(){
-        EventLogger.logEnterActivity("version1");
-        Session.set("ActivityStarted", true);
+        //Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logEnterActivity("version2");
        
         var backdrop = document.getElementById("backdrop");
         var inst = document.getElementById("instructions");
         
         backdrop.parentElement.removeChild(backdrop);
         inst.parentElement.removeChild(inst);
+       
+        var newState = user(Router.current().params.userID).state.substring(2);
+        MyUsers.update(Router.current().params.userID, {state: "6."+ newState});
         
         //intervals(900);//10minute interval
         intervals(10);
@@ -224,29 +204,14 @@ Template.insts2.events({
 
 Template.insts2.helpers({
     isV1: function(){
-        if(Router.current().route.path() == "/activity1"){
-            return true;
-        }
-        else{
-            return false;   
-        }
+        return isV1(Router.current().params.userID);
     },
     isV2: function(){
-        if(Router.current().route.path() == "/activity2"){
-            return true;
-        }
-        else{
-            return false;   
-        }
+        return isV2(Router.current().params.userID);
         
     },
     isV3: function(){
-        if(Router.current().route.path() == "/activity3"){
-            return true;
-        }
-        else{
-            return false;   
-        }
+        return isV3(Router.current().params.userID);
     }
 });
 

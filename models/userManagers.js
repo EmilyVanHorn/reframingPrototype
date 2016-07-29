@@ -532,12 +532,23 @@ LoginManager = (function () {
         myUser = UserFactory.getAdmin();
         Session.set("currentRole", RoleManager.defaults['Admin']);
       } else {
+        var doNotAllow = MyUsers.find({name: userName, state: {$gt: "7"}});
         var matches = MyUsers.find({name: userName});
-        if (matches.count() > 0) {
+        if(doNotAllow.count() > 0){
+            Session.set("currentUser", doNotAllow.fetch()[0]);
+            alert("This username has already been used. If you've completed this exercise before, thank you, but you may not complete it again. Please click 'Quit' to exit. If you haven't, please try another username.");
+            EventLogger.logDenyParticipation();
+            console.log("deny");
+            
+        }
+        
+        else if (matches.count() > 0) {
           myUser = matches.fetch()[0]
+          console.log("found");
         } else {
           myUser = new User(userName, "Participant");
           myUser._id = MyUsers.insert(myUser);
+            console.log("add");
         }
       }
       Session.set("currentUser", myUser);

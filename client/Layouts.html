@@ -46,11 +46,17 @@
     {{/if}}
     <div class="container">
         <div class="problem">
-            <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?
-                <span class="link">
+            <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?</h1>
                     <!--<a href="{{pathFor route='inst'}}" target="_blank">See Instructions </a>|-->
                     <!--<a href="https://challenges.openideo.com/challenge/e-waste/brief" target="_blank">More about the project</a></span></h1> -->
-                    <a class="back">Project Description</a></span></h1>
+                    <div class="btn-group" id="help">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">Help</button>
+                        <ul class="dropdown-menu">
+                            <li class="back"><a class="dropdown-item">Problem Description</a></li>
+                            <li id="instReminder"><a class="dropdown-item" href="#">Instructions</a></li>
+                            <li id="frameReminder"><a class="dropdown-item" href="#">What Is Framing?</a></li>
+                        </ul>
+                    </div>  
         </div>
         
         <div class="left col-sm-6">
@@ -61,7 +67,7 @@
         </div>    
         <hr/>
         <form class="navbar-form next">
-            <input type="button" value="Done" id="done" class="btn btn-success" disabled/>
+            <input type="button" value="Done" id="done" class="btn btn-success"/>
             <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
         </form>
     </div>
@@ -104,13 +110,6 @@
     <ul class="nav nav-tabs" role="tablist">
         <li id="ids" class="active"><a href="#ideas" role="tab" data-toggle="tab">Ideas</a></li>
         <li id="fr" ><a href="#framings" role="tab" data-toggle="tab">Framings</a></li>
-        {{#if notV1}}
-            <li id="MoreInfo"><a href="#moreInfo" role="tab" data-toggle="tab">More</a></li>
-        {{/if}}
-        {{#if isV3}}
-            <li id="comm"><a href="#comments" role="tab" data-toggle="tab">Comments</a></li>
-        {{/if}}
-        
         {{> timer}}
     </ul>
     
@@ -122,12 +121,6 @@
         </div>
         <div class="tab-pane" id="framings">
             {{> framePad}}
-        </div>
-        <div class="tab-pane" id="moreInfo">
-            {{> moreInfo}}
-        </div>
-        <div class="tab-pane" id="comments">
-            {{> commentList}}
         </div>
     </div>
 </template>
@@ -149,14 +142,6 @@
 <template name="framePad" id="framePad">
     <div id="frames">
        <textarea id="ftext">Frame</textarea>
-    </div>
-</template>
-
-<template name="moreInfo" id="moreInfo">
-    <div id="info">
-        {{#each item in moreInfo}}
-            <p>{{item}}</p>
-        {{/each}}
     </div>
 </template>
 

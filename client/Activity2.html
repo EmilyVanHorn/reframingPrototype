@@ -7,5 +7,15 @@
 <template name="idea_item2">
     <div class="list" role="button">
         <h1>{{content}}</h1>
+        <a class="readMore">Read More</a>
     </div>
+</template>
+
+<template name="details2">
+    <div class="form-group glyphicon">
+        <button type="button" class="btn btn-default zoomOut" aria-label="remove">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+    </div>
+    {{> moreInfo}}
 </template>

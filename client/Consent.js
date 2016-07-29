@@ -8,26 +8,20 @@ Logger.setLevel('Client:Hcomp:Consent', 'trace');
 //Template.TextPage.helper({
 //});
 
+//Template.consent.rendered = function(){
+//    Session.set("currentUser", user(Router.current().params.userID));
+//};
+
 Template.consent.events({
     'click #continue': function(e){
-        checkPermissions(Session.get("currentUser").name);
+        EventLogger.logConsent();
+        MyUsers.update(Router.current().params.userID, {$set: {state: "2"}});
+        redirect("2");
     },
     'click #quit': function(e){
         EventLogger.logExitStudy();
-        Router.go("NoParticipation");   
+        MyUsers.update(Router.current().params.userID, {$set: {state: "9"}});
+        redirect("9");  
     }
 });
-
-function checkPermissions(userName){
-    if(MyUsers.find({name: userName, finished: true}).count() == 0){
-        EventLogger.logConsent();
-        Router.go("Instructions");
-    }
-    else{
-        alert("This username has already been used. If you've completed this exercise before, thank you, but you may not complete it again. Please click 'Quit' to exit. If you haven't, please try another username.");
-        EventLogger.logDenyParticipation();
-        Router.go("signin");
-    }
-}
-
 

@@ -510,8 +510,9 @@ EventLogger = (function () {
     },
     logExternalLinkClick: function(url){
         var msg = "User followed an external link in the problem brief";
-        this.log(msg);
-        console.log(msg);
+        var data = {'url': url};
+        this.log(msg, data);
+        console.log(msg, data);
     },
     logEnterProblemBrief: function(version){
         var msg = "User entered the problem brief";

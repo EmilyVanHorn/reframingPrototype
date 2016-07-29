@@ -18,9 +18,10 @@
     color: darkgray;
     text-align: center;
 }
-/*.commentlistcss{
-    background-color: white;
-}*/
+.commentlistcss{
+    overflow: scroll;
+}
+
 .commentcss{
     width: 80%;
     margin-left: auto;
@@ -38,3 +39,7 @@
     .commentcss h1{
         font-size: 15px;   
     }
+.glyphicon{
+    float: right;
+    top-margin: 5px;
+}

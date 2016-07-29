@@ -11,6 +11,43 @@
         <h1>{{content}}</h1>
         <p>likes: {{likes}}</p>
         <p>comments: {{comments}}</p>
+        <a class="readMore">Read More</a>
+    </div>
+</template>
+
+
+<template id="details" name="details">
+    <!-- 1. Create the tabs themselves  -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li id="MoreInfo" class="active"><a href="#moreInfo" role="tab" data-toggle="tab">More Details</a></li>
+        <li id="comm" ><a href="#comments" role="tab" data-toggle="tab">Comments</a></li>
+        <div class="form-group glyphicon">
+            <button type="button" class="btn btn-default zoomOut" aria-label="remove">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+        </div>
+    </ul>
+    
+ 
+<!--     2. Create a matching tab pane for each tab. Content goes within these panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="moreInfo">
+            {{> moreInfo}}
+        </div>
+        <div class="tab-pane" id="comments">
+            {{> commentList}}
+        </div>
+    </div>
+    
+    <a class="zoomOut">Back</a>
+
+</template>
+
+<template name="moreInfo" id="moreInfo">
+    <div id="info">
+        {{#each item in moreInfo}}
+            <p>{{item}}</p>
+        {{/each}}
     </div>
 </template>
 
@@ -29,6 +66,11 @@
         <p>{{authorName}}</p>
     </div>
 </template>
+
+
+
+
+
 
 
 
