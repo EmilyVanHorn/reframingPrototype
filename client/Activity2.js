@@ -1,5 +1,9 @@
 var currentDivClicked;
 
+Template.activity2.onCreated(function(){
+    Session.set("currentUser", MyUsers.findOne({_id: Router.current().params.userID}));
+});
+
 Template.activity2.helpers({
     idea: function(){
         return listOfIdeas.find();   

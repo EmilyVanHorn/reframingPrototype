@@ -20,6 +20,7 @@ User = function(name, type){
 	this.name = name;
   //Currently only "admin" is significant
   this.type = type;
+  this.state = "0";
 };
 
 Group = function(template) {

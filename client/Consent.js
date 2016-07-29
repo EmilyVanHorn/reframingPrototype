@@ -1,33 +1,31 @@
-// Configure logger for ExperimentManager
-var logger = new Logger('Client:Hcomp:Consent');
-// Comment out to use global logging level
-Logger.setLevel('Client:Hcomp:Consent', 'trace');
-//Logger.setLevel('Managers:Experiment', 'debug');
-// Logger.setLevel('Managers:Experiment', 'info');
-//Logger.setLevel('Managers:Experiment', 'warn');
-//Template.TextPage.helper({
-//});
+user = function(userid){
+    return MyUsers.find({_id: userid}).fetch()[0];
+};
+
+Template.consent.created = function(){
+    
+    
+};
 
 Template.consent.events({
     'click #continue': function(e){
-        checkPermissions(Session.get("currentUser").name);
+        //console.log(user(Router.current().params.userID));
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logConsent();
+        MyUsers.update(user(Router.current().params.userID)._id, {$set: {state: "2"}});
+        console.log(user(Router.current().params.userID).state);
+        redirect(user(Router.current().params.userID).state);
     },
     'click #quit': function(e){
-        EventLogger.logExitStudy();
-        Router.go("NoParticipation");   
+        if(confirm("Are you sure you want to quit?")){
+            Session.set("currentUser", user(Router.current().params.userID));
+            EventLogger.logExitStudy(Router.current().route.path());
+            MyUsers.update(user(Router.current().params.userID)._id, {$set: {state: 9}});
+            console.log(user(Router.current().params.userID).state);
+            redirect(user(Router.current().params.userID).state);  
+        }
+        else{
+            
+        } 
     }
 });
-
-function checkPermissions(userName){
-    if(MyUsers.find({name: userName, finished: true}).count() == 0){
-        EventLogger.logConsent();
-        Router.go("Instructions");
-    }
-    else{
-        alert("This username has already been used. If you've completed this exercise before, thank you, but you may not complete it again. Please click 'Quit' to exit. If you haven't, please try another username.");
-        EventLogger.logDenyParticipation();
-        Router.go("signin");
-    }
-}
-
-

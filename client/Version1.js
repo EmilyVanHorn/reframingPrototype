@@ -1,40 +1,60 @@
-//window.scrollTo(0,0);
-
-
-Template.Version1.created = function(){
+Template.Version1.onCreated = function(){
     setTimeout(function() {
         window.scrollTo(0, 0);
     },1);
+    
+    Session.set("currentUser", user(Router.current().params.userID));
 };
 
 Template.Version1.helpers({
     first: function(){
-        return (!Session.get("ActivityStarted"));   
+        if(user(Router.current().params.userID).state > 4){
+            return true;   
+        }
+        else{
+            return false;   
+        }
     }
 });
 
 Template.Version1.events({
     'click #continue': function(e){
-        if(Session.get("ActivityStarted") == false){
+        if(user(Router.current().params.userID).state < 4){
             //EventLogger.logEnterActivity("version1");
         }
         else{
+            Session.set("currentUser", user(Router.current().params.userID));
             EventLogger.logReEnterActivity("version1");   
         }
         //Session.set("ActivityStarted", true);
-        Router.go("activity1");   
+        var newState = "5" + user(Router.current().params.userID).state.substring(1);
+        MyUsers.update(user(Router.current().params.userID)._id, {$set: {state: newState}});
+        Session.set("currentUser", MyUsers.findOne({_id: Router.current().params.userID}));
+        redirect(user(Router.current().params.userID).state);  
     },
     'click #quit': function(e){
-        EventLogger.logExitStudy(Router.current().route.path());
-        Router.go("NoParticipation");   
+        if(confirm("Are you sure you want to quit?")){
+            Session.set("currentUser", user(Router.current().params.userID));
+            EventLogger.logExitStudy(Router.current().route.path());
+            Router.go("NoParticipation", {userID: Router.current().params.userID});  
+        }
+         
     },
     'click #agree': function(e){
         var backdrop = document.getElementById("backdrop");
         var inst = document.getElementById("instructions");
+        var newState = "4" + user(Router.current().params.userID).state.substring(1);
+        MyUsers.update(user(Router.current().params.userID)._id, {$set: {state: newState}});
+        Session.set("currentUser", MyUsers.findOne({_id: Router.current().params.userID}));
         
+        Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logEnterProblemBrief("version1");
         
         backdrop.parentElement.removeChild(backdrop);
         inst.parentElement.removeChild(inst);
+    },
+    'click .alert': function(e){
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logExternalLinkClick(e.target.href);
     }
 });

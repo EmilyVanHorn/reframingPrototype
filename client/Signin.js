@@ -1,4 +1,3 @@
-Session.set("started", "notStarted");
 Session.set("ActivityStarted", false);
 Session.set("clicked", listOfIdeas.find()[0]);
 Session.set("time", 0);
@@ -23,16 +22,16 @@ Logger.setLevel('Client:Exp:MturkLogin', 'info');
  * *****************************************************************/
 Template.signin.events({
     'click #continue': function () {
-        //console.log("clicked continue");
         //login user
         var userName = $('input#name').val().trim();
         logger.info("Logging in user with name: " + userName);
         var user = LoginManager.loginUser(userName);
-        var role = RoleManager.defaults['HcompFacilitator'];
-        //var role = RoleManager.defaults['Participant'];
-        Session.set("currentRole", role);
-        Router.go("consent",
-          {userID: user._id});
+//        var role = RoleManager.defaults['HcompFacilitator'];
+//        //var role = RoleManager.defaults['Participant'];
+//        Session.set("currentRole", role);
+        //Router.go("consent", {userID: user._id});
+        console.log(Session.get('currentUser').state);
+        redirect(Session.get("currentUser").state);
 
     /********************* Disable experiment logic ************/
     },

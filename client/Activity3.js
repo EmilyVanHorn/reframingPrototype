@@ -1,6 +1,10 @@
 var currentDivClicked;
 Session.set("idNumber", 0);
 
+Template.activity3.onCreated(function(){
+    Session.set("currentUser", MyUsers.findOne({_id: Router.current().params.userID}));
+});
+
 Template.activity3.helpers({
     idea: function(){
         return listOfIdeas.find();   
