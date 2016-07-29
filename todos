@@ -1,0 +1,20 @@
+track:
+
+interactions with data:
+    #- clicks on ideas
+    - scrolling?
+    #- clicks on comments -- hide comments and make them click
+    #- switch back to problem
+    - time how long they spend on the problem page
+    #- clicks on external links
+    - window focus?
+    
+    
+Events collection:
+    model --> base --> logginModels
+    loginManager
+        define events in the manager
+        
+Survey
+
+    

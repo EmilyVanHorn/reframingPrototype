@@ -1,0 +1,36 @@
+<template name="activity3">
+    <div class="ideaslist">
+        {{#each idea}}
+            {{> idea_item3}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="idea_item3">
+    <div class="list ideasList" data-toggle="collapse" data-target="#{{id}}">
+        <h1>{{content}}</h1>
+        <p>likes: {{likes}}</p>
+        <p>comments: {{comments}}</p>
+    </div>
+</template>
+
+<template name="commentList">
+    <div id="{{id}}" class="commentlistcss">
+        <big>Comments</big>
+        {{#each comment}}
+            {{> comment_item}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="comment_item">
+    <div class="commentcss">
+        <h1>{{text}}</h1>
+        <p>{{authorName}}</p>
+    </div>
+</template>
+
+
+
+
+        

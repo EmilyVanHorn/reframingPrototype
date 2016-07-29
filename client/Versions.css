@@ -1,0 +1,27 @@
+.tutorial-backdrop {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.5;
+    z-index: 50;
+}
+.instructions{
+    width: 80%;
+    border: 10px double;
+    background-color: white;
+    z-index: 51;
+    position: absolute;
+    top: 100px;
+    padding: 50px;
+    margin-left: -40%;
+    left: 50%;
+}
+.instructions + p{
+    margin-left: auto;
+    margin-right: auto;
+}
