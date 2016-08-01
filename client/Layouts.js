@@ -1,44 +1,28 @@
-Session.set("ideasMostRecent", "IDEAS");
-Session.set("framesMostRecent", "FRAMES");
+Session.set("ideasMostRecent", "Type your ideas here ...");
+Session.set("framesMostRecent", "Type your framings here ...");
 
 Template.layout1.onCreated(function(){
     Session.set("currentUser", user(Router.current().params.userID));
 });
 
-Template.ideaPad.rendered = function(){
-    tinymce.init({
-        selector: '#itext',
-        skin_url: '/packages/teamon_tinymce/skins/lightgray',
-        height: "400px",
-   });
-        tinymce.get("itext").setContent(Session.get("ideasMostRecent"));
+Template.layout2.rendered = function(){
+    document.getElementById("IdeasInput").value = (Session.get("ideasMostRecent"));
+    document.getElementById("FramesInput").value = (Session.get("framesMostRecent"));
 };
 
 Template.framePad.rendered = function(){
-    tinymce.init({
-        selector: '#ftext',
-        skin_url: '/packages/teamon_tinymce/skins/lightgray',
-        height: "400px",
-    });
-        tinymce.get('ftext').setContent(Session.get("framesMostRecent"));
-};
+}
+    
 
 Template.layout2.created = function(){
-    if(Session.get("started") == "notStarted"){
-        if(Session.get("ideasMostRecent") && tinyMCE.get("itext")){
-            Session.set("ideasMostRecent", tinyMCE.get("itext").getContent({format: 'raw'}));  
-        }
-        if(Session.get("framesMostREcent") && tinyMCE.get("itext")){
-            Session.set("framesMostRecent", tinyMCE.get("ftext").getContent({format: 'raw'}));    
-        }
-    }
 };
 
 Template.layout2.events({
     'click #done': function(e){
-        if(Session.get("time") > 0){
+        if(Session.get("time") == 0){
             saveData();
-
+            
+            Session.set("currentUser", user(Router.current().params.userID));
             EventLogger.logFinished();
             var newState = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
             MyUsers.update(Router.current().params.userID, {state: "7."+ newState});
@@ -50,29 +34,36 @@ Template.layout2.events({
     },
     'click #quit': function(e){
         saveData();
-        Session.set("started", "Quit");
-        Router.go("NoParticipation");
-        EventLogger.logExitStudy(Router.current().route.path());
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logExitStudy();
+        MyUsers.update(Router.current().params.userID, {$set: {state: "9"}});
+        redirect("9"); 
     },
     'click .back': function(e){
-        saveData();
-        Session.set("ideasMostRecent", tinyMCE.get("itext").getContent({format: 'raw'}));
-        Session.set("framesMostRecent", tinyMCE.get("ftext").getContent({format: 'raw'}));  
-        
-        tinymce.get('itext').remove();
-        tinymce.get('ftext').remove();
+        //saveData();
+        Session.set("ideasMostRecent", document.getElementById("IdeasInput").value);
+        Session.set("framesMostRecent", document.getElementById("FramesInput").value);  
         
         Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logBackToProblemBrief();
         var version = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
         Router.go(version, {userID: Router.current().params.userID});
+    },
+    'focus #IdeasInput':function(e){
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logIdeaEntryFocus();
+        e.target.tooltip();
+    },
+    'focus #FramesInput': function(e){
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logFrameEntryFocus();
+        e.target.tooltip();
     }
 });
 
 Template.layout2.helpers({
     first: function(){
         var state = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state;
-        alert(state);
         return (state < "6");  
     }
 });
@@ -87,12 +78,7 @@ Template.TabBox.helpers({
         }
     },
     isV3: function(){
-        if(Router.current().route.path() == "/activity3"){
-            return true;
-        }
-        else{
-            return false;   
-        }
+        return isV3(Router.current().params.userID);
     }
 });
 
@@ -127,9 +113,7 @@ function intervals(clock){
             
         }
         
-        if(tinyMCE.get('itext') &&
-           tinyMCE.get('ftext') &&
-           Session.get('time') % 30 == 0){
+        if(Session.get('time') % 30 == 0){
             saveData();   
         }
     };//timeLeft
@@ -142,42 +126,20 @@ function saveData(){
     var date = new Date();
     UserInput.insert({
         ID: id,
-        type: "text",
         from: "ideas",
-        content: tinyMCE.get("itext").getContent({format : 'text'}),
+        content: document.getElementById("IdeasInput").value,
         authorID: Router.current().params.userID,
         time: date.valueOf(),
         readableTime: date.toString()
     });
     UserInput.insert({
         ID: id,
-        type: "raw",
-        from: "ideas",
-        content: tinyMCE.get("itext").getContent({format : 'raw'}),
-        authorID: Router.current().params.userID,
-        time: date.valueOf(),
-        readableTime: date.toString()
-    });
-    UserInput.insert({
-        ID: id,
-        type: "text",
         from: "frames",
-        content: tinyMCE.get("ftext").getContent({format : 'text'}),
+        content: document.getElementById("FramesInput").value,
         authorID: Router.current().params.userID,
         time: date.valueOf(),
         readableTime: date.toString()
     });
-    UserInput.insert({
-        ID: id,
-        type: "raw",
-        from: "frames",
-        content: tinyMCE.get("ftext").getContent({format : 'raw'}),
-        authorID: Router.current().params.userID,
-        time: date.valueOf(),
-        readableTime: date.toString()
-    });
-    
-    console.log("Data Saved to Collection");
 }
 
 

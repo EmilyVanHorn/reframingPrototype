@@ -532,7 +532,7 @@ LoginManager = (function () {
         myUser = UserFactory.getAdmin();
         Session.set("currentRole", RoleManager.defaults['Admin']);
       } else {
-        var doNotAllow = MyUsers.find({name: userName, state: {$gt: "7"}});
+        var doNotAllow = MyUsers.find({name: userName, state: {$gt: "8"}});
         var matches = MyUsers.find({name: userName});
         if(doNotAllow.count() > 0){
             Session.set("currentUser", doNotAllow.fetch()[0]);

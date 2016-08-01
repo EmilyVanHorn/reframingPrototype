@@ -537,13 +537,13 @@ EventLogger = (function () {
         this.log(msg);
         console.log(msg);
     },
-    logFrameEntryClick: function(){
-        var msg = "User has switched to the frame entry tab.";
+    logFrameEntryFocus: function(){
+        var msg = "User has switched to the frame entry box.";
         this.log(msg);
         console.log(msg);
     },
-    logIdeaEntryClick(){
-       var msg = "User has switched to the idea entry tab.";
+    logIdeaEntryFocus(){
+       var msg = "User has switched to the idea entry box.";
        this.log(msg);
        console.log(msg);
     },

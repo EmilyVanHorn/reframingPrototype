@@ -22,6 +22,7 @@ Template.instructionPage.events({
         
     },
     'click #quit': function(){
+        Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logExitStudy();
         MyUsers.update(Router.current().params.userID, {$set: {state: "9"}});
         redirect("9"); 

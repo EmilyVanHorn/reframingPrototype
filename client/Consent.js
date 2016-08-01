@@ -14,11 +14,13 @@ Logger.setLevel('Client:Hcomp:Consent', 'trace');
 
 Template.consent.events({
     'click #continue': function(e){
+        Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logConsent();
         MyUsers.update(Router.current().params.userID, {$set: {state: "2"}});
         redirect("2");
     },
     'click #quit': function(e){
+        Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logExitStudy();
         MyUsers.update(Router.current().params.userID, {$set: {state: "9"}});
         redirect("9");  
