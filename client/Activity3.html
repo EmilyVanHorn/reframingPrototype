@@ -8,10 +8,10 @@
 
 <template name="idea_item3">
     <div class="list ideasList" data-toggle="collapse" data-target="#{{id}}">
-        <h1>{{content}}</h1>
-        <p>likes: {{likes}}</p>
-        <p>comments: {{comments}}</p>
-        <a class="readMore">Read More</a>
+        <h1 data-toggle="tooltip" data-placement="right" title="{{moreInfo}}">{{content}}</h1>
+        <!--<p>likes: {{likes}}</p>
+        <p>comments: {{comments}}</p>-->
+        <!--<a class="readMore">Read More</a>-->
     </div>
 </template>
 

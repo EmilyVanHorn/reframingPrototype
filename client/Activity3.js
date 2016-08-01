@@ -1,3 +1,4 @@
+var mouseOverInTime;
 var currentDivClicked;
 Session.set("idNumber", 0);
 
@@ -53,8 +54,37 @@ Template.idea_item3.events({
         EventLogger.logMoreInfoClick(idea.openIDEOid);
         
         Router.go("details", {userID: Router.current().params.userID, _id: idea._id});
+    },
+    'mouseover [data-toggle="tooltip"]': function(e){
+        mouseOverInTime = new Date().getTime();
+    },
+    'mouseout [data-toggle="tooltip"]': function(e){
+        var outTime = new Date().getTime();
+        
+        var hoverTime = (outTime - mouseOverInTime)/1000;
+        
+        if(hoverTime > 0.5){
+            var text = e.target.innerHTML;
+            var idea = listOfIdeas.find({content: text}).fetch()[0];
+            Session.set("currentUser", user(Router.current().params.userID));
+            EventLogger.logMoreInfoClick(idea.openIDEOid);
+        }
+       
     }
 });
+
+
+/*$('.hoverable').hover(   
+    function(){       
+        $(this).data('inTime', new Date().getTime());
+    },    
+    function(){       
+        var outTime = new Date().getTime();       
+        var hoverTime = (outTime - $(this).data('inTime'))/1000;        
+        $('#hoverResult').html('you were hovering for ' + hoverTime + 's');
+    }
+);*/
+
 
 Template.commentList.helpers({
     comment: function(){

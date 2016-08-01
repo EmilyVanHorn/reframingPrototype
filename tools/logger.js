@@ -558,6 +558,16 @@ EventLogger = (function () {
         this.log(msg);
         console.log(msg);
     },
+    logInstructionReminder(){
+        var msg = "User has clicked on the instructions dropdown";
+        this.log(msg);
+        console.log(msg);
+    },
+    logFramingReminder(){
+        var msg = "User has clicked on the framing dropdown";
+        this.log(msg);
+        console.log(msg);
+    }
   };
 }());
 

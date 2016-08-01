@@ -1,13 +1,11 @@
-Session.set("ideasMostRecent", "Type your ideas here ...");
-Session.set("framesMostRecent", "Type your framings here ...");
+
 
 Template.layout1.onCreated(function(){
     Session.set("currentUser", user(Router.current().params.userID));
 });
 
 Template.layout2.rendered = function(){
-    document.getElementById("IdeasInput").value = (Session.get("ideasMostRecent"));
-    document.getElementById("FramesInput").value = (Session.get("framesMostRecent"));
+    $('[data-toggle="tooltip"]').tooltip() //initialize all tooltips in this template
 };
 
 Template.framePad.rendered = function(){
@@ -40,10 +38,7 @@ Template.layout2.events({
         redirect("9"); 
     },
     'click .back': function(e){
-        //saveData();
-        Session.set("ideasMostRecent", document.getElementById("IdeasInput").value);
-        Session.set("framesMostRecent", document.getElementById("FramesInput").value);  
-        
+        saveData();
         Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logBackToProblemBrief();
         var version = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
@@ -52,12 +47,21 @@ Template.layout2.events({
     'focus #IdeasInput':function(e){
         Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logIdeaEntryFocus();
-        e.target.tooltip();
+        //e.target.tooltip();
     },
     'focus #FramesInput': function(e){
         Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logFrameEntryFocus();
-        e.target.tooltip();
+        //e.target.tooltip();
+    },
+    'click #instReminder':function(){
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logInstructionReminder();
+        
+    },
+    'click #frameReminder': function(){
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logFramingReminder();
     }
 });
 
@@ -65,6 +69,25 @@ Template.layout2.helpers({
     first: function(){
         var state = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state;
         return (state < "6");  
+    },
+    getRecentIdeas: function(){
+        var ideas = UserInput.find({authorID: Router.current().params.userID, from: 'ideas'}, {sort: {time: -1}});
+        
+        if(ideas.count() == 0){
+            return "Type your ideas here ...";
+        }
+        else{
+            return ideas.fetch()[0].content;
+        }
+    },
+    getRecentFrames: function(){
+        var frames = UserInput.find({authorID: Router.current().params.userID, from: 'frames'}, {sort: {time: -1}});
+       if(frames.count() == 0){
+            return "Type your frames here ...";
+        }
+        else{
+            return frames.fetch()[0].content;
+        }
     }
 });
 
@@ -113,7 +136,7 @@ function intervals(clock){
             
         }
         
-        if(Session.get('time') % 30 == 0){
+        if(Session.get('time') % 10 == 0){
             saveData();   
         }
     };//timeLeft
@@ -158,8 +181,8 @@ Template.insts2.events({
         var newState = user(Router.current().params.userID).state.substring(2);
         MyUsers.update(Router.current().params.userID, {state: "6."+ newState});
         
-        //intervals(900);//10minute interval
-        intervals(10);
+        intervals(900);//10minute interval
+        //intervals(30);
         
    }
 });
@@ -177,6 +200,18 @@ Template.insts2.helpers({
     }
 });
 
+Template.msgReminder.helpers({
+    isV1: function(){
+        return isV1(Router.current().params.userID);
+    },
+    isV2: function(){
+        return isV2(Router.current().params.userID);
+        
+    },
+    isV3: function(){
+        return isV3(Router.current().params.userID);
+    }
+});
 
 
 

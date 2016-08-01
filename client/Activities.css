@@ -43,3 +43,6 @@
     float: right;
     top-margin: 5px;
 }
+.tooltip{
+    position: fixed;
+}
