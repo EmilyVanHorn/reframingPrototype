@@ -46,30 +46,38 @@
     {{/if}}
     <div class="container">
         <div class="problem">
-            <h1>How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?</h1>
-                    <!--<a href="{{pathFor route='inst'}}" target="_blank">See Instructions </a>|-->
-                    <!--<a href="https://challenges.openideo.com/challenge/e-waste/brief" target="_blank">More about the project</a></span></h1> -->
-                    <div class="btn-group" id="help">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">Help</button>
-                        <ul class="dropdown-menu">
-                            <li class="back"><a class="dropdown-item">Problem Description</a></li>
-                            <li id="instReminder" data-toggle="collapse" data-target="envelope"><a class="dropdown-item" href="#">Instructions</a></li>
-                            <li id="frameReminder"><a class="dropdown-item" href="#">What Is Framing?</a></li>
-                        </ul>
-                    </div>  
+            <div class=row>
+                <h1 class="col-sm-10">
+                    How can we manage e-waste and discarded electronics to safeguard human health and protect our environment?
+                </h1>
+                <div class="dropdown col-sm-2">
+                    <button id="help" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Help
+                    <div class="caret"></div></button>
+                    
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1"  class="back">Problem Description</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id = "instReminder">Instruction</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id = "frameReminder">What Is Framing?</a></li>
+                    </ul>
+                  </div>
+            </div>
         </div>
         
         <div class="left col-sm-6">
             {{> yield}}
         </div>
-        <div class="right col-sm-6">
-            {{> TabBox}}
-        </div>    
+        <div class="mid col-sm-3">
+            <textarea class="userInput" id="IdeasInput">Type your ideas here ...</textarea>
+        </div>  
+        <div class="right col-sm-3">
+            <textarea class="userInput" id="FramesInput">Type your framings here ...</textarea>
+        </div>
         <hr/>
-        <form class="navbar-form next">
-            <input type="button" value="Done" id="done" class="btn btn-success"/>
-            <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
-        </form>
+            {{> timer}}
+            <form class="navbar-form next">
+                <input type="button" value="Done" id="done" class="btn btn-success"/>
+                <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
+            </form>
     </div>
 </template>
 
@@ -138,7 +146,7 @@
  -->
 <template name="ideaPad" id="ideaPad">
     <div id="inputIdeas">
-        <textarea id="itext">Idea</textarea>
+        <textarea id="itext" data-toggle="tooltip" title="An idea is ...">Idea</textarea>
     </div>
 </template>
 
