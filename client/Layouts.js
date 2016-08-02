@@ -168,8 +168,8 @@ Template.insts2.events({
         var newState = user(Router.current().params.userID).state.substring(2);
         MyUsers.update(Router.current().params.userID, {state: "6."+ newState});
         
-        //intervals(900);//10minute interval
-        intervals(30);
+        intervals(900);//10minute interval
+        //intervals(30);
         
    }
 });
