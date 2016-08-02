@@ -48,10 +48,9 @@
     <div class="modal" id="myModalInstReminder">
         <div id="backdrop" class="tutorial-backdrop"></div>
         <div id="modal" class="instructions">
-            <div class="form-group glyphicon"></div>
-                <button type="button" class="btn btn-default close" data-dismiss="modal" aria-label="remove">
+            <button type="button" class="btn btn-default close" data-dismiss="modal" aria-label="remove">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
+            </button>
             <p>{{> msgReminder}}</p>
         </div>
     </div>
@@ -67,6 +66,38 @@
         </div>
     </div>
     
+    <div class="modal" id="myModalChallengePartners">
+        <div id="backdrop" class="tutorial-backdrop"></div>
+        <div id="modal" class="instructions">
+            <button type="button" class="btn btn-default close" data-dismiss="modal" aria-label="remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            {{> Uibanco}}
+            {{> DeptOfState}}
+            {{> EnvProtect}}
+        </div>
+    </div>
+    
+    <div class="modal" id="myModalConferences">
+        <div id="backdrop" class="tutorial-backdrop"></div>
+        <div id="modal" class="instructions">
+            <button type="button" class="btn btn-default close" data-dismiss="modal" aria-label="remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            {{> Rio}}
+        </div>
+    </div>
+    
+    <div class="modal" id="myModalProblem">
+        <div id="backdrop" class="tutorial-backdrop"></div>
+        <div id="modal" class="instructions">
+            <button type="button" class="btn btn-default close" data-dismiss="modal" aria-label="remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            {{> Problem}}
+        </div>
+    </div>
+    
     
     <div class="container">
         <div class="problem">
@@ -79,26 +110,40 @@
                     <div class="caret"></div></button>
                     
                     <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
-                      <li role="presentation"><a role="menuitem" tabindex="-1"  class="back">Problem Description</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id = "instReminder" data-toggle="modal" data-target="#myModalInstReminder">Instruction</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="frameReminder" data-toggle="modal" data-target="#myModalFramingReminder">What Is Framing?</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="Problem" data-toggle="modal" 
+                                                   data-target="#myModalProblem">Problem Definition</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id = "instReminder" data-toggle="modal" 
+                                                 data-target="#myModalInstReminder">Instructions</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="frameReminder" data-toggle="modal" 
+                                                 data-target="#myModalFramingReminder">What Is Framing?</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="Partners" data-toggle="modal" 
+                                                   data-target="#myModalChallengePartners">About Our Challenge Partners</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="Conferences" data-toggle="modal" 
+                                                   data-target="#myModalConferences">Opportunities</a></li>
                     </ul>
                   </div>
             </div>
         </div>
         
         <div class="left col-sm-6">
+            <h1 class="inputsLabel">Inspirations</h1>
+                <span class="glyphicon glyphicon-question-sign" data-placement="bottom" aria-hidden="true" data-toggle="tooltip" 
+                      title="These are some ideas that other people have come up with to help stimulate your thinking. Use them as little or as much as you'd like in any way that is helpful to you."></span>
             {{> yield}}
         </div>
         <div class="mid col-sm-3">
             <!--<div class="invisibleTooltip" data-toggle="tooltip" title="An idea is ..."></div>-->
-            <h1 class="inputsLabel" data-toggle="tooltip" title="An idea is a possible solution to the problem">Ideas</h1>
-            <textarea class="userInput" id="IdeasInput">{{getRecentIdeas}}</textarea>
+            <h1 class="inputsLabel">Ideas</h1>
+                <span class="glyphicon glyphicon-question-sign" data-placement="bottom" aria-hidden="true" data-toggle="tooltip" 
+                      title="These are your solutions to the problem."></span>
+            <textarea class="userInput" id="IdeasInput" placeholder="Type your ideas here ...">{{getRecentIdeas}}</textarea>
         </div>  
         <div class="right col-sm-3">
-            <h1 class="inputsLabel" data-toggle="tooltip" title="A frame is a new way to look at the problem.">Frames</h1>
+            <h1 class="inputsLabel">Frames</h1>
+                <span class="glyphicon glyphicon-question-sign" data-placement="bottom" aria-hidden="true" data-toggle="tooltip" 
+                      title="These are your framings of the problem. For examples on what we mean by 'framing' see 'What is Framing?' in the HELP tab"></span>
             <!--<div class="invisibleTooltip" data-toggle="tooltip" title="A frame is ..."></div>-->
-            <textarea class="userInput" id="FramesInput">{{getRecentFrames}}</textarea>
+            <textarea class="userInput" id="FramesInput" placeholder="Type your frames here ...">{{getRecentFrames}}</textarea>
         </div>
         <hr/>
             {{> timer}}
@@ -126,15 +171,15 @@
     </div>
 </template>
 <template name="msg1">
-    <p>This is the data entry page. You will record your design concepts in the IDEAS tab on the right, and your alternative framings in the FRAMINGS tab. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p>
+    <p>This is the data entry page. You will record your design concepts in the IDEAS column, and your alternative framings in the FRAMES column on the right side of the page. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p>
 </template>
 <template name="msg2">
-    <p>This is the data entry page. Should you find it helpful, you can access some initial concepts collected by OpenIDEO listed on the left. These concepts were generated by a diverse range of people including some beginning freelance designers, and potential target users. Feel free to browse these concepts and use them however you wish to help you in your design process.</p>
-        <p>You will record your design concepts in the IDEAS tab, and your alternative framings in the FRAMINGS tab. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p>
+    <p>This is the data entry page. Should you find it helpful, you can access some initial concepts collected by OpenIDEO listed on the left. These concepts were generated by a diverse range of people including some beginning freelance designers, and potential target users. Feel free to browse these concepts and use them to build from, but please refrain from just copying over ideas that you like. Be creative, and remember there is no wrong answer.</p>
+        <p>You will record your design concepts in the IDEAS column, and your alternative framings in the FRAMES column on the right side of the page. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p>
 </template>
 <template name="msg3">
-    <p><p>This is the data entry page. Should you find it helpful, you can access some initial concepts collected by OpenIDEO listed on the left. These concepts were generated by a diverse range of people including some beginning freelance designers, and potential target users. Feel free to browse these concepts and use them however you wish to help you in your design process. </p>
-        <p>You will record your design concepts in the IDEAS tab, and your alternative framings in the FRAMINGS tab. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p></p>
+    <p><p>This is the data entry page. Should you find it helpful, you can access some initial concepts collected by OpenIDEO listed on the left. These concepts were generated by a diverse range of people including some beginning freelance designers, and potential target users. Also included are the users' rationales for their ideas. Feel free to browse these concepts and use them to build from, but please refrain from just copying over ideas that you like. Be creative, and remember there is no wrong answer.</p>
+        <p>You will record your design concepts in the IDEAS column, and your alternative framings in the FRAMES column on the right side of the page. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p></p>
 </template>
 <template name="msgReminder">
     <h1>Scenario Setup</h1>

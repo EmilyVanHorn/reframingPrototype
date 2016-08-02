@@ -6,13 +6,7 @@ Template.layout1.onCreated(function(){
 
 Template.layout2.rendered = function(){
     $('[data-toggle="tooltip"]').tooltip() //initialize all tooltips in this template
-};
-
-Template.framePad.rendered = function(){
-}
-    
-
-Template.layout2.created = function(){
+    /*intervals(10);*/
 };
 
 Template.layout2.events({
@@ -72,20 +66,13 @@ Template.layout2.helpers({
     },
     getRecentIdeas: function(){
         var ideas = UserInput.find({authorID: Router.current().params.userID, from: 'ideas'}, {sort: {time: -1}});
-        
-        if(ideas.count() == 0){
-            return "Type your ideas here ...";
-        }
-        else{
+        if(ideas.count() > 0){
             return ideas.fetch()[0].content;
         }
     },
     getRecentFrames: function(){
         var frames = UserInput.find({authorID: Router.current().params.userID, from: 'frames'}, {sort: {time: -1}});
-       if(frames.count() == 0){
-            return "Type your frames here ...";
-        }
-        else{
+        if(frames.count() > 0){
             return frames.fetch()[0].content;
         }
     }
@@ -169,7 +156,7 @@ function saveData(){
 
 Template.insts2.events({
    'click #agree': function(){
-        //Session.set("currentUser", user(Router.current().params.userID));
+        Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logEnterActivity("version2");
        
         var backdrop = document.getElementById("backdrop");
@@ -181,8 +168,8 @@ Template.insts2.events({
         var newState = user(Router.current().params.userID).state.substring(2);
         MyUsers.update(Router.current().params.userID, {state: "6."+ newState});
         
-        intervals(900);//10minute interval
-        //intervals(30);
+        //intervals(900);//10minute interval
+        intervals(30);
         
    }
 });

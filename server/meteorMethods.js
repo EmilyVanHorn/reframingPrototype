@@ -23,4 +23,12 @@ Meteor.methods({
         //return ExperimentManager.canParticipate(exp, userName);
         return true;
     },
+    
+    getTime: function(){
+        console.log(TempData.find().count());
+        return TempData.find({varName: "timer"}).fetch()[0].currentTime;   
+    },
+    setTime: function(newTime){
+        TempData.update(TempData.find({varName: "timer"}).fetch()[0]._id, {currentTime: newTime});   
+    }
 });

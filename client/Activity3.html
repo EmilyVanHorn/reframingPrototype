@@ -8,10 +8,17 @@
 
 <template name="idea_item3">
     <div class="list ideasList" data-toggle="collapse" data-target="#{{id}}">
-        <h1 data-toggle="tooltip" data-placement="right" title="{{moreInfo}}">{{content}}</h1>
+        <div class="contentPlaceholder">
+            <h1>{{content}}</h1>
         <!--<p>likes: {{likes}}</p>
         <p>comments: {{comments}}</p>-->
         <!--<a class="readMore">Read More</a>-->
+        </div>
+        
+        <div class="glyphicon-placeholder">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="false" data-toggle="tooltip" title="{{moreInfo}}" id="{{openIDEOid}}"></span>
+        </div>
+        
     </div>
 </template>
 

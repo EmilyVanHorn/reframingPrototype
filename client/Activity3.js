@@ -55,19 +55,18 @@ Template.idea_item3.events({
         
         Router.go("details", {userID: Router.current().params.userID, _id: idea._id});
     },
-    'mouseover [data-toggle="tooltip"]': function(e){
+    'mouseover .glyphicon[data-toggle="tooltip"]': function(e){
         mouseOverInTime = new Date().getTime();
     },
-    'mouseout [data-toggle="tooltip"]': function(e){
+    'mouseout .glyphicon[data-toggle="tooltip"]': function(e){
         var outTime = new Date().getTime();
         
         var hoverTime = (outTime - mouseOverInTime)/1000;
         
         if(hoverTime > 0.5){
-            var text = e.target.innerHTML;
-            var idea = listOfIdeas.find({content: text}).fetch()[0];
+            var id = e.target.id;
             Session.set("currentUser", user(Router.current().params.userID));
-            EventLogger.logMoreInfoClick(idea.openIDEOid);
+            EventLogger.logMoreInfoClick(id);
         }
        
     }

@@ -23,7 +23,16 @@ if(Meteor.isClient) {
 
 Template.timer.helpers({
     getTime: function(){
+       /* if(MyUsers.find().fetch()[0].state < "6"){
+            Session.set("time", 0);
+        }
+        else{
+            Session.set("time", TempData.find({varName: "timer"}).fetch()[0].currentTime);
+        }
+        */
+        
         var currentTime = Session.get("time");
+        //var currentTime = TempData.find({varName: "timer"}).fetch()[0].currentTime;
         
         var min = Math.floor(currentTime/60);
         var sec = currentTime - (min*60);

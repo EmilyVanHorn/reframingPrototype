@@ -31,10 +31,6 @@ html, body{
 .left, .mid, .right{
     height: 75%;
 }
-.left{
-    border: 1px solid;
-    overflow: scroll;
-}
 .userInput{
     width: 100%;
     height: 85%;
@@ -78,4 +74,18 @@ html, body{
 }
 .close{
     float: right;
+}
+.inputsLabel{
+    position: relative;
+    display: inline-block;
+}
+
+.glyphicon-question-sign{
+    position: absolute;
+    margin-top: 15px;
+}
+
+.instructions{
+    max-height: 600px;
+    overflow: scroll;
 }
