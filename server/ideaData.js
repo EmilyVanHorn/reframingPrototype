@@ -12,7 +12,7 @@ ideaData = [
     "_id": "GqwmDCbqtYaoPouQr"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "One man's trash is another man's treasure. We've all heard the saying, yet when we're hauling our tumbleweed of cables from our old dusty entertainment system to make room for our sleek and shiny new one, we rarely think of what a treasure it could be. Meanwhile, the kid down the street is scraping together his cash for a new speaker system for his room just like the one that is currently on its way to the dumpster. ", 
     "clicked": false, 
     "views": 264, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/connecting-users", 
@@ -24,7 +24,7 @@ ideaData = [
     "_id": "Y7nwW2TgN3PEzXumz"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "Tinkerers, fiddlers, and do-it-yourself-ers. We all know one, you might even be one; but when it comes to electronics, it's not always as easy as finding a screwdriver and going at it. Handling electronics parts could be dangerous if you don't know what you're doing, not to mention inconvenient with all the different proprietary equipment out there, but with a supportive community to help you out and share tools and parts, it's easy.", 
     "clicked": false, 
     "views": 637, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/build-a-diy-community-to-recycle-e-waste", 
@@ -36,7 +36,7 @@ ideaData = [
     "_id": "fFKAQxpPZi8aMLyaB"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": " All of the recycling programs and incentives in the world will not force the laziest of the lazy nor the hoarder royalty to do anything useful with their old electronics. Most of those devices will end up in the trash or at the bottom of a desk drawer somewhere. What will get them moving is telling them that they cannot get their new devices without getting rid of their old ones first. It's not an incentive or a deterrent. It's the law.", 
     "clicked": false, 
     "views": 528, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/buycycle-if-you-want-to-buy-anew-pay-your-due.-or-buy-refurbished-instead.", 
@@ -48,7 +48,7 @@ ideaData = [
     "_id": "3p5DtnFATdHBrqo7c"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "When old electronics break, what happens to the perfectly good chargers and cables that came with them? Providing people with conveniently placed collection boxes in the stores and public areas that people are spending time in anyway makes recycling the lazy man’s solution, while helping participating businesses to grow the customer base.", 
     "clicked": false, 
     "views": 1237, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/chargers-and-cords-exchange-boxhttps://challenges.openideo.com/challenge/e-waste/winning-concepts/chargers-and-cords-exchange-box", 
@@ -60,7 +60,7 @@ ideaData = [
     "_id": "sLNFEFyFFfEPHtiBh"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "People love money, and they hate giving it away. Some people will do anything to save a couple bucks, so just imagine the impact of something that’s so easy.", 
     "clicked": false, 
     "views": 921, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/close-the-loop-discount-for-returned-phone", 
@@ -72,7 +72,7 @@ ideaData = [
     "_id": "c598PHXSAxWsACQzi"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "People have been shown to be highly influenceable by the media. Get the right message, and the right spokesperson to a large enough audience, and watch the message spread.", 
     "clicked": false, 
     "views": 288, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/create-a-high-quality-media-campain-educational-program-for-schools-to-develop-sustainable-habbits-d1", 
@@ -84,7 +84,7 @@ ideaData = [
     "_id": "8Rm52S73Mv6MuCyMW"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "To accomplish anything new, we need to know where we are starting. What are people doing with their e-waste? How long do they hold on to their devices before upgrading? Do some devices have a tendency to be replaced more often? The answers to these and many more questions could surprise you and might lead us somewhere spectacular.", 
     "clicked": false, 
     "views": 734, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/create-e-waste-awareness-through-a-rubbish-tracking-system", 
@@ -96,7 +96,7 @@ ideaData = [
     "_id": "GsMQ98ez6xgybdify"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "“Every minute you spend in planning saves 10 minutes in execution;” —Brian Tracy. if we plan to build devices in ways that are easy to dispose of, waste no longer becomes an issue.", 
     "clicked": false, 
     "views": 319, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/design-with-the-end-in-mind.", 
@@ -108,7 +108,7 @@ ideaData = [
     "_id": "TwkGRyqF5FDchPntc"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "Manufacturers, like all humans, take the path of least resistance. Add resistance.", 
     "clicked": false, 
     "views": 129, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/devices-and-lifetime-government-incentives", 
@@ -119,7 +119,7 @@ ideaData = [
     "likes": 3, 
     "_id": "caGkbTp3xgPdeSsmh"
   }, 
-  {
+  /*{
     "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
     "clicked": false, 
     "views": 164, 
@@ -130,9 +130,9 @@ ideaData = [
     "authorName": "Ita\u00c3\u00ba Unibanco", 
     "likes": 2, 
     "_id": "yLzvRb8qg5CxTgpoS"
-  }, 
+  }, */
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "When your car has a flat tire, you don’t often buy a whole new car. Why should electronics be any different?", 
     "clicked": false, 
     "views": 125, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/devices-and-lifetime-update-and-reuse", 
@@ -143,7 +143,7 @@ ideaData = [
     "likes": 1, 
     "_id": "n7Wv3GRsrX43ewRgu"
   }, 
-  {
+  /*{
     "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
     "clicked": false, 
     "views": 114, 
@@ -154,9 +154,9 @@ ideaData = [
     "authorName": "Ita\u00c3\u00ba Unibanco", 
     "likes": 1, 
     "_id": "oivZMAmRFhQou4fnK"
-  }, 
+  }, */
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "A business owner’s main concern is their business. So if they’re going to offer a recycling program, they’re going to do it big. They want this one decision to benefit them in various ways, including getting customers in the door.", 
     "clicked": false, 
     "views": 663, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/digital-data-transfer-and-elimination-service-", 
@@ -168,7 +168,7 @@ ideaData = [
     "_id": "9npKNa9tkiewG5zj7"
   }, 
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "Sometimes all you need is a little motivation, and money is a great motivator.", 
     "clicked": false, 
     "views": 493, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/disassembly-time-tax", 
