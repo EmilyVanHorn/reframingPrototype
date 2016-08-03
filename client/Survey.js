@@ -4,7 +4,8 @@ Template.survey.events({
         e.preventDefault();
 
         // grab all text input
-        $('.q-text').forEach(function(answer) {
+        var textAnswers = $('.q-text');
+        textAnswers.each(function(answer) {
           var q = answer.id;
           var a = answer.value;
           saveSurveyResponse(q, a);
@@ -18,7 +19,7 @@ Template.survey.events({
         saveSurveyResponse("design-course", $("input[name='design-course']:checked").val());
 
         // selects
-        saveSurveyResponse("age", $("input[name='age']").val(););
+        saveSurveyResponse("age", $("input[name='age']").val());
 
         // for(var i = 1; i < document.getElementsByClassName('q').length + 1; i++){
         //
