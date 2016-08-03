@@ -1,4 +1,4 @@
-
+var CLOCK_TIME = 30;
 
 Template.layout1.onCreated(function(){
     Session.set("currentUser", user(Router.current().params.userID));
@@ -6,7 +6,16 @@ Template.layout1.onCreated(function(){
 
 Template.layout2.rendered = function(){
     $('[data-toggle="tooltip"]').tooltip() //initialize all tooltips in this template
-    /*intervals(10);*/
+    
+    if(TempData.find({varName: "timer", currentTime: {$gt: 0}, currentTime: {$lt: CLOCK_TIME}})){
+        console.log("resume");
+        intervals(TempData.find({varName: "timer"}).fetch()[0].currentTime);
+    }
+};
+
+Template.layout2.created = function(){
+    Meteor.subscribe("userInput", Router.current().params.userID);
+    Meteor.subscribe("timeVar");
 };
 
 Template.layout2.events({
@@ -17,7 +26,7 @@ Template.layout2.events({
             Session.set("currentUser", user(Router.current().params.userID));
             EventLogger.logFinished();
             var newState = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
-            MyUsers.update(Router.current().params.userID, {state: "7."+ newState});
+            MyUsers.update(Router.current().params.userID, {$set: {state: "7."+ newState}});
             redirect(user(Router.current().params.userID).state); 
         }
         else{
@@ -31,12 +40,9 @@ Template.layout2.events({
         MyUsers.update(Router.current().params.userID, {$set: {state: "9"}});
         redirect("9"); 
     },
-    'click .back': function(e){
-        saveData();
+    'click #Problem': function(){
         Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logBackToProblemBrief();
-        var version = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
-        Router.go(version, {userID: Router.current().params.userID});
     },
     'focus #IdeasInput':function(e){
         Session.set("currentUser", user(Router.current().params.userID));
@@ -56,6 +62,14 @@ Template.layout2.events({
     'click #frameReminder': function(){
         Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logFramingReminder();
+    },
+    'click #Partners': function(){
+        Session.set("currentUser", user(Router.current().params.userID));  
+        EventLogger.logPartnerReminder();
+    },
+    'click #Conferences': function(){
+        Session.set("currentUser", user(Router.current().params.userID));
+        EventLogger.logConferenceReminder();
     }
 });
 
@@ -110,10 +124,17 @@ Template.TabBox.events({
 });
 
 function intervals(clock){
+    TempData.insert({
+        varName: "timer",
+        currentTime: clock
+    });
+    console.log("insert");
+    
     var timeLeft = function(){
         if(clock > 0){
             clock--;
             Session.set("time", clock);
+            TempData.update(TempData.find({varName: "timer"}).fetch()[0]._id, {$set: {currentTime: clock}});
         }//if
         else{
             EventLogger.logTimeout();
@@ -123,7 +144,7 @@ function intervals(clock){
             
         }
         
-        if(Session.get('time') % 10 == 0){
+        if(TempData.find({varName: "timer"}).fetch()[0].currentTime % 10 == 0){
             saveData();   
         }
     };//timeLeft
@@ -152,7 +173,10 @@ function saveData(){
     });
 }
 
-
+Template.insts2.created = function(){
+    Meteor.subscribe("users", Router.current().params.userID);
+    Meteor.subscribe("timeVar");
+}
 
 Template.insts2.events({
    'click #agree': function(){
@@ -166,10 +190,10 @@ Template.insts2.events({
         inst.parentElement.removeChild(inst);
        
         var newState = user(Router.current().params.userID).state.substring(2);
-        MyUsers.update(Router.current().params.userID, {state: "6."+ newState});
+        MyUsers.update(Router.current().params.userID, {$set: {state: "6."+ newState}});
         
         //intervals(900);//10minute interval
-        intervals(30);
+        intervals(CLOCK_TIME);
         
    }
 });

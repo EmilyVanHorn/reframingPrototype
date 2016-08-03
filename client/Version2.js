@@ -27,7 +27,7 @@ Template.Version2.events({
         }
         var newState = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
         if(MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(0, 1) == "4"){
-            MyUsers.update(Router.current().params.userID, {state: "5."+ newState});
+            MyUsers.update(Router.current().params.userID, {$set: {state: "5."+ newState}});
         }
             redirect(user(Router.current().params.userID).state);
     },

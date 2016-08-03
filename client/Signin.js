@@ -1,6 +1,4 @@
-Session.set("started", "notStarted");
-Session.set("ActivityStarted", false);
-Session.set("clicked", listOfIdeas.find()[0]);
+
 Session.set("time", 0);
 
 var logger = new Logger('Client:Exp:MturkLogin');

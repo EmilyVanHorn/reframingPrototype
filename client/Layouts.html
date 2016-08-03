@@ -125,12 +125,6 @@
             </div>
         </div>
         
-        <div class="left col-sm-6">
-            <h1 class="inputsLabel">Inspirations</h1>
-                <span class="glyphicon glyphicon-question-sign" data-placement="bottom" aria-hidden="true" data-toggle="tooltip" 
-                      title="These are some ideas that other people have come up with to help stimulate your thinking. Use them as little or as much as you'd like in any way that is helpful to you."></span>
-            {{> yield}}
-        </div>
         <div class="mid col-sm-3">
             <!--<div class="invisibleTooltip" data-toggle="tooltip" title="An idea is ..."></div>-->
             <h1 class="inputsLabel">Ideas</h1>
@@ -145,6 +139,13 @@
             <!--<div class="invisibleTooltip" data-toggle="tooltip" title="A frame is ..."></div>-->
             <textarea class="userInput" id="FramesInput" placeholder="Type your frames here ...">{{getRecentFrames}}</textarea>
         </div>
+        
+        <div class="left col-sm-6">
+            <h1 class="inputsLabel">Inspirations</h1>
+                <span class="glyphicon glyphicon-question-sign" data-placement="bottom" aria-hidden="true" data-toggle="tooltip" 
+                      title="These are some ideas that other people have come up with to help stimulate your thinking. Use them as little or as much as you'd like in any way that is helpful to you."></span>
+            {{> yield}}
+        </div>
         <hr/>
             {{> timer}}
             <form class="navbar-form next">
@@ -157,14 +158,16 @@
 <template name="insts2">
     <div id="backdrop" class="tutorial-backdrop"></div>
     <div id="instructions" class="instructions">
-        {{#if isV1}}
-            {{> msg1}}
-        {{/if}}
-        {{#if isV2}}
-            {{> msg2}}
-        {{/if}}
-        {{#if isV3}}
-            {{> msg3}}
+        {{ #if Template.subscriptionsReady }}
+            {{#if isV1}}
+                {{> msg1}}
+            {{/if}}
+            {{#if isV2}}
+                {{> msg2}}
+            {{/if}}
+            {{#if isV3}}
+                {{> msg3}}
+            {{/if}}
         {{/if}}
         <p>Click OK when you're ready to begin. Good Luck!</p>
         <input type="button" id="agree" value="OK"/>

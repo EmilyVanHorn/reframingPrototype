@@ -14,7 +14,7 @@ Template.survey.events({
             });
         }//for
         
-         MyUsers.update(Router.current().params.userID, {state: "8"});
+         MyUsers.update(Router.current().params.userID, {$set: {state: "8"}});
          redirect(user(Router.current().params.userID).state);
     },//click
     'click #Back2Work': function(){

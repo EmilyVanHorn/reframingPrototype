@@ -504,7 +504,7 @@ EventLogger = (function () {
         console.log(msg, data);
     },
     logBackToProblemBrief: function(){
-        var msg = "User went back to the problem brief";
+        var msg = "User clicked the Problem dropdown";
         this.log(msg);
         console.log(msg);
     },
@@ -567,7 +567,18 @@ EventLogger = (function () {
         var msg = "User has clicked on the framing dropdown";
         this.log(msg);
         console.log(msg);
+    },
+    logPartnerReminder(){
+        var msg = "user has clicked on the partners dropdown";
+        this.log(msg);
+        console.log(msg);
+    },
+    logConferenceReminder(){
+        var msg = "User has clicked on the Rio dropdown";
+        this.log(msg);
+        console.log(msg);
     }
+    
   };
 }());
 

@@ -6,6 +6,8 @@ var logger = new Logger('Server:Base:Experiment');
 Logger.setLevel('Server:Base:Experiment', 'info');
 //Logger.setLevel('Server:Base:Experiment', 'warn');
 
+
+
 Meteor.methods({
     addParticipant2: function(expID, userID) {
         logger.trace("Calling addParticipant on server");

@@ -28,7 +28,7 @@ Template.instructionPage.events({
                 time: date.valueOf(),
                 readableTime: date.toString()
             });   
-    }
+    },
 });
 
 function chooseVersion(){
