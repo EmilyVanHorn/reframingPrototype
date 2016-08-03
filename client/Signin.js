@@ -39,5 +39,5 @@ Template.signin.events({
         //console.log("enter released, clicking continue");
         $('#continue').click();
       }
-    },
+    }
 });

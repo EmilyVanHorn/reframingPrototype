@@ -1,10 +1,14 @@
 var practiceFinished = false;
+Session.set('msg', "When you are ready, click \"Continue\" to try out a practice problem.");
+
 
 Template.instructionPage.events({
     'click #continue': function(){
         if(!practiceFinished){
             document.getElementById("contain").className = "";  
             practiceFinished = true;
+            Session.set("msg", "When you are ready, click \"Continue\" to go to the next page, where you'll learn about the design problem you will be solving.");
+            
         }
         else{
             MyUsers.update(Router.current().params.userID, {$set: {state: "3."+chooseVersion()}});
@@ -31,7 +35,15 @@ Template.instructionPage.events({
     },
 });
 
+
+Template.instructionPage.helpers({
+    msg: function(){
+        return Session.get("msg");
+    }
+});
 function chooseVersion(){
     var rand = Math.floor((Math.random() * 3) + 1);
     return "Version" + rand;
 }
+
+ 

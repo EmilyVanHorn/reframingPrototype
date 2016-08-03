@@ -73,8 +73,12 @@
             <button type="button" class="btn btn-default close" data-dismiss="modal" aria-label="remove">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
+            <h1></h1>
+            <h1>Itaú Unibanco</h1>
             {{> Uibanco}}
+            <h1>US Department of State</h1>
             {{> DeptOfState}}
+            <h1>US Environmental Protection Agency</h1>
             {{> EnvProtect}}
         </div>
     </div>
@@ -85,6 +89,7 @@
             <button type="button" class="btn btn-default close" data-dismiss="modal" aria-label="remove">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
+            <h1>Rio+20: A Global Stage</h1>
             {{> Rio}}
         </div>
     </div>
@@ -116,7 +121,7 @@
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id = "instReminder" data-toggle="modal" 
                                                  data-target="#myModalInstReminder">Instructions</a></li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="frameReminder" data-toggle="modal" 
-                                                 data-target="#myModalFramingReminder">What Is Framing?</a></li>
+                                                 data-target="#myModalFramingReminder">Solutions vs. Framing</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="Partners" data-toggle="modal" 
                                                    data-target="#myModalChallengePartners">About Our Challenge Partners</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="Conferences" data-toggle="modal" 
@@ -222,18 +227,27 @@
 </template>
 
 <template name="msgFraming">
-    <h1>What is Framing?</h1>
-    <p>There are many ways to define the act of reframing a problem, but to put it simply, it is thinking up new ways to attack the problem you are trying to solve.</p>
-    <h1>Example:</h1>
-    <p>Problem:
-        <big>How can we save the physical bookstores from the internet?</big></p>
-    <p>Some possible framings include:</p>
+    <h1>More about solutions and framings</h1>
+    <p>A design <u><b>solution</b></u> is a concrete proposal for how to solve a design problem, whereas a <u><b>framing</b></u> is a way of looking at a design problem (e.g., what the goal is, what constraints exist, what high-level approach might be valuable). Sometimes a reframing of the problem can change entirely what problem is being solved! Finding good solution(s) as well as framings for a problem are essential design skills.
+</p>
+    <p>For example, suppose you are trying to solve the following problem: </p>
+    <h4 style="color:">How can we save physical bookstores from extinction in the age of online marketplaces for books and media?</h4>
+    <p>Some <u><b>solutions</b></u> for the problem might include:</p>
     <ul>
-        <li>How can physical bookstores get customers in the door?</li>
-        <li>What can physical bookstores provide that internet bookstores cannot?</li>
-        <li>What do internet bookstores provide that physical ones are currently lacking, and how can physical bookstores provide those things?</li>
+        <li>Partner with local libraries to offer a variety of in-person
+            enrichment activities, such as poetry readings and book club meetings</li>
+        <li>Create “premium” memberships that enable exclusive early access to
+            new books from one’s favorite authors and/or book signings</li>
+    </ul>
+
+    <p>And some alternative <u><b>framings</b></u> of the problem might include:</p>
+    <ul>
+        <li>What do internet bookstores provide that physical ones are currently
+            lacking, and how can physical bookstores provide those things?</li>
         <li>What are some things that physical bookstores can change to better compete financially?</li>
-        <li>Should there even be separate physical and internet bookstores? Is there a way to combine the ideas or get rid of physical bookstores completely and integrate it into a different system?</li>
+        <li>Should there even be separate physical and internet bookstores? Is
+            there a way to combine the ideas or get rid of physical bookstores
+            completely and integrate them into a different system?</li>
     </ul>
 </template>
 
