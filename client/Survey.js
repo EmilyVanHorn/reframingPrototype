@@ -2,18 +2,36 @@
 Template.survey.events({
     'click #continue': function(e){
         e.preventDefault();
-        
-        for(var i = 1; i < document.getElementsByClassName('q').length + 1; i++){
-            
-            var q = document.getElementById('q'+i).innerHTML;
-            var a = document.getElementById('a'+i).value;
-            SurveyResponse.insert({
-                question: q,
-                answer: a,
-                authorID: user(Router.current().params.userID)._id,
-            });
-        }//for
-        
+
+        // grab all text input
+        var textAnswers = $('.q-text');
+        textAnswers.each(function(answer) {
+          var q = answer.id;
+          var a = answer.value;
+          saveSurveyResponse(q, a);
+        })
+
+        // radio button items - just do each for now, no time for elegance!
+        saveSurveyResponse("gender", $("input[name='gender']:checked").val());
+        saveSurveyResponse("english-first", $("input[name='lang1']:checked").val());
+        saveSurveyResponse("design-projects", $("input[name='design-projects']:checked").val());
+        saveSurveyResponse("design-employ", $("input[name='design-employ']:checked").val());
+        saveSurveyResponse("design-course", $("input[name='design-course']:checked").val());
+
+        // selects
+        saveSurveyResponse("age", $("input[name='age']").val());
+
+        // for(var i = 1; i < document.getElementsByClassName('q').length + 1; i++){
+        //
+        //     var q = document.getElementById('q'+i).innerHTML;
+        //     var a = document.getElementById('a'+i).value;
+        //     SurveyResponse.insert({
+        //         question: q,
+        //         answer: a,
+        //         authorID: user(Router.current().params.userID)._id,
+        //     });
+        // }//for
+
          MyUsers.update(Router.current().params.userID, {$set: {state: "8"}});
          redirect(user(Router.current().params.userID).state);
     },//click
@@ -27,11 +45,11 @@ Template.survey.events({
 Template.survey.helpers({
     getResponse: function(id){
         if(TempData.find({authorID: Router.current().params.userID}).count() == 0){
-            return "";   
+            return "";
         }
         else{
             var qest = document.getElementById("q"+id);
-            return TempData.find({authorID: Router.current().params.userID, q: qest.innerHTML}, {sort: {time: -1}})  
+            return TempData.find({authorID: Router.current().params.userID, q: qest.innerHTML}, {sort: {time: -1}})
         }
     }
 });
@@ -48,4 +66,12 @@ function saveTempData(){
             time: date,
         });
     }
+}
+
+function saveSurveyResponse(q, a) {
+  SurveyResponse.insert({
+    question: q,
+    answer: a,
+    authorID: user(Router.current().params.userID)._id,
+  })
 }
