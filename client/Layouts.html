@@ -41,10 +41,11 @@
     right panel for user input.
  -->
 <template name="layout2">
+    {{#if Template.subscriptionsReady}}
     {{#if first}}
         {{> insts2}}
     {{/if}}
-    
+
     <div class="modal" id="myModalInstReminder">
         <div id="backdrop" class="tutorial-backdrop"></div>
         <div id="modal" class="instructions">
@@ -153,6 +154,8 @@
                 <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
             </form>
     </div>
+    
+    {{/if}}
 </template>
 
 <template name="insts2">

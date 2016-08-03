@@ -7,15 +7,16 @@ Template.layout1.onCreated(function(){
 Template.layout2.rendered = function(){
     $('[data-toggle="tooltip"]').tooltip() //initialize all tooltips in this template
     
-    if(TempData.find({varName: "timer", currentTime: {$gt: 0}, currentTime: {$lt: CLOCK_TIME}})){
+    if(TempData.find({varName: "timer", currentTime: {$gt: 0}, currentTime: {$lt: CLOCK_TIME}}).count() > 0){
         console.log("resume");
         intervals(TempData.find({varName: "timer"}).fetch()[0].currentTime);
     }
 };
 
 Template.layout2.created = function(){
-    Meteor.subscribe("userInput", Router.current().params.userID);
-    Meteor.subscribe("timeVar");
+    this.subscribe("userInput", Router.current().params.userID);
+    this.subscribe("timerVar");
+    this.subscribe("users", Router.current().params.userID);
 };
 
 Template.layout2.events({
@@ -124,11 +125,17 @@ Template.TabBox.events({
 });
 
 function intervals(clock){
-    TempData.insert({
-        varName: "timer",
-        currentTime: clock
-    });
-    console.log("insert");
+    if(TempData.find({varName: "timer"}).count() > 0){
+        TempData.update(TempData.find({varName: "timer"}).fetch()[0]._id, {$set: {currentTime: clock}});   
+    }
+    else{
+        TempData.insert({
+            varName: "timer",
+            currentTime: clock,
+            userID: Router.current().params.userID
+        });
+        console.log("insert");   
+    }
     
     var timeLeft = function(){
         if(clock > 0){
@@ -137,6 +144,7 @@ function intervals(clock){
             TempData.update(TempData.find({varName: "timer"}).fetch()[0]._id, {$set: {currentTime: clock}});
         }//if
         else{
+            Session.set("currentUser", user(Router.current().params.userID));
             EventLogger.logTimeout();
             alert("Time's Up! Finish up any last thoughts and then click 'Done' at the bottom.");
             var done = document.getElementById("done");
@@ -175,7 +183,7 @@ function saveData(){
 
 Template.insts2.created = function(){
     Meteor.subscribe("users", Router.current().params.userID);
-    Meteor.subscribe("timeVar");
+    Meteor.subscribe("timerVar");
 }
 
 Template.insts2.events({

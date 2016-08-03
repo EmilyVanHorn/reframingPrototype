@@ -14,6 +14,6 @@ Meteor.publish("userInput", function(currentUserID){
     return UserInput.find({authorID: currentUserID});
 });
 
-Meteor.publish("timerVar", function(){
-    return TempData.find({varName: "timer"});
+Meteor.publish("timerVar", function(currentUserID){
+    return TempData.find({varName: "timer", userID: currentUserID});
 });
