@@ -126,33 +126,39 @@
             </div>
         </div>
         
-        <div class="mid col-sm-3">
+        <div class="mid {{columns}}">
             <!--<div class="invisibleTooltip" data-toggle="tooltip" title="An idea is ..."></div>-->
-            <h1 class="inputsLabel">Ideas</h1>
+            <h1 class="inputsLabel">Your Solutions</h1>
                 <span class="glyphicon glyphicon-question-sign" data-placement="bottom" aria-hidden="true" data-toggle="tooltip" 
-                      title="These are your solutions to the problem."></span>
-            <textarea class="userInput" id="IdeasInput" placeholder="Type your ideas here ...">{{getRecentIdeas}}</textarea>
+                      title="This is a virtual notepad for writing your design solutions for the problem."></span>
+            <textarea {{isdone}} class="userInput" id="IdeasInput" placeholder="Type your ideas here ...">{{getRecentIdeas}}</textarea>
         </div>  
-        <div class="right col-sm-3">
-            <h1 class="inputsLabel">Frames</h1>
+        <div class="right {{columns}}">
+            <h1 class="inputsLabel">Your Framings</h1>
                 <span class="glyphicon glyphicon-question-sign" data-placement="bottom" aria-hidden="true" data-toggle="tooltip" 
-                      title="These are your framings of the problem. For examples on what we mean by 'framing' see 'What is Framing?' in the HELP tab"></span>
+                      title="This is a virtual notepad for writing any alternative framing(s) of the problem that you can think of. For examples of what we mean by framing, see “What are solutions vs. framings?” in the Help menu.
+"></span>
             <!--<div class="invisibleTooltip" data-toggle="tooltip" title="A frame is ..."></div>-->
-            <textarea class="userInput" id="FramesInput" placeholder="Type your frames here ...">{{getRecentFrames}}</textarea>
+            <textarea {{isdone}} class="userInput" id="FramesInput" placeholder="Type your frames here ...">{{getRecentFrames}}</textarea>
         </div>
         
-        <div class="left col-sm-6">
+        <div class="left col-sm-6 {{enabled}}">
             <h1 class="inputsLabel">Inspirations</h1>
                 <span class="glyphicon glyphicon-question-sign" data-placement="bottom" aria-hidden="true" data-toggle="tooltip" 
-                      title="These are some ideas that other people have come up with to help stimulate your thinking. Use them as little or as much as you'd like in any way that is helpful to you."></span>
+                      title="These are initial solutions that others have thought of for the problem. [[Also included are the authors’ explanations for why they came up with their solutions.]] Feel free to browse these inspirations and build on them, but please refrain from just simply copying inspirations that you like.
+"></span>
             {{> yield}}
         </div>
         <hr/>
-            {{> timer}}
-            <form class="navbar-form next">
-                <input type="button" value="Done" id="done" class="btn btn-success"/>
-                <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
-            </form>
+            
+            <div class ="footer">
+                {{> timer}}
+                <div class="col-sm-5 col-sm-offset-5 nextMsg">When your time is up, click "Continue" to go to the final page, where you’ll complete a brief survey before finishing the task.</div>
+                <form class="navbar-form next">
+                    <input type="button" value="Done" id="done" class="btn btn-success"/>
+                    <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
+                </form>
+            </div>
     </div>
     
     {{/if}}
@@ -177,20 +183,31 @@
     </div>
 </template>
 <template name="msg1">
-    <p>This is the data entry page. You will record your design concepts in the IDEAS column, and your alternative framings in the FRAMES column on the right side of the page. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p>
+    <p>Welcome to your design workspace! We have given you two virtual “notepads”: one to record your ideas for <b>solutions</b> for the problem, and one to record any alternative <b>framings</b> of the problem that you can think of. Your job is to generate as many solutions and framings of the problem as you can. Try to have fun and be creative!</p>
+    <p>You will have 15 minutes to work on this task. The system will keep time, and automatically alert you when the time is up. At that point, you will have the option to finish up whatever you were writing, and continue, or simply continue directly to the final page.</p>
+    
 </template>
 <template name="msg2">
-    <p>This is the data entry page. Should you find it helpful, you can access some initial concepts collected by OpenIDEO listed on the left. These concepts were generated by a diverse range of people including some beginning freelance designers, and potential target users. Feel free to browse these concepts and use them to build from, but please refrain from just copying over ideas that you like. Be creative, and remember there is no wrong answer.</p>
-        <p>You will record your design concepts in the IDEAS column, and your alternative framings in the FRAMES column on the right side of the page. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p>
+    <p>Welcome to your design workspace! We have given you two virtual “notepads”: one to record your ideas for <b>solutions</b> for the problem, and one to record any alternative <b>framings</b> of the problem that you can think of. Your job is to generate as many solutions and framings of the problem as you can. Try to have fun and be creative!</p>
+
+    <p>For your inspiration, we also provide you with some initial solutions collected by OpenIDEO listed on the left. These solutions were generated by a diverse range of people including some beginning freelance designers, and potential target users. Feel free to browse these inspirations and build on them, but please refrain from just simply copying inspirations that you like.</p>
+
+    <p>You will have 15 minutes to work on this task. The system will keep time, and automatically alert you when the time is up. At that point, you will have the option to finish up whatever you were writing, and continue, or simply continue directly to the final page.</p>
+
+
 </template>
 <template name="msg3">
-    <p><p>This is the data entry page. Should you find it helpful, you can access some initial concepts collected by OpenIDEO listed on the left. These concepts were generated by a diverse range of people including some beginning freelance designers, and potential target users. Also included are the users' rationales for their ideas. Feel free to browse these concepts and use them to build from, but please refrain from just copying over ideas that you like. Be creative, and remember there is no wrong answer.</p>
-        <p>You will record your design concepts in the IDEAS column, and your alternative framings in the FRAMES column on the right side of the page. You are given 15 minutes and you must work for the entire 15 minutes. When time runs out, you will be alerted by the webpage and given the option to continue for as long as you like.</p></p>
+    <p>Welcome to your design workspace! We have given you two virtual “notepads”: one to record your ideas for <b>solutions</b> for the problem, and one to record any alternative <b>framings</b> of the problem that you can think of. Your job is to generate as many solutions and framings of the problem as you can. Try to have fun and be creative!</p>
+
+    <p>For your inspiration, we also provide you with some initial solutions collected by OpenIDEO listed on the left. These solutions were generated by a diverse range of people including some beginning freelance designers, and potential target users. Also included are the authors’ explanations for why they came up with their solutions. Feel free to browse these inspirations and build on them, but please refrain from just simply copying inspirations that you like.</p>
+
+    <p>You will have 15 minutes to work on this task. The system will keep time, and automatically alert you when the time is up. At that point, you will have the option to finish up whatever you were writing, and continue, or simply continue directly to the final page.</p>
+
+
 </template>
 <template name="msgReminder">
     <h1>Scenario Setup</h1>
-    <p>You have been recruited by a design firm called OpenIDEO to create design concepts for a design problem. Remember that, as a designer, you are free to explore alternative framings of the problem. If you are unfamiliar with the term "framing" refer to the example under "What is Framing?".</p>
-    <p>As in normal design practice, should you arrive at a different framing of the problem than what was given, assume that after the session ends, you have the opportunity to discuss this alternative framing with the client(s).</p>
+    {{> Problem}}
     
     <h1>Activity Page Overview</h1>
     {{#if isV1}}

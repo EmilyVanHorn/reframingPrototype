@@ -1,27 +1,36 @@
 <template name="instructionPage">
-    <h1>Instructions</h1>
-    <p>You have been recruited by a design firm called OpenIDEO to create design concepts for a design problem. Remember that, as a designer, you are free to explore alternative framings of the problem. If you are unfamiliar with the term "framing" refer to the example below.</p>
-    <p>As in normal design practice, should you arrive at a different framing of the problem than what was given, assume that after the session ends, you have the opportunity to discuss this alternative framing with the client(s).</p>
-    <p>When you are ready, click "Continue" to go to the problem brief.</p>
+    <h1>Overview [[Need a more informative header]]
+</h1>
+    <p>Welcome! Imagine you have been recruited by a design firm called OpenIDEO for help with a design problem. In this task, your job is to create design solutions, and explore alternative framings for, the design problem. 
+</p>
     
-    <h1>What is Framing?</h1>
-    <p>There are many ways to define the act of reframing a problem, but to put it simply, it is thinking up new ways to attack the problem you are trying to solve.</p>
-    <p>For example:</p>
-    <p>Problem:</p>
-    <big>How can we save the physical bookstores from the internet?</big>
-    <p>Some possible framings include:</p>
+    <h1>More about solutions and framings</h1>
+    <p>A design <b>solution</b> is a concrete proposal for how to solve a design problem, whereas a <b>framing</b> is a way of looking at a design problem (e.g., what the goal is, what constraints exist, what high-level approach might be valuable). Sometimes a reframing of the problem can change entirely what problem is being solved! Finding good solution(s) as well as framings for a problem are essential design skills.
+</p>
+    <p>For example, suppose you are trying to solve the following problem: </p>
+    <p><b>How can we save physical bookstores from extinction in the age of online marketplaces for books and media?</b></p>
+    <p>Some <b>solutions</b> for the problem might include:</p>
     <ul>
-        <li>How can physical bookstores get customers in the door?</li>
-        <li>What can physical bookstores provide that internet bookstores cannot?</li>
-        <li>What do internet bookstores provide that physical ones are currently lacking, and how can physical bookstores provide those things?</li>
+        <li>Partner with local libraries to offer a variety of in-person 
+            enrichment activities, such as poetry readings and book club meetings</li>
+        <li>Create “premium” memberships that enable exclusive early access to 
+            new books from one’s favorite authors and/or book signings</li>
+    </ul>
+    
+    <p>And some alternative <b>framings</b> of the problem might include:</p>
+    <ul>
+        <li>What do internet bookstores provide that physical ones are currently 
+            lacking, and how can physical bookstores provide those things?</li>
         <li>What are some things that physical bookstores can change to better compete financially?</li>
-        <li>Should there even be separate physical and internet bookstores? Is there a way to combine the ideas or get rid of physical bookstores completely and integrate it into a different system?</li>
-        
+        <li>Should there even be separate physical and internet bookstores? Is 
+            there a way to combine the ideas or get rid of physical bookstores 
+            completely and integrate them into a different system?</li>
     </ul>
     
     {{> practice}}
     
     <div class ="footer">
+            <div class="col-sm-5 col-sm-offset-5 nextMsg">When you are ready, click "Continue" to go to the next page, where you’ll learn about the design problem you will be solving.</div>
             <form class="navbar-form next">
                 <input type="button" value="Continue" id="continue" class="btn btn-success"/>
                 <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
@@ -32,26 +41,25 @@
 <template name="practice">
     <div id="contain" class="disabled">
         <div id="header"><h1>Practice</h1></div>
-        <h2 id="subheader">Now you try!</h2>
-        <div>Problem:</div>
-        <big>How do we improve the public transporation experience?</big><br>
+        <p>Now, if you’d like to get a bit more familiar with the idea of (re)framing a problem, try your luck at generating an alternative framing for the following problem (after you hit submit, you can see some framings that others had thought of):</p>
+        
+        <p><b>How might we improve the public transportation experience?</b></p>
+        
         <form class="form-group">
-            <center><label><p>List some framings to this problem here.</p></label></center>
             <textarea id="practiceFrames" class="form-control"></textarea>
             <input type="button" id="Submit" value="Submit" class="form-control" data-toggle="collapse" data-target="#myAnswers"/>
         </form>
         
         <div id="myAnswers" class="collapse">
-            <h2>Here are some of our answers!</h2>
+            <h2>Here are some interesting framings that others thought of:</h2>
             <ul>
-                <li>Increasing the number of buses on the road is a good idea, but may pose logistical issues. What are those logistical issues, and how might we get around them?</li>
+                <li>Increasing the number of buses on the road is a good idea, 
+                    but may pose logistical issues. What are those logistical issues, and how might we get around them?</li>
                 <li>Rather than add bus routes, how can we reinvent the ones we have to be more efficient?</li>
-                <li>How can we integrate the bus and train system to work together cohesively?</li>
-                <li>Maybe the problem isn't the transportation system, but the ease of access for commuters. How can we make it easier for people to get to their bus stops, train stations, and other transportation terminals?</li>
-                <li>How can we raise more revenue to go towards public transit improvements?</li>
+                <li>Maybe the problem isn't the transportation system, but the 
+                    ease of access for commuters. How can we make it easier for 
+                    people to get to their bus stops, train stations, and other transportation terminals?</li>
             </ul>
-            
-            <div>When you're ready to move on, click CONTINUE</div>
         </div>
     </div>
     

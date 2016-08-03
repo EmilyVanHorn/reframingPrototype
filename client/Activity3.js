@@ -2,6 +2,10 @@ var mouseOverInTime;
 var currentDivClicked;
 Session.set("idNumber", 0);
 
+Template.activity3.rendered = function(){
+    $('[data-toggle="tooltip"]').tooltip() //initialize all tooltips in this template
+};
+
 Template.activity3.helpers({
     idea: function(){
         return listOfIdeas.find();   
