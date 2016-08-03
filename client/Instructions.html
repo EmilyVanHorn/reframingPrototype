@@ -28,9 +28,13 @@
     </ul>
 
     {{> practice}}
+    
+    
+    <!--{{#if practice}}When you are ready, click "Continue" to try out a practice problem.
+                                                          {{else}} When you are ready, click "Continue" to go to the next page, where you'll learn about the design problem you will be solving.{{/if}}-->
 
     <div class ="footer">
-            <div class="col-sm-5 col-sm-offset-5 nextMsg">When you are ready, click "Continue" to go to the next page, where you’ll learn about the design problem you will be solving.</div>
+            <div class="col-sm-5 col-sm-offset-5 nextMsg">{{msg}}</div>
             <form class="navbar-form next">
                 <input type="button" value="Continue" id="continue" class="btn btn-success"/>
                 <input type="button" value="Quit" id="quit" class="btn btn-danger"/>

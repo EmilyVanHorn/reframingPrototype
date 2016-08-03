@@ -10,6 +10,7 @@
             <div class="span10 offset1">
                 <p>Challenge:</p>
                 {{> Problem}}
+                {{> moreStuff}}
                     </div>
                 </div><!-- row -->
          <div class ="footer">
@@ -24,7 +25,6 @@
 
 
 <template name="Rio">
-    <h2>Rio+20: A Global Stage</h2>
     <p>In June 2012 world leaders from government, the private sector, NGOs and other global institutions will join together in Rio de Janeiro, Brazil for the United Nations Conference on Sustainable Development – an historic event to define new approaches for reducing poverty and promoting sustainable development. The event, Rio+20, will serve as the launching pad for our challenge and, we hope, will spark international conversation around the issues of technology, global connectedness and responsible use and reuse of consumer electronics.</p>
     <p>Together we can uncover and design solutions to better enable all of us to reuse or recycle our electronic gadgets and tech tools.</p>
     <p>Sources:</p>
@@ -64,35 +64,22 @@
                 <p>Ever wondered what happens to your outmoded cell phone when you replace it with the latest model? Or where a battery goes when you toss it in the trash? Around the world, end-of-life electronics that are waste, also known as e-waste, present a significant challenge for our environment and our health. Together with Brazilian bank Itaú Unibanco, the U.S. Department of State, the U.S. Environmental Protection Agency, and OpenIDEO, we’re asking you to help us find ways to manage e-waste to better safeguard human health and protect our environment.</p>
                 <p>According to the Consumer Electronics Association, in 2012 global spending on electronics is expected to surpass US$1 trillion 1. As use of these electronics increases around the world, the question of how to properly manage them when consumers are finished with them becomes more urgent. Unfortunately, not enough of our electronics are re-used, recycled or refurbished. Too many of them end up directly in landfills or recovered in an unsafe manner. According to the UN Environmental Programme, some 20 to 50 million metric tons of e-waste are generated worldwide every year, with mobile phones and televisions contributing 10 million tons per year by 2015 2.</p>
                 <p>E-waste presents complex issues with many factors to consider, one of them being the environmental impact of hazardous substances and toxic chemicals – including lead, nickel, cadmium and mercury. The great news is that many of the materials used in consumer electronics can be recycled or refurbished to be used in other electronics. The opportunity is to find better ways to manage our used and end-of-life electronics and avoid them ending up in landfills.</p>
-    <div class="grid">
-        <div class="row">
-            <div class="information bg-primary col-sm-6" data-toggle="collapse" data-target="#partnerList">For more information about our challenge partners, click here</div>
+    
+</template>
+
+<template name="moreStuff">
+    <a class="moreInfoLink" href="#" data-toggle="collapse" data-target="#partnerList"><span >Show/hide </span>More information about our challenge partners</a><br>
     <div id="partnerList" class="collapse col-sm-6">
-        <div class="sub bg-info" data-toggle="collapse" data-target="#Unibanco"><h2>About Itaú Unibanco</h2></div>
-        <div id="Unibanco" class="collapse moreInformation">{{> Uibanco}}</div>
-        <div class="sub bg-info" data-toggle="collapse" data-target="#State"><h2>THE U.S. DEPARTMENT OF STATE</h2></div>
-        <div id="State" class="collapse moreInformation">{{> DeptOfState}}</div>
-        <div class="sub bg-info" data-toggle="collapse" data-target="#Protect"><h2>THE U.S. ENVIRONMENTAL PROTECTION AGENCY</h2></div>
-        <div id="Protect" class="collapse moreInformation">{{> EnvProtect}}</div>
+        <div data-toggle="collapse" data-target="#Unibanco"><h2>Itaú Unibanco</h2></div>
+        <div id="Unibanco" class="collapse">{{> Uibanco}}</div>
+        <div data-toggle="collapse" data-target="#State"><h2>THE U.S. DEPARTMENT OF STATE</h2></div>
+        <div id="State" class="collapse">{{> DeptOfState}}</div>
+        <div data-toggle="collapse" data-target="#Protect"><h2>THE U.S. ENVIRONMENTAL PROTECTION AGENCY</h2></div>
+        <div id="Protect" class="collapse">{{> EnvProtect}}</div>
     </div>
-        </div>
-        
-        <div class="row">
-            <div class="information bg-primary col-sm-6" data-toggle="collapse" data-target="#eventList">For more information about upcoming events and opportunities, click here</div>
+    <a class="moreInfoLink" href="#" data-toggle="collapse" data-target="#eventList"><span >Show/Hide </span> More information about upcoming events and opportunities</a>
     <div id="eventList" class="collapse col-sm-6">
-        <div class="sub bg-info" data-toggle="collapse" data-target="#Unibanco"><h2>Rio+20: A Global Stage</h2></div>
-        <div id="Rio" class="collapse moreInformation">{{> Rio}}</div>
+        <div data-toggle="collapse" data-target="#Rio"><h2>Rio+20: A Global Stage</h2></div>
+        <div id="Rio" class="collapse">{{> Rio}}</div>
     </div>
-        </div>
-    
-    
-    </div>
-    
-    
-   
-    
-    
-    
-    
-    
 </template>
