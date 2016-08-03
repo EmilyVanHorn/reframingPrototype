@@ -17,3 +17,7 @@ Meteor.publish("userInput", function(currentUserID){
 Meteor.publish("timerVar", function(currentUserID){
     return TempData.find({varName: "timer", userID: currentUserID});
 });
+
+Meteor.publish("survey", function(currentUserID){
+    return SurveyResponse.find({authorID: currentUserID});
+});

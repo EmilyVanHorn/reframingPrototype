@@ -4,10 +4,9 @@ Template.survey.events({
         e.preventDefault();
 
         // grab all text input
-        var textAnswers = $('.q-text');
-        textAnswers.each(function(answer) {
-          var q = answer.id;
-          var a = answer.value;
+        $('.q-text').each(function(index) {
+          var q = this.id;
+          var a = this.value;
           saveSurveyResponse(q, a);
         })
 
