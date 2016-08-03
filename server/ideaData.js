@@ -1,6 +1,6 @@
 ideaData = [
   {
-    "moreInfo": "Rationale goes here: It describes what the author cares about and helps explain why s/he thinks this idea is a good idea to pursue", 
+    "moreInfo": "The most important action we could take in helping to manage e-waste is to make people care. People don't care because they don't understand that it's such a problem, or they don't know how they could recycle their electronics or even that they are currently doing it wrong. Spread the word for fun and convenient recycling tricks and e-waste will be a thing of the past.", 
     "clicked": true, 
     "views": 251, 
     "url": "https://challenges.openideo.com/challenge/e-waste/concepting/bringing-transparency-to-the-people", 

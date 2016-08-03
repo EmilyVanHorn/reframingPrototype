@@ -7,7 +7,7 @@ Template.layout1.onCreated(function(){
 Template.layout2.rendered = function(){
     $('[data-toggle="tooltip"]').tooltip() //initialize all tooltips in this template
     
-    if(TempData.find({varName: "timer", currentTime: {$gt: 0}, currentTime: {$lt: CLOCK_TIME}}).count() > 0){
+    if(TempData.find({varName: "timer", currentTime: {$gt: 0}}).count() > 0){
         console.log("resume");
         intervals(TempData.find({varName: "timer"}).fetch()[0].currentTime);
     }
@@ -90,6 +90,35 @@ Template.layout2.helpers({
         if(frames.count() > 0){
             return frames.fetch()[0].content;
         }
+    },
+    enabled: function(){
+        /*console.log(isV1(user(Router.current().params.userID)));
+        if(isV1(user(Router.current().params.userID))){
+            return "disabled";  
+        }*/
+        
+        if(user(Router.current().params.userID).state.substring(2) == "Version1"){
+            return "disabled";
+        }
+    },
+    columns: function(){
+        if(user(Router.current().params.userID).state.substring(2) == "Version1"){
+            return "col-sm-6";   
+        }
+        else{
+            return "col-sm-3";   
+        }
+    },
+    isdone: function(){
+        //locks after timer runs out
+        /*if(TempData.find({varName: "timer"}).fetch()[0].currentTime <= 0){
+            return "disabled";
+        }*/
+        
+        //locks after user hits "done"
+        if(user(Router.current().params.userID).state > "7"){
+            return "disabled";   
+        }
     }
 });
 
@@ -142,11 +171,16 @@ function intervals(clock){
             clock--;
             Session.set("time", clock);
             TempData.update(TempData.find({varName: "timer"}).fetch()[0]._id, {$set: {currentTime: clock}});
+            
+            if(clock == 9){
+                alert("10 Second Warning! Finish up your last thoughts.");
+            }
+            
         }//if
         else{
             Session.set("currentUser", user(Router.current().params.userID));
             EventLogger.logTimeout();
-            alert("Time's Up! Finish up any last thoughts and then click 'Done' at the bottom.");
+            alert("Time's Up! Click ‘Continue’ at the bottom. If you like, you can finish whatever you were typing before doing so.");
             var done = document.getElementById("done");
             return Meteor.clearInterval(interval);  
             
