@@ -1,4 +1,4 @@
-CLOCK_TIME = 30;
+CLOCK_TIME = 900;
 
 Template.layout1.onCreated(function(){
     Session.set("currentUser", user(Router.current().params.userID));
