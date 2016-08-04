@@ -4,10 +4,9 @@ Template.survey.events({
         e.preventDefault();
 
         // grab all text input
-        var textAnswers = $('.q-text');
-        textAnswers.each(function(answer) {
-          var q = answer.id;
-          var a = answer.value;
+        $('.q-text').each(function(index) {
+          var q = this.id;
+          var a = this.value;
           saveSurveyResponse(q, a);
         })
 
@@ -51,7 +50,23 @@ Template.survey.helpers({
             var qest = document.getElementById("q"+id);
             return TempData.find({authorID: Router.current().params.userID, q: qest.innerHTML}, {sort: {time: -1}})
         }
-    }
+    },
+    hadInspirations: function() {
+      var condition = MyUsers.findOne(Router.current().params.userID).condition;
+      if (condition > 1) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    hadRationale: function() {
+      var condition = MyUsers.findOne(Router.current().params.userID).condition;
+      if (condition == 3) {
+        return true;
+      } else {
+        return false;
+      }
+    },
 });
 
 function saveTempData(){

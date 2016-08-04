@@ -70,14 +70,22 @@
           <div class="question">10. Did you have any other (different) strategies for reframing the problem? If so, please describe them here. If not, just write “N/A”.</div><br/>
           <textArea class="q-text survey-textbox" id="task-frame-general"></textarea>
         </div>
-        <div class="row formQuestion">
-          <div class="question">11. How, if at all, did you interact with or make use of the OpenIDEO concepts while generating ideas and/or reframings?</div><br/>
-            <textArea class="q-text survey-textbox" id="task-inspiration-use"></textarea>
-        </div>
-        <div class="row formQuestion">
-          <div class="question">12. Please copy and paste any specific inspirations that you used in this text box. If you didn't use any of the inspirations, just write "N/A"</div><br/>
-            <textArea class="q-text survey-textbox" id="task-inspiration-examples"></textarea>
-        </div>
+        {{#if hadInspirations}}
+          <div class="row formQuestion">
+            <div class="question">11. How, if at all, did you interact with or make use of the OpenIDEO concepts while generating ideas and/or reframings?</div><br/>
+              <textArea class="q-text survey-textbox" id="task-inspiration-use"></textarea>
+          </div>
+          <div class="row formQuestion">
+            <div class="question">12. Please copy and paste any specific inspirations that you used in this text box. If you didn't use any of the inspirations, just write "N/A"</div><br/>
+              <textArea class="q-text survey-textbox" id="task-inspiration-examples"></textarea>
+          </div>
+        {{/if}}
+        {{#if hadRationale}}
+            <div class="row formQuestion">
+              <div class="question">13. How, if at all, did you interact with or make use of the RATIONALEs (i.e., extra info) for the inspirations?</div><br/>
+                <textArea class="q-text survey-textbox" id="task-rationale-use"></textarea>
+            </div>
+        {{/if}}
       </form>
 
       <div class ="footer">

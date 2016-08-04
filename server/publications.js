@@ -17,3 +17,11 @@ Meteor.publish("userInput", function(currentUserID){
 Meteor.publish("timerVar", function(currentUserID){
     return TempData.find({varName: "timer", userID: currentUserID});
 });
+
+Meteor.publish("survey", function(){
+    return SurveyResponse.find();
+});
+
+Meteor.publish("userEvents", function(userID) {
+  return Events.find({userID: userID});
+})
