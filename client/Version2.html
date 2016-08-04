@@ -22,19 +22,25 @@
 </template>
 
 <template name="moreStuff">
-    <span class="moreInfoLink"><a href="#" data-toggle="collapse" data-target="#partnerList">Show/Hide more information about our <b>challenge partners</b></a></span><br>
+    <span class="moreInfoLink"><a id="show-hide-partners" href="#" data-toggle="collapse" data-target="#partnerList">Show/Hide more information about our <b>challenge partners</b></a></span><br>
     <div id="partnerList" class="collapse col-sm-12">
-        <a style="text-decoration:underline;"><div data-toggle="collapse" data-target="#Unibanco">
-          <h3>Itaú Unibanco</h3>
-        </div></a>
+        <div id="unibanco-header" class="partner-header" data-toggle="collapse" data-target="#Unibanco">
+          <a style="text-decoration:underline;">
+            <h3>Itaú Unibanco</h3>
+          </a>
+        </div>
         <div id="Unibanco" class="collapse">{{> Uibanco}}</div>
-        <a style="text-decoration:underline;"><div data-toggle="collapse" data-target="#State">
-          <h3>THE U.S. DEPARTMENT OF STATE</h3>
-        </div></a>
+        <div id="state-header" class="partner-header" data-toggle="collapse" data-target="#State">
+          <a style="text-decoration:underline;">
+            <h3>THE U.S. DEPARTMENT OF STATE</h3>
+          </a>
+        </div>
         <div id="State" class="collapse">{{> DeptOfState}}</div>
-        <a style="text-decoration:underline;"><div data-toggle="collapse" data-target="#Protect">
-          <h3>THE U.S. ENVIRONMENTAL PROTECTION AGENCY</h3>
-        </div></a>
+        <div id="protect-header" class="partner-header" data-toggle="collapse" data-target="#Protect">
+          <a style="text-decoration:underline;">
+            <h3>THE U.S. ENVIRONMENTAL PROTECTION AGENCY</h3>
+          </a>
+        </div>
         <div id="Protect" class="collapse">{{> EnvProtect}}</div>
     </div>
     <!-- <a class="moreInfoLink" href="#" data-toggle="collapse" data-target="#eventList"><span >Show/Hide</span></a> More information about upcoming events and opportunities

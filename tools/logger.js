@@ -237,6 +237,15 @@ EventLogger = (function () {
         this.log(msg, data);
         console.log(msg, data);
     },
+    logSeeMoreProblemInfo: function() {
+      var msg = "User clicked to see more info about problem";
+      this.log(msg);
+    },
+    logSeeChallengePartner: function(which) {
+      var msg = "User clicked to see a challenge partner";
+      var data = {'partner': which};
+      this.log(msg, data);
+    },
     logEnterActivity: function(version){
         var msg = "User entered the activity";
         var data = {'version': version};
