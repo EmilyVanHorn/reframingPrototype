@@ -52,7 +52,7 @@ redirect = function(currentState){
             Router.go("survey",{userID: Router.current().params.userID})
             break;
         case "8":
-            Router.go("thankyou");
+            Router.go("Finish",{userID: Router.current().params.userID})
             break;
         case "9":
             Router.go("NoParticipation",{userID: Router.current().params.userID})
@@ -60,7 +60,7 @@ redirect = function(currentState){
         default:
             Router.go("signin",{userID: Router.current().params.userID})
             break;
-            
+
     }
 };
 
@@ -71,7 +71,7 @@ user = function(param){
 isV1 = function(user){
     user = MyUsers.find({_id: user}).fetch()[0];
     if(user.state.substring(2) == "Version1"){
-        return true;   
+        return true;
     }
     else{
         return false;
@@ -80,7 +80,7 @@ isV1 = function(user){
 isV2 = function(user){
     user = MyUsers.find({_id: user}).fetch()[0];
     if(user.state.substring(2) == "Version2"){
-        return true;   
+        return true;
     }
     else{
         return false;
@@ -89,7 +89,7 @@ isV2 = function(user){
 isV3 = function(user){
     user = MyUsers.find({_id: user}).fetch()[0];
     if(user.state.substring(2) == "Version3"){
-        return true;   
+        return true;
     }
     else{
         return false;

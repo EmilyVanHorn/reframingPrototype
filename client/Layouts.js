@@ -27,6 +27,8 @@ Template.layout2.events({
             Session.set("currentUser", user(Router.current().params.userID));
             EventLogger.logFinished();
             var newState = MyUsers.find({_id: Router.current().params.userID}).fetch()[0].state.substring(2);
+            var completionCode = Random.hexString(20).toLowerCase();
+            MyUsers.update(Router.current().params.userID, {$set: {completionCode: completionCode}});
             MyUsers.update(Router.current().params.userID, {$set: {state: "7."+ newState}});
             redirect(user(Router.current().params.userID).state);
         }
@@ -38,6 +40,8 @@ Template.layout2.events({
         saveData();
         Session.set("currentUser", user(Router.current().params.userID));
         EventLogger.logExitStudy();
+        var completionCode = "inc-" + Random.hexString(20).toLowerCase();
+        MyUsers.update(Router.current().params.userID, {$set: {completionCode: completionCode}});
         MyUsers.update(Router.current().params.userID, {$set: {state: "9"}});
         redirect("9");
     },
