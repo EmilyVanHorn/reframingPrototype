@@ -119,6 +119,13 @@ Template.layout2.helpers({
         if(user(Router.current().params.userID).state > "7"){
             return "disabled";
         }
+    },
+    showRationale: function() {
+      if(user(Router.current().params.userID).condition == 3) {
+        return true;
+      } else {
+        return false;
+      }
     }
 });
 
