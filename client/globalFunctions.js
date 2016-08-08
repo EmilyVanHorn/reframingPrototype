@@ -1,3 +1,23 @@
+/*-----------------------------------------------------------------------------
+    GLOBAL FUNCTION OUTLINE
+    search "##{functionName}" for any of the templateNames listed below to eas-
+    ily find it's code and a more detailed description
+
+   redirect:        state machine
+   user:            shortcut to get access to a user
+   isV1:            boolean returns true if user is participating in version/
+                        condition 1
+   isV2:            boolean returns true if user is participating in version/
+                        condition 2
+   isV3:            boolean returns true if user is participating in version/
+                        condition 3
+------------------------------------------------------------------------------*/
+
+//##redirect
+//state machine for navigation
+//provide the user's state and it will send you to the next phase
+//TODO: instead of incrementing state on the continue click,
+//  increment here
 redirect = function(currentState){
     switch(currentState){
         case "1":
@@ -64,10 +84,20 @@ redirect = function(currentState){
     }
 };
 
+/*
+    ##user
+    shortcut to get access to a user, usually the current user
+    in: userID
+    out: user from myUsers collection
+*/
 user = function(param){
     return MyUsers.find({_id: param}).fetch()[0];
 }
 
+/*
+    ##isV1
+    returns true if user is participating in version/condition 1
+*/
 isV1 = function(user){
     user = MyUsers.find({_id: user}).fetch()[0];
     if(user.state.substring(2) == "Version1"){
@@ -77,6 +107,11 @@ isV1 = function(user){
         return false;
     }
 };
+
+/*
+    ##isV2
+    returns true if user is participating in version/codnition 2
+*/
 isV2 = function(user){
     user = MyUsers.find({_id: user}).fetch()[0];
     if(user.state.substring(2) == "Version2"){
@@ -86,6 +121,11 @@ isV2 = function(user){
         return false;
     }
 };
+
+/*
+    ##isV3
+    returns true if user is participating in version/condition 3
+*/
 isV3 = function(user){
     user = MyUsers.find({_id: user}).fetch()[0];
     if(user.state.substring(2) == "Version3"){

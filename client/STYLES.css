@@ -1,0 +1,297 @@
+/*
+TODO: reorganize/pare down these tags. 
+    - rather than making a bunch of things with float:right,  make a .float_right class
+*/
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    height: 100%;
+    overflow: scroll;
+}
+.content{
+    margin: 0px;
+    margin-bottom: 75px;
+}
+.problem{
+    width: 100%;
+    min-height: 75px;
+    border: 1px solid;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 10px;
+}
+    .problem h1{
+        font-size: 17px;   
+    }
+    .problem a{
+        float: right;
+    }
+.footer{
+    height: 75px;
+}
+.next{
+    float: right;
+    padding: 15px;
+}
+.left, .mid, .right{
+    height: 75%;
+}
+.userInput{
+    width: 100%;
+    height: 85%;
+    border-radius: 20px;
+    padding: 20px;
+    overflow: scroll;
+    margin: 0px;
+    resize: none;
+}
+.label{
+    height: 15%;
+    margin: 0px;
+}
+#inputIdeas{
+    height: 100%;
+}
+#frames{
+    height: 100%;
+}
+#help{
+    width: 100%;
+}
+.invisibleTooltip{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    z-index: 20;
+}
+.close{
+    float: right;
+}
+.inputsLabel{
+    position: relative;
+    display: inline-block;
+}
+
+.glyphicon-question-sign{
+    position: absolute;
+    margin-top: 15px;
+}
+
+.instructions{
+    max-height: 600px;
+    overflow: scroll;
+}
+.timer{
+   width: 20%;
+   display: inline-block;
+}
+.list{
+    width: 100%;
+    min-height:100px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    position: relative;
+}
+.list h1{
+    font-size: 15px;
+    width: 100%;
+               
+}
+.list p{
+    text-align: right;
+}
+/*.ideasList{
+    background-color: #ddd;
+}*/
+.msg{
+    color: darkgray;
+    text-align: center;
+}
+.commentlistcss{
+    overflow: scroll;
+}
+
+.commentcss{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    border: 1px solid;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    /*background-color: white;*/
+}
+    .commentcss p{
+        text-align: right;
+    }
+    .commentcss h1{
+        font-size: 15px;   
+    }
+.glyphicon{
+    float: right;
+    top-margin: 5px;
+}
+.tooltip{
+    position: fixed;
+}
+
+.glyphicon-placeholder{
+    width: 4%;
+    display: inline-block;
+    position:absolute;
+    top: 10px;
+    font-size: 20px;
+    top:50%;
+    margin-top: -10px;
+}
+.contentPlaceholder{
+    width: 95%;
+    height: 100%;
+    display: inline-block;
+}
+
+.ideaslist{
+    border: 1px solid;
+    width: 100%;
+    height: 85%;
+    border-radius: 20px;
+    padding: 20px;
+    overflow: scroll;
+    margin: 0px;
+}
+
+.login-box {
+  height:100px;
+  width: 90%;
+  margin: auto;
+  border:1px solid #ccc;
+  border-radius: 10px;
+  font-size: 28px;
+  margin-top: 50px;
+  padding: 15px;
+  font-family: 'HelveticaNeue-UltraLight';
+}
+
+.login-box .text-input{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  color: #777;
+  background: transparent;
+  border-bottom: 2px dotted black;
+  padding: 0px 2px 0 15px;
+  margin: 0;
+  font-size: 45px;
+  font-family:  'HelveticaNeue-UltraLight';
+}
+
+.login-box .text-input::-webkit-input-placeholder { /* WebKit browsers */
+  color:    #777;
+  top: 0;
+  padding-top: 15px;
+  margin: 0;
+}
+.login-box .text-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #777;
+}
+.login-box .text-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #777;
+}
+.login-box .text-input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:    #777;
+}
+.tutorial-backdrop {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.5;
+    z-index: 50;
+}
+.instructions{
+    width: 80%;
+    border: 10px double;
+    background-color: white;
+    z-index: 51;
+    position: absolute;
+    top: 100px;
+    padding: 50px;
+    margin-left: -40%;
+    left: 50%;
+}
+.instructions + p{
+    margin-left: auto;
+    margin-right: auto;
+}
+.nextMsg{
+    vertical-align: text-bottom;
+    height: 100%;
+    text-align: right;
+    padding: 20px;
+}
+.moreInfoLink{
+    display: block;
+    clear: left;
+    text-decoration: underline;
+    font-size: 20px;
+}
+.formQuestion {
+  padding: 10px;
+
+}
+
+.question {
+  font-weight: bold;
+  padding-bottom: 0px;
+  margin-bottom: -15px;
+}
+
+.radioButton {
+  padding-right: 15px;
+}
+
+.surveyNumBox {
+  height: 30px;
+  width: 50px;
+}
+
+.shortText {
+  height: 30px;
+  width: 250px;
+}
+
+.survey-textbox {
+  height: 60px;
+  width: 750px;
+
+}
+
+
+    
+
+
+/*modifiers -- helpful for debugging as well as styling*/
+
+/*    adds a border to divs so you can see what you're doing*/
+    .visible{
+        border: 1px solid;
+    }
+    
+/*    completely removes an element*/
+    .disabled{
+        display: none;
+    }
+/*    indents an element 100px*/
+    .tabbed{
+    margin-left: 100px;
+    margin-right: 200px;
+    }

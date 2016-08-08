@@ -1,0 +1,536 @@
+<!--TODO-m: capture scroll event in activity 2-->
+<!--TODO-m: add completion logic to survey submit-->
+<!--TODO-m: log enter/exit workspace(from survey)-->
+<!--TODO: rename variables so they make more sense-->
+
+
+<!-----------------------------------------------------------------------------
+    LAYOUT_TWO.HTML TEMPLATE OUTLINE
+    search "##{templateName}" for any of the templateNames listed below to eas-
+    ily find it's code and a more detailed description
+    search @@-{cssTagName} to easily find templates that use the tag. (does not
+    include bootstrap column tags)
+
+    layout2:            activity layout
+        activity2:          puts list of ideas/inspirations in .left panel
+            idea_item2:         structure and formatting for each idea/inspiration
+                                display  
+        activity3:          putsl ist of ideas/inspirations in .left panel
+            idea_item3:         structure and formatting for each idea/inspriation
+                                display
+        intsts2:            popup structure    
+            msg1:               version/condition 1 instruction popup text
+            msg2:               version/condition 2 instruction popup text
+            msg3:               version/condition 3 instruction popup text
+            msgReminder:        Instructions dropdown modal
+            msgFraming:         SolutionsVFramings dropdown modal
+        timer:              counts down from time limit defined in LAYOUT_TWO.html
+                                 as CLOCK_TIME variable
+------------------------------------------------------------------------------->
+
+<!--
+    ##Layout 2 contains a .left panel for populating ideas or other information
+    (via yield) and a .mid panel for user solutions(ideas) and a .right panel 
+    for user framings.
+
+    Yield input:
+        - .ideaslist
+    
+    Relivant Css Tags:
+        @@- .container(twbs:bootstrap)
+        @@- .problem
+        @@- .row(twbs:bootstrap)
+        @@- .dropdown(twbs:bootstrap)
+        @@- .btn (twbs:bootstrap)
+        @@- .btn-default
+        @@- .btn-primary (twbs:bootstrap)
+        @@- .dropdown-toggle (twbs:bootstrap)
+        @@- .dropdown-menu (twbs:bootstrap)
+        @@- .dropdown-menu-right (twbs:bootstrap)
+        @@- .mid        |
+        @@- .right      |}  .mid is actually on the left, .right in the middle, and .left on the right;
+        @@- .left       |   TODO: remove this message when it is fixed.
+        @@- .inputsLabel
+        @@- .glyphicon (twbs:bootstrap)
+        @@- .glyphicon-question-sign (twbs:bootstrap)
+        @@- .userInput
+        @@- .footer
+        @@- .nextMsg
+        @@- .next
+        @@- .tutorial-backdrop
+        @@- .instructions
+        @@- .close
+
+    Subscriptions:
+        -
+       
+ -->
+<template name="layout2"><!--==================================================LAYOUT_2_TEMPLATE-->
+    {{#if Template.subscriptionsReady}}<!--if subscriptions are loaded-->
+    
+    <!--if it's the first time seeing this page, popup the instructions. If the
+    user has already seen these instructions, skip it.-->
+    {{#if first}}
+        {{> insts2}}
+    {{/if}}
+
+    <div class="container">
+        <div class="problem">
+            <div class=row>
+                
+                <!--problem definition-->
+                <h1 class="col-sm-10">How can we manage e-waste and discarded 
+                    electronics to safeguard human health and protect our 
+                    environment?</h1>
+                
+                <!--help_dropdown-->
+                <div class="dropdown col-sm-2">
+                    <!--dropdown toggle button-->
+                    <button id="help" class="btn btn-primary dropdown-toggle" 
+                            type="button" data-toggle="dropdown">Help
+                            <!--arrow -->
+                            <div class="caret"></div></button>
+                    <!--dropdown_menu-->
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu" 
+                        aria-labelledby="menu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#" 
+                                id="instReminder" data-toggle="modal"
+                                data-target="#myModalInstReminder">Instructions
+                            </a>
+                        </li>
+                        
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#" 
+                                id="Problem" data-toggle="modal"
+                                data-target="#myModalProblem">Problem Definition
+                            </a>
+                        </li>
+                        
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#" 
+                                id="Partners" data-toggle="modal"
+                                data-target="#myModalChallengePartners">About Challenge Partners for Problem
+                            </a>
+                        </li>
+                        
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#" 
+                                id="frameReminder" data-toggle="modal"
+                                data-target="#myModalFramingReminder">Solutions vs. Framing
+                            </a>
+                        </li>
+                    </ul><!--end_dropdown_menu-->
+                </div><!--end_help_dropdown-->
+            </div><!--end_row-->
+        </div><!--end_problem-->
+        
+        
+        
+        
+        
+
+        
+        <!--solutions/ideas_user_entry: 
+            -leftmost column on the activity page
+            -user enters their ideas in #IdeasInput textarea
+            -{{columns}}: changes size of column depending on the condition/ver-
+                sion more Info in LAYOUT_TWO.js
+            -{{getRecentIdeas}}: loads the most recent data saved from the user
+                and displays it in the textarea. Very important for refreshing
+                and returning to workspace from survey. 
+                more Info in LAYOUT_TWO.js
+            -{{isdone}}: if the user has clicked "done", the textbox locks
+                more Info in LAYOUT_TWO.js
+            -TODO: change class .mid to .left
+        -->
+        <div class="mid {{columns}}">
+            <h1 class="inputsLabel">Your Solutions</h1>
+            <!--question_mark_tooltip: reminds user what the textbox is for-->
+            <span class="glyphicon glyphicon-question-sign" data-placement=
+                  "bottom" aria-hidden="true" data-toggle="tooltip"
+                  title="This is a virtual notepad for writing your design 
+                         solutions for the problem.">
+            </span>
+            <textarea {{isdone}} class="userInput" id="IdeasInput" placeholder=
+                      "Type your ideas here ...">{{getRecentIdeas}}</textarea>
+        </div><!--end_mid-->
+        
+        <!--framings_user_entry:
+            -middle column on the activity page
+            -user enters their framings in the #FramesInput textarea
+            -{{columns}}: changes size of column depending on the condition/ver-
+                sion more Info in LAYOUT_TWO.js
+            -{{getRecentFrames}}: loads the most recent data saved from the user
+                and displays it in the textarea. Very important for refreshing
+                and returning to workspace from survey. 
+                more Info in LAYOUT_TWO.js
+            -{{isdone}}: if the user has clicked "done", the textbox locks
+                more Info in LAYOUT_TWO.js
+            -TODO: change class .right to .mid
+        -->
+        <div class="right {{columns}}">
+            <h1 class="inputsLabel">Your Framings</h1>
+            <span class="glyphicon glyphicon-question-sign" data-placement=
+                  "bottom" aria-hidden="true" data-toggle="tooltip"
+                  title="This is a virtual notepad for writing any alternative 
+                         framing(s) of the problem that you can think of. 
+                         For examples of what we mean by framing, see “What 
+                         are solutions vs. framings?” in the Help menu.">
+            </span>
+            <!--<div class="invisibleTooltip" data-toggle="tooltip" title="A frame is ..."></div>-->
+            <textarea {{isdone}} class="userInput" id="FramesInput" placeholder=
+                      "Type your frames here ...">{{getRecentFrames}}</textarea>
+        </div><!--end_right-->
+
+        <!--Inspirations_list:
+            -rightmost column on the activity page
+            -yields to a list of ideas from openIDEO
+            -{{enabled}}: disabled (not just hidden but gone) in 
+                version/condition 1. more info in LAYOUT_TWO.js
+            -{{showRationale}}: shows rationale only in version/condition 3
+                more info in LAYOUT_TWO.js
+            -TODO: change class .left to .right
+        -->
+        <div class="left col-sm-6 {{enabled}}">
+            <h1 class="inputsLabel">Inspirations</h1>
+            {{#if showRationale}}<!--if rationale shown, include message about them (title)-->
+            <!--question_mark_tooltip: reminds user what the list is for-->
+            <span class="glyphicon glyphicon-question-sign" data-placement=
+                  "bottom" aria-hidden="true" data-toggle="tooltip"
+                  title="These are initial solutions that others have thought 
+                         of for the problem. Also included are the authors’ 
+                         rationales for why they came up with their solutions. 
+                         Feel free to browse these inspirations and build 
+                         on them, but please refrain from just simply 
+                         copying inspirations that you like.">
+            </span>
+            {{else}}<!--if rationale not shown, do not include message about them (titile)-->
+                <span class="glyphicon glyphicon-question-sign" data-placement=
+                    "bottom" aria-hidden="true" data-toggle="tooltip"
+                    title="These are initial solutions that others have thought
+                           of for the problem. Feel free to browse these 
+                           inspirations and build on them, but please refrain
+                           from just simply copying inspirations that you like.">
+                </span>
+              {{/if}}<!--end_showRationale_if-->
+            
+            
+            {{> yield}}<!--ideasList goes here (activities 2 and 3)-->
+        </div><!--end_left-->
+        <hr/>
+
+        <div class ="footer">
+            {{> timer}}<!--TODO-m: fix formatting: when windows gets shorter, 
+                                    timer gets hidden behind #InputIdeas-->
+            <div class="col-sm-5 col-sm-offset-5 nextMsg">When your time is up,
+                click "Continue" to go to the final page, where you’ll complete 
+                a brief survey before finishing the task.
+            </div><!--end_nextMsg-->
+            <form class="navbar-form next">
+                <input type="button" value="Done" id="done" class="btn btn-success"/>
+                <input type="button" value="Quit" id="quit" class="btn btn-danger"/>
+            </form><!--end_next-->
+        </div><!--end_footer-->
+    </div><!--end_container-->
+
+    {{/if}}<!--end_SubscriptionsReady-->
+    
+    
+    
+    <!--=======================================================================MODALS-->
+    <!--TODO: create another/adapt ##insts2 to have one modal wrapper that 
+        only needs a text input (ex. {{> msgReminder in #myModalInstReminder}})
+    -->
+    
+    
+    
+    <!--instructions_popup_help_dropdown-->
+    <div class="modal" id="myModalInstReminder">
+        <div id="backdrop" class="tutorial-backdrop"></div>
+        <div id="modal" class="instructions">
+            <button type="button" class="btn btn-default close" data-dismiss=
+                    "modal" aria-label="remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            <p>{{> msgReminder}}</p>
+        </div>
+    </div>
+
+    <!--framingVsolutions_popup_help_dropdown-->
+    <div class="modal" id="myModalFramingReminder">
+        <div id="backdrop" class="tutorial-backdrop"></div>
+        <div id="modal" class="instructions">
+            <button type="button" class="btn btn-default close" data-dismiss=
+                    "modal" aria-label="remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            {{> msgFraming}}
+        </div>
+    </div>
+    
+    <!--challenge_partners_popup_help_dropdown-->
+    <div class="modal" id="myModalChallengePartners">
+        <div id="backdrop" class="tutorial-backdrop"></div>
+        <div id="modal" class="instructions">
+            <button type="button" class="btn btn-default close" data-dismiss=
+                    "modal" aria-label="remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            <h1></h1>
+            <h1>Itaú Unibanco</h1>
+            {{> Uibanco}}
+            <h1>US Department of State</h1>
+            {{> DeptOfState}}
+            <h1>US Environmental Protection Agency</h1>
+            {{> EnvProtect}}
+        </div>
+    </div>
+    
+    <!--problem_definition_popup_help_dropdown-->
+    <div class="modal" id="myModalProblem">
+        <div id="backdrop" class="tutorial-backdrop"></div>
+        <div id="modal" class="instructions">
+            <button type="button" class="btn btn-default close" data-dismiss=
+                    "modal" aria-label="remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            {{> Problem}}
+        </div>
+    </div>
+</template>
+
+<!--
+    ##activity2 contains a list of ideas/inspirations from server/ideaData.js
+    displayed inside layout2's .left panel
+    applies idea_item2 for each idea/inspiration
+-->
+<template name="activity2"><!--=======================================================================ACTIVITY2-->
+    <div class="ideaslist">
+        {{#each idea}}
+        {{> idea_item2}}
+        {{/each}}
+    </div>
+</template>
+
+<!--
+    ##idea_item2: structure for div containing idea content for version/condition 2
+-->
+<template name="idea_item2"><!--=======================================================================IDEA_ITEM2-->
+    <div class="list" role="button">
+        <h1>{{content}}</h1>
+    </div>
+</template>
+
+<!--
+    ##activity3 contains a list of ideas/inspiration from server/ideaData.js
+    displayed inside layout2's .left panel
+    applies idea_item3 for each idea/inspiration
+-->
+<template name="activity3">
+    <div class="ideaslist">
+        {{#each idea}}
+            {{> idea_item3}}
+        {{/each}}
+    </div>
+</template>
+
+<!--
+    ##idea_item3 structure for div containg idea/inspiration content for 
+        version/condition 3
+      includes a tooltip toggle for rationales
+-->
+<template name="idea_item3">
+    <div class="list ideasList" data-toggle="collapse" data-target="#{{id}}">
+        <div class="contentPlaceholder">
+            <h1>{{content}}</h1>
+        </div>
+        
+        <div class="glyphicon-placeholder">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="false" data-toggle=
+                  "tooltip" title="{{moreInfo}}" id="{{openIDEOid}}">
+            </span>
+        </div>
+    </div>
+</template>
+
+<!--
+    ##insts2 is a "wrapper" for all of the versions/conditions of instruction modals
+    -includes "disabled" backdrop
+    -includes "click ok ..." message so text can be reused elsewhere.
+    -isV1, isV2, isV3 -- version/condition logic that chooses the correct text to 
+        display see LAYOUT_TWO.js
+
+    Relivant Css Tags:
+        @@- .tutorial-backdrop
+        @@- .instructions
+-->
+<template name="insts2"><!--=======================================================================INSTS2-->
+    <div id="backdrop" class="tutorial-backdrop"></div>
+    <div id="instructions" class="instructions">
+        {{ #if Template.subscriptionsReady }}<!--wait until subscriptions are loaded-->
+            {{#if isV1}}
+                {{> msg1}}
+            {{/if}}
+            {{#if isV2}}
+                {{> msg2}}
+            {{/if}}
+            {{#if isV3}}
+                {{> msg3}}
+            {{/if}}
+        {{/if}}
+        <p>Click OK when you're ready to begin. Good Luck!</p>
+        <input type="button" id="agree" value="OK"/>
+    </div>
+</template>
+
+<!--
+    ##msg1 contains the text for verson/condition1's instruction modal
+    Click OK when you're ready to begin. Good Luck! msg is in insts2 template
+    -TODO: transition deprecated tags (<u> and <b>) to css styles
+-->
+<template name="msg1"><!--=======================================================================MSG1-->
+    <p>This page contains your design workspace. We have given you two virtual
+        “notepads”: one to record your ideas for <u><b>solutions</b></u> for the
+        problem, and one to record any alternative <u><b>framings</b></u> of the
+        problem that you can think of. Your job is to generate as many solutions
+        and framings of the problem as you can. Try to have fun and be creative!
+    </p>
+    <p>You will have 15 minutes to work on this task. The system will keep time,
+        and automatically alert you when the time is up. At that point, you will
+        have the option to finish up whatever you were writing, and continue, or
+        simply continue directly to the final page.
+    </p>
+</template>
+
+<!--
+    ##msg2 contains the text for verson/condition2's instruction modal
+    Click OK when you're ready to begin. Good Luck! msg is in insts2 template
+    -TODO: transition deprecated tags (<u> and <b>) to css styles
+-->
+<template name="msg2"><!--=======================================================================MSG2-->
+    <p>This page contains your design workspace. We have given you two virtual
+        “notepads”: one to record your ideas for <u><b>solutions</b></u> for the
+        problem, and one to record any alternative <u><b>framings</b></u> of the 
+        problem that you can think of. Your job is to generate as many solutions 
+        and framings of the problem as you can. Try to have fun and be creative!
+    </p>
+
+    <p>For your inspiration, we also provide you with some initial solutions 
+        collected by OpenIDEO listed on the left. These solutions were generated 
+        by a diverse range of people including some beginning freelance designers, 
+        and potential target users. Feel free to browse these inspirations and 
+        build on them, but please refrain from just simply copying inspirations 
+        that you like.
+    </p>
+
+    <p>You will have 15 minutes to work on this task. The system will keep time, 
+        and automatically alert you when the time is up. At that point, you will 
+        have the option to finish up whatever you were writing, and continue, or 
+        simply continue directly to the final page.
+    </p>
+
+</template>
+
+<!--
+    ##msg3 contains the text for verson/condition1's instruction modal
+    Click OK when you're ready to begin. Good Luck! msg is in insts2 template
+    -TODO: transition deprecated tags (<u> and <b>) to css styles
+-->
+<template name="msg3"><!--=======================================================================MSG3-->
+    <p>This page contains your design workspace. We have given you two virtual 
+        “notepads”: one to record your ideas for <u><b>solutions</b></u> for the
+        problem, and one to record any alternative <u><b>framings</b></u> of the
+        problem that you can think of. Your job is to generate as many solutions
+        and framings of the problem as you can. Try to have fun and be creative!
+    </p>
+
+    <p>For your inspiration, we also provide you with some initial solutions 
+        collected by OpenIDEO listed on the left. These solutions were generated 
+        by a diverse range of people including some beginning freelance designers,
+        and potential target users. Also included are the authors’ rationales for 
+        why they came up with their solutions. Feel free to browse these inspirations
+        and build on them, but please refrain from just simply copying inspirations
+        that you like.
+    </p>
+
+    <p>You will have 15 minutes to work on this task. The system will keep time, 
+        and automatically alert you when the time is up. At that point, you will
+        have the option to finish up whatever you were writing, and continue, or
+        simply continue directly to the final page.
+    </p>
+</template>
+
+<!--
+    ##msgReminder contains the text for the Instructions modal
+    -appears after clicking the Instructions dropdown option
+    -includes logic that dictates which text to use depending on the version
+    -TODO: transition deprecated tags (<u> and <b>) to css styles
+-->
+<template name="msgReminder"><!--=======================================================================MSG_REMINDER-->
+    <h1>Scenario Setup</h1>
+    <p>Imagine you have been recruited by a design firm called OpenIDEO for help
+        with a design problem. In this task, <u><b>your job is to create design 
+        solutions, and explore alternative framings for, the design problem.</b></u>.
+    </p>
+
+    <h1>Activity Page Overview</h1>
+    {{#if isV1}}
+        {{> msg1}}
+    {{/if}}
+    {{#if isV2}}
+        {{> msg2}}
+    {{/if}}
+    {{#if isV3}}
+        {{> msg3}}
+    {{/if}}
+</template>
+
+
+<!--
+    ##msgFraming contains the text for the Solutions vs. Framings modal
+    -appears after clicking the Solutions vs. Framings dropdown option
+    -TODO: transition deprecated tags (<u> and <b>) to css styles
+-->
+<template name="msgFraming"><!--=======================================================================MSG_FRAMING-->
+    <h1>More about solutions and framings</h1>
+    <p>A design <u><b>solution</b></u> is a concrete proposal for how to solve a
+        design problem, whereas a <u><b>framing</b></u> is a way of looking at a
+        design problem (e.g., what the goal is, what constraints exist, what high-level
+        approach might be valuable). Sometimes a reframing of the problem can 
+        change entirely what problem is being solved! Finding good solution(s) as
+        well as framings for a problem are essential design skills.
+    </p>
+    <p>For example, suppose you are trying to solve the following problem: </p>
+    <h4 style="color:">How can we save physical bookstores from extinction in the
+        age of online marketplaces for books and media?
+    </h4>
+    <p>Some <u><b>solutions</b></u> for the problem might include:</p>
+    <ul>
+        <li>Partner with local libraries to offer a variety of in-person
+            enrichment activities, such as poetry readings and book club meetings</li>
+        <li>Create “premium” memberships that enable exclusive early access to
+            new books from one’s favorite authors and/or book signings</li>
+    </ul>
+
+    <p>And some alternative <u><b>framings</b></u> of the problem might include:</p>
+    <ul>
+        <li>What do internet bookstores provide that physical ones are currently
+            lacking, and how can physical bookstores provide those things?
+        </li>
+        <li>What are some things that physical bookstores can change to better 
+            compete financially?
+        </li>
+        <li>Should there even be separate physical and internet bookstores? Is
+            there a way to combine the ideas or get rid of physical bookstores
+            completely and integrate them into a different system?
+        </li>
+    </ul>
+</template>
+
+<!--
+    ##timer 
+-->
+<template name="timer">
+    <p class="timer">Time Remaining: {{#if Template.subscriptionsReady}}{{getTime}}{{/if}}</p>
+</template>
